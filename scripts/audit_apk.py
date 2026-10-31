@@ -44,3 +44,4 @@ if idx != -1:
         offset += 8 + pair_len
 else:
     print("[-] No APK Signing Block Magic found")
+
