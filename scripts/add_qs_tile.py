@@ -12,3 +12,4 @@ if micts_tile not in curr_tiles:
 
 check = subprocess.check_output([ADB, '-s', DEV, 'shell', 'settings', 'get', 'secure', 'sysui_qs_tiles']).decode().strip()
 print('Verified tiles contains micts:', 'com.parallelc.micts' in check)
+

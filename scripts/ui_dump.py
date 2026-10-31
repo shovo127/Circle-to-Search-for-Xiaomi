@@ -16,3 +16,4 @@ for node in root.iter('node'):
     bounds = node.attrib.get('bounds', '')
     if text or desc:
         print(f'{rid} | text="{text}" | desc="{desc}" | bounds={bounds}')
+

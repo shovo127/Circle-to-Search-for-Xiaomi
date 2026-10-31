@@ -38,3 +38,4 @@ echo ============================================================
 echo Setup completed. Tap 'Install' on your phone screen to complete MiCTS installation.
 echo ============================================================
 pause
+
