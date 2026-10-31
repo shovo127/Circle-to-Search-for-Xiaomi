@@ -1,0 +1,874 @@
+﻿Activity Resolver Table:
+  Schemes:
+      http:
+        3ab6ea4 com.mfashiongallery.emag/.ui.LockWallpaperHtml5Activity filter 1831fc2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /h5}"
+        a8dd1d3 com.mfashiongallery.emag/.ui.LockWallpaperHtml5ActivityNew filter 5c61409
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /html5}"
+        767760e com.mfashiongallery.emag/.app.story.StoryPageActivity filter b2bee3c
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /story}"
+        767760e com.mfashiongallery.emag/.app.story.StoryPageActivity filter 28e51a
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /article_detail}"
+        767760e com.mfashiongallery.emag/.app.story.StoryPageActivity filter ce7b228
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /landing_page_h5}"
+        9df3b41 com.mfashiongallery.emag/.app.story.WebViewActivity filter b327e27
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /web_view}"
+        19c8d4 com.mfashiongallery.emag/.app.main.AppMainActivity filter fb49e40
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /main}"
+        3a13f17 com.mfashiongallery.emag/.ProxyActivityForEnableProvider filter b80cced
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /enable_provider}"
+        95a722 com.mfashiongallery.emag/.app.detail.InnerDetailActivity filter f4c1770
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /detail}"
+        32a4ae9 com.mfashiongallery.emag/.app.detail.LockDetailActivity filter ab6fa0f
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /lock_detail}"
+        6b33a9c com.mfashiongallery.emag/.app.detail.OuterDetailActivity filter 358f87a
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Authority: "fashiongallery.mi.com": -1
+          Path: "PatternMatcher{PREFIX: /express_preview}"
+      mifg:
+        3ab6ea4 com.mfashiongallery.emag/.ui.LockWallpaperHtml5Activity filter 28c440d
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /h5}"
+        a8dd1d3 com.mfashiongallery.emag/.ui.LockWallpaperHtml5ActivityNew filter 82d110
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /html5}"
+        767760e com.mfashiongallery.emag/.app.story.StoryPageActivity filter 9d9b82f
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /story}"
+        767760e com.mfashiongallery.emag/.app.story.StoryPageActivity filter 2b2e7c5
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /article_detail}"
+        767760e com.mfashiongallery.emag/.app.story.StoryPageActivity filter 353a84b
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /landing_page_h5}"
+        9df3b41 com.mfashiongallery.emag/.app.story.WebViewActivity filter d6038e6
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /web_view}"
+        19c8d4 com.mfashiongallery.emag/.app.main.AppMainActivity filter 83ed5c3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /main}"
+        d9f1179 com.mfashiongallery.emag/.app.content.LksContentActivity filter a37ebe
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /lockcontent}"
+        b2f0b1f com.mfashiongallery.emag/.app.content.ContentActivity filter 1655e6c
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /content}"
+        e764c35 com.mfashiongallery.emag/.app.content.FavActivity filter 994c8ca
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /fav_list}"
+        fc33a3b com.mfashiongallery.emag/.app.content.WallpaperHistoryActivity filter 67ff558
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /wallpaper_history}"
+        b4c76b1 com.mfashiongallery.emag/.app.search.SearchActivity filter 99ea796
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /search}"
+        3a13f17 com.mfashiongallery.emag/.ProxyActivityForEnableProvider filter fab0f04
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /enable_provider}"
+        95a722 com.mfashiongallery.emag/.app.detail.InnerDetailActivity filter ef0b5b3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /player_preview}"
+        32a4ae9 com.mfashiongallery.emag/.app.detail.LockDetailActivity filter 50b136e
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /preview}"
+        6b33a9c com.mfashiongallery.emag/.app.detail.OuterDetailActivity filter 6d3aca5
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /express_preview}"
+        f3282b com.mfashiongallery.emag/.syssetting.SysSettingActivity filter a076488
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /jump_setting}"
+        f3282b com.mfashiongallery.emag/.syssetting.SysSettingActivity filter ef76e21
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /ssetting}"
+        16e2246 com.mfashiongallery.emag/.customwallpaper.fullscreen.CwFullscreenActivity filter 27a1c07
+          Action: "com.mfashiongallery.emag.CW_FULLSCREEN"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /player_preview}"
+        6f24134 com.mfashiongallery.emag/.customwallpaper.outer.CwPreviewActivity filter 73bcb5d
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /addcw}"
+        35a1cd2 com.mfashiongallery.emag/.lks.activity.LeftLKSActivity filter e9271a3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /lks}"
+        a0c3ca0 com.mfashiongallery.emag/.morning.detail.MorningListActivity filter 56ec059
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /morning_list}"
+        c99341e com.mfashiongallery.emag/.morning.detail.LksMorningListActivity filter 85084ff
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /lks_morning_list}"
+        f0882cc com.mfashiongallery.emag/.morning.MorningGreetActivity filter 4420915
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /morning_greet}"
+        a20742a com.mfashiongallery.emag/.article.ArticleListActivity filter 5b2721b
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /article_list}"
+        7a0ffb8 com.mfashiongallery.emag/.app.about.AboutActivity filter dc72191
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /about}"
+        129a8f6 com.mfashiongallery.emag/.app.about.PrivacySettingActivity filter 47c14f7
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /privacy}"
+        5425f64 com.mfashiongallery.emag/.app.about.PermissionManagerActivity filter 1ab45cd
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /permission}"
+        ebf5e82 com.mfashiongallery.emag/.lks.activity.ChannelListActivity filter d30993
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /channel_list}"
+        1780dd0 com.mfashiongallery.emag/.syssetting.WallpaperLoopSettingActivity filter 33371c9
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /wploop}"
+        408e0ce com.mfashiongallery.emag/.syssetting.WallpaperLoopActivity filter 99aabef
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mifg"
+          Authority: "fashiongallery": -1
+          Path: "PatternMatcher{PREFIX: /wploopnew}"
+
+  Non-Data Actions:
+      miui.intent.action.WALLPAPER_LOOP_ACTIVITY:
+        408e0ce com.mfashiongallery.emag/.syssetting.WallpaperLoopActivity filter 11836fc
+          Action: "miui.intent.action.WALLPAPER_LOOP_ACTIVITY"
+          Category: "android.intent.category.DEFAULT"
+      com.mfashiongallery.emag.launch_main_action:
+        19c8d4 com.mfashiongallery.emag/.app.main.AppMainActivity filter f66fd72
+          Action: "com.mfashiongallery.emag.launch_main_action"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.MAIN:
+        d17d636 com.mfashiongallery.emag/.preview.MultiPackagesResolveActivity filter a2ed937
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.DEFAULT"
+        19c8d4 com.mfashiongallery.emag/.app.main.AppMainActivity filter e234a7d
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.INFO"
+      miui.intent.action.START_CURSOR_WALLPAPER:
+        408e0ce com.mfashiongallery.emag/.syssetting.WallpaperLoopActivity filter af86185
+          Action: "miui.intent.action.START_CURSOR_WALLPAPER"
+          Category: "android.intent.category.DEFAULT"
+      com.xiaomi.account.action.XIAOMI_ACCOUNT_QUICK_LOGIN:
+        e90180b com.mfashiongallery.emag/com.xiaomi.passport.ui.internal.ConfirmCredentialActivity filter e2fc6e8
+          Action: "com.xiaomi.account.action.XIAOMI_ACCOUNT_QUICK_LOGIN"
+          Category: "android.intent.category.DEFAULT"
+      miui.intent.action.GALLERY_LOOP_SETTING_PAGE:
+        408e0ce com.mfashiongallery.emag/.syssetting.WallpaperLoopActivity filter b563bda
+          Action: "miui.intent.action.GALLERY_LOOP_SETTING_PAGE"
+          Category: "android.intent.category.DEFAULT"
+      com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY:
+        8629101 com.mfashiongallery.emag/com.sina.weibo.sdk.share.ShareTransActivity filter 1ec3ba6
+          Action: "com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"
+          Category: "android.intent.category.DEFAULT"
+
+Receiver Resolver Table:
+  Non-Data Actions:
+      com.xiaomi.mipush.MESSAGE_ARRIVED:
+        aedb5f5 com.mfashiongallery.emag/.push.MiFGPushReceiver filter ddb19fb
+          Action: "com.xiaomi.mipush.MESSAGE_ARRIVED"
+      android.intent.action.ACTION_POWER_DISCONNECTED:
+        9217d83 com.mfashiongallery.emag/.ext_interface.PowerConnectionReceiver filter dd28b00
+          Action: "android.intent.action.ACTION_POWER_DISCONNECTED"
+          Action: "android.intent.action.ACTION_POWER_CONNECTED"
+      com.mfashiongallery.emag.action.MORNING_PREFETCH:
+        ee63c3d com.mfashiongallery.emag/.morning.MorningPrefetchReceiver filter 2906c32
+          Action: "com.mfashiongallery.emag.action.MORNING_PREFETCH"
+          Action: "android.intent.action.BOOT_COMPLETED"
+          Action: "android.intent.action.MY_PACKAGE_REPLACED"
+      com.xiaomi.mipush.ERROR:
+        aedb5f5 com.mfashiongallery.emag/.push.MiFGPushReceiver filter b56ba18
+          Action: "com.xiaomi.mipush.ERROR"
+      android.accounts.LOGIN_ACCOUNTS_POST_CHANGED:
+        730bc71 com.mfashiongallery.emag/.newaccount.NewAccountChangeReceiver filter 990da56
+          Action: "android.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Action: "android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.LOCALE_CHANGED:
+        9b75ad7 com.mfashiongallery.emag/.utils.LocaleChangeReceiver filter a095fc4
+          Action: "android.intent.action.LOCALE_CHANGED"
+      android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED:
+        730bc71 com.mfashiongallery.emag/.newaccount.NewAccountChangeReceiver filter 990da56
+          Action: "android.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Action: "android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Category: "android.intent.category.DEFAULT"
+      com.xiaomi.market.DIRECT_MAIL_DOWNLOAD_PROGRESS:
+        9f46edf com.mfashiongallery.emag/.extpackage.reserve.DirectMailStatusReceiverProgressInDownLoad filter 655572c
+          Action: "com.xiaomi.market.DIRECT_MAIL_DOWNLOAD_PROGRESS"
+      android.intent.action.BOOT_COMPLETED:
+        42629e7 com.mfashiongallery.emag/.syssetting.BootReceiver filter 4ae6994
+          Action: "android.intent.action.BOOT_COMPLETED"
+        ee63c3d com.mfashiongallery.emag/.morning.MorningPrefetchReceiver filter 2906c32
+          Action: "com.mfashiongallery.emag.action.MORNING_PREFETCH"
+          Action: "android.intent.action.BOOT_COMPLETED"
+          Action: "android.intent.action.MY_PACKAGE_REPLACED"
+      android.intent.action.ACTION_POWER_CONNECTED:
+        9217d83 com.mfashiongallery.emag/.ext_interface.PowerConnectionReceiver filter dd28b00
+          Action: "android.intent.action.ACTION_POWER_DISCONNECTED"
+          Action: "android.intent.action.ACTION_POWER_CONNECTED"
+      com.xiaomi.push.PING_TIMER:
+        6c3aead com.mfashiongallery.emag/com.xiaomi.push.service.receivers.PingReceiver filter 75845e2
+          Action: "com.xiaomi.push.PING_TIMER"
+      com.xiaomi.mipush.RECEIVE_MESSAGE:
+        aedb5f5 com.mfashiongallery.emag/.push.MiFGPushReceiver filter 5254f8a
+          Action: "com.xiaomi.mipush.RECEIVE_MESSAGE"
+      android.intent.action.MY_PACKAGE_REPLACED:
+        ee63c3d com.mfashiongallery.emag/.morning.MorningPrefetchReceiver filter 2906c32
+          Action: "com.mfashiongallery.emag.action.MORNING_PREFETCH"
+          Action: "android.intent.action.BOOT_COMPLETED"
+          Action: "android.intent.action.MY_PACKAGE_REPLACED"
+      com.xiaomi.market.DIRECT_MAIL_CHECK_RESULT:
+        aff5f39 com.mfashiongallery.emag/.extpackage.reserve.CheckResultStatusReceiver filter cd5197e
+          Action: "com.xiaomi.market.DIRECT_MAIL_CHECK_RESULT"
+
+Service Resolver Table:
+  Schemes:
+      app:
+        a7ccdcf com.mfashiongallery.emag/.lks.minusonescreen.overlay.OverlayService filter af2e35c
+          Action: "com.mfashiongallery.emag.WINDOW_OVERLAY"
+          Scheme: "app"
+      mifg:
+        a7ccdcf com.mfashiongallery.emag/.lks.minusonescreen.overlay.OverlayService filter fd90665
+          Action: "com.mfashiongallery.emag.WINDOW_OVERLAY"
+          Scheme: "mifg"
+
+  Non-Data Actions:
+      com.xiaomi.accounts.AccountAuthenticator:
+        b78d948 com.mfashiongallery.emag/com.xiaomi.passport.accountmanager.OwnAppXiaomiAccountAuthenticatorService filter a58a3e1
+          Action: "com.xiaomi.accounts.AccountAuthenticator"
+      android.service.wallpaper.WallpaperService:
+        678af3a com.mfashiongallery.emag/.wallpaper.DesktopWallpaperService filter 7a277eb permission android.permission.BIND_WALLPAPER
+          Action: "android.service.wallpaper.WallpaperService"
+      com.xiaomi.account.action.BIND_ACCOUNT_EXCHANGE_SERVICE_V2:
+        ab28506 com.mfashiongallery.emag/com.xiaomi.account.service.AppAccountExchangeService filter b2ea7c7 permission com.xiaomi.permission.CLOUD_MANAGER
+          Action: "com.xiaomi.account.action.BIND_ACCOUNT_EXCHANGE_SERVICE_V2"
+
+Provider Resolver Table:
+  Non-Data Actions:
+      miui.intent.action.SETTINGS_SEARCH_PROVIDER:
+        b1988a9 com.mfashiongallery.emag/.syssetting.SettingSearchProvider filter d38de2e
+          Action: "miui.intent.action.SETTINGS_SEARCH_PROVIDER"
+      miui.intent.action.LOCKWALLPAPER_PROVIDER:
+        4accd73 com.mfashiongallery.emag/.LockscreenMagazineProvider filter e1eb430
+          Action: "miui.intent.action.LOCKWALLPAPER_PROVIDER"
+
+Domain verification status:
+    User all:
+      Verification link handling allowed: true
+      Selection state:
+        Disabled:
+          fashiongallery.mi.com
+
+Permissions:
+  Permission [com.mfashiongallery.emag.permission.MIPUSH_RECEIVE] (845bbe5):
+    sourcePackage=com.mfashiongallery.emag
+    uid=10301 gids=[] type=0 prot=signature
+    perm=PermissionInfo{673d941 com.mfashiongallery.emag.permission.MIPUSH_RECEIVE}
+    flags=0x0
+
+Permissions:
+  Permission [com.mfashiongallery.emag.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (d0ef6ba):
+    sourcePackage=com.mfashiongallery.emag
+    uid=10301 gids=[] type=0 prot=signature
+    perm=PermissionInfo{4badbd6 com.mfashiongallery.emag.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
+    flags=0x0
+
+Registered ContentProviders:
+  com.mfashiongallery.emag/com.xiaomi.passport.ui.settings.provider.PassportFileProvider:
+    Provider{b052ec8 com.mfashiongallery.emag/com.xiaomi.passport.ui.settings.provider.PassportFileProvider}
+  com.mfashiongallery.emag/.aiaction.AIActionProvider:
+    Provider{3abc599 com.mfashiongallery.emag/.aiaction.AIActionProvider}
+  com.mfashiongallery.emag/androidx.core.content.FileProvider:
+    Provider{400824b com.mfashiongallery.emag/androidx.core.content.FileProvider}
+  com.mfashiongallery.emag/.LockscreenMagazineProvider:
+    Provider{4accd73 com.mfashiongallery.emag/.LockscreenMagazineProvider}
+  com.mfashiongallery.emag/.syssetting.SettingSearchProvider:
+    Provider{b1988a9 com.mfashiongallery.emag/.syssetting.SettingSearchProvider}
+  com.mfashiongallery.emag/com.sina.weibo.sdk.content.FileProvider:
+    Provider{4a566de com.mfashiongallery.emag/com.sina.weibo.sdk.content.FileProvider}
+  com.mfashiongallery.emag/.provider.MiFGDCProvider:
+    Provider{a4cc6fe com.mfashiongallery.emag/.provider.MiFGDCProvider}
+  com.mfashiongallery.emag/androidx.startup.InitializationProvider:
+    Provider{a5625f8 com.mfashiongallery.emag/androidx.startup.InitializationProvider}
+
+ContentProvider Authorities:
+  [com.mfashiongallery.emag.file]:
+    Provider{400824b com.mfashiongallery.emag/androidx.core.content.FileProvider}
+      applicationInfo=ApplicationInfo{c67e96b com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.main]:
+    Provider{a4cc6fe com.mfashiongallery.emag/.provider.MiFGDCProvider}
+      applicationInfo=ApplicationInfo{51f2cc8 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.fileprovider]:
+    Provider{4a566de com.mfashiongallery.emag/com.sina.weibo.sdk.content.FileProvider}
+      applicationInfo=ApplicationInfo{89b3161 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.aiaction.provider]:
+    Provider{3abc599 com.mfashiongallery.emag/.aiaction.AIActionProvider}
+      applicationInfo=ApplicationInfo{525c486 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.datacache]:
+    Provider{a4cc6fe com.mfashiongallery.emag/.provider.MiFGDCProvider}
+      applicationInfo=ApplicationInfo{899b147 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.androidx-startup]:
+    Provider{a5625f8 com.mfashiongallery.emag/androidx.startup.InitializationProvider}
+      applicationInfo=ApplicationInfo{15e4d74 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.setting]:
+    Provider{a4cc6fe com.mfashiongallery.emag/.provider.MiFGDCProvider}
+      applicationInfo=ApplicationInfo{c78829d com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.statscache]:
+    Provider{a4cc6fe com.mfashiongallery.emag/.provider.MiFGDCProvider}
+      applicationInfo=ApplicationInfo{989a312 com.mfashiongallery.emag}
+  [com.xiaomi.tv.gallerylockscreen.lockscreen_magazine_provider]:
+    Provider{4accd73 com.mfashiongallery.emag/.LockscreenMagazineProvider}
+      applicationInfo=ApplicationInfo{1361ae3 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.passport.fileprovider]:
+    Provider{b052ec8 com.mfashiongallery.emag/com.xiaomi.passport.ui.settings.provider.PassportFileProvider}
+      applicationInfo=ApplicationInfo{ecccce0 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.syssetting.SettingSearchProvider]:
+    Provider{b1988a9 com.mfashiongallery.emag/.syssetting.SettingSearchProvider}
+      applicationInfo=ApplicationInfo{8dfab99 com.mfashiongallery.emag}
+  [com.mfashiongallery.emag.feedback]:
+    Provider{a4cc6fe com.mfashiongallery.emag/.provider.MiFGDCProvider}
+      applicationInfo=ApplicationInfo{edade5e com.mfashiongallery.emag}
+
+Key Set Manager:
+  [com.mfashiongallery.emag]
+      Signing KeySets: 1
+
+Packages:
+  Package [com.mfashiongallery.emag] (337b169):
+    appId=10301
+    pkg=Package{a0029de com.mfashiongallery.emag}
+    codePath=/data/app/~~AmlitkZZFXbs7J6Etbd_Qg==/com.mfashiongallery.emag-KN4j_hQ7G4Y7M3voffku9w==
+    resourcePath=/data/app/~~AmlitkZZFXbs7J6Etbd_Qg==/com.mfashiongallery.emag-KN4j_hQ7G4Y7M3voffku9w==
+    legacyNativeLibraryDir=/data/app/~~AmlitkZZFXbs7J6Etbd_Qg==/com.mfashiongallery.emag-KN4j_hQ7G4Y7M3voffku9w==/lib
+    extractNativeLibs=false
+    primaryCpuAbi=arm64-v8a
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=2025100313 minSdk=28 targetSdk=35
+    minExtensionVersions=[]
+    versionName=25100313-CAROUSEL
+    hiddenApiEnforcementPolicy=0
+    usesNonSdkApi=false
+    isMiuiPreinstall=false
+    splits=[base]
+    apkSigningVersion=3
+    flags=[ HAS_CODE ALLOW_CLEAR_USER_DATA LARGE_HEAP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_UNRESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE HAS_DOMAIN_URLS PARTIALLY_DIRECT_BOOT_AWARE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    pageSizeCompat=0
+    queriesPackages=[de.robv.android.xposed.installer, com.saurik.substrate, com.xiaomi.account, com.xiaomi.controlscreen.account, com.tencent.mm, com.tencent.mobileqq, com.facebook.katana, com.sina.weibo, com.xiaomi.smarthome, com.miui.greenguard, com.mi.health, com.android.mms]
+    queriesIntents=[Intent { act=android.intent.action.MAIN }, Intent { act=android.intent.action.VIEW }, Intent { act=android.intent.action.SEND }, Intent { act=com.android.camera.action.CROP }]
+    scannedAsStoppedSystemApp=false
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    usesOptionalLibraries:
+      com.miui.system
+      org.apache.http.legacy
+      androidx.window.extensions
+      androidx.window.sidecar
+    usesLibraryFiles:
+      /system_ext/app/miuisystem/miuisystem.apk
+      /system/framework/org.apache.http.legacy.jar
+      /system_ext/framework/androidx.window.extensions.jar
+      /system_ext/framework/androidx.window.sidecar.jar
+    timeStamp=2026-10-18 03:57:11
+    lastUpdateTime=2026-10-18 03:57:11
+    installerPackageName=com.xiaomi.market
+    installerPackageUid=10168
+    initiatingPackageName=com.xiaomi.market
+    originatingPackageName=null
+    packageSource=0
+    appMetadataFilePath=null
+    appMetadataSource=0
+    signatures=PackageSignatures{e87a7bf version:3, signatures:[6c02dd51], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ HAS_CODE ALLOW_CLEAR_USER_DATA LARGE_HEAP ]
+    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_UNRESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE HAS_DOMAIN_URLS PARTIALLY_DIRECT_BOOT_AWARE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    apexModuleName=null
+    declared permissions:
+      com.mfashiongallery.emag.permission.MIPUSH_RECEIVE: prot=signature
+      com.mfashiongallery.emag.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
+      com.miui.miwallpaper.permission.BROADCAST: prot=signature
+    requested permissions:
+      android.permission.WRITE_SETTINGS
+      com.mfashiongallery.emag.permission.MIPUSH_RECEIVE
+      android.permission.POST_NOTIFICATIONS
+      com.xiaomi.market.sdk.UPDATE
+      android.permission.USE_CREDENTIALS
+      android.permission.MANAGE_ACCOUNTS
+      android.permission.SYSTEM_ALERT_WINDOW
+      miui.permission.USE_INTERNAL_GENERAL_API
+      android.permission.INTERNAL_SYSTEM_WINDOW
+      com.mfashiongallery.emag.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+      android.permission.FOREGROUND_SERVICE
+      android.permission.READ_MEDIA_VISUAL_USER_SELECTED
+      android.permission.RECEIVE_BOOT_COMPLETED
+      android.permission.DEVICE_POWER
+      com.android.launcher.permission.UNINSTALL_SHORTCUT
+      android.permission.GET_TASKS
+      android.permission.AUTHENTICATE_ACCOUNTS
+      android.permission.INTERNET
+      miui.keyguard.editor.WRITE_EDITOR_FILE
+      android.permission.REORDER_TASKS
+      android.permission.RECEIVE_USER_PRESENT
+      com.mi.android.globallauncher.permission.WRITE_SETTINGS
+      com.android.launcher.permission.WRITE_SETTINGS
+      android.permission.WRITE_SECURE_SETTINGS
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE
+      android.permission.STATUS_BAR_SERVICE
+      com.android.launcher.permission.READ_SETTINGS
+      com.xiaomi.permission.CLOUD_MANAGER
+      com.mi.android.globallauncher.permission.READ_SETTINGS
+      android.permission.READ_MEDIA_IMAGES
+      com.xiaomi.permission.AUTH_SERVICE
+      android.permission.SET_WALLPAPER_COMPONENT
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.SET_WALLPAPER
+      android.permission.SET_WALLPAPER_HINTS
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND
+      com.miui.weather2.permission.WRITE_DB
+      android.permission.VIBRATE
+      hyper.permission.READ_WALLPAPER
+      android.permission.ACCESS_WIFI_STATE
+      android.permission.REQUEST_INSTALL_PACKAGES
+      com.android.launcher.permission.INSTALL_SHORTCUT
+      android.permission.STATUS_BAR
+      android.permission.QUERY_ALL_PACKAGES
+      miui.permission.EXTRA_NETWORK
+      android.permission.DELETE_PACKAGES
+    install permissions:
+      android.permission.WRITE_SETTINGS: granted=true
+      com.mfashiongallery.emag.permission.MIPUSH_RECEIVE: granted=true
+      android.permission.USE_CREDENTIALS: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      android.permission.SYSTEM_ALERT_WINDOW: granted=true
+      miui.permission.USE_INTERNAL_GENERAL_API: granted=true
+      android.permission.INTERNAL_SYSTEM_WINDOW: granted=true
+      com.mfashiongallery.emag.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.RECEIVE_BOOT_COMPLETED: granted=true
+      android.permission.DEVICE_POWER: granted=true
+      com.android.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.GET_TASKS: granted=true
+      android.permission.AUTHENTICATE_ACCOUNTS: granted=true
+      android.permission.INTERNET: granted=true
+      miui.keyguard.editor.WRITE_EDITOR_FILE: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      com.android.launcher.permission.WRITE_SETTINGS: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE: granted=true
+      android.permission.STATUS_BAR_SERVICE: granted=true
+      com.android.launcher.permission.READ_SETTINGS: granted=true
+      com.xiaomi.permission.CLOUD_MANAGER: granted=true
+      com.xiaomi.permission.AUTH_SERVICE: granted=true
+      android.permission.SET_WALLPAPER_COMPONENT: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      android.permission.SET_WALLPAPER: granted=true
+      android.permission.SET_WALLPAPER_HINTS: granted=true
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND: granted=true
+      com.miui.weather2.permission.WRITE_DB: granted=true
+      android.permission.VIBRATE: granted=true
+      hyper.permission.READ_WALLPAPER: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      android.permission.REQUEST_INSTALL_PACKAGES: granted=true
+      com.android.launcher.permission.INSTALL_SHORTCUT: granted=true
+      android.permission.STATUS_BAR: granted=true
+      android.permission.QUERY_ALL_PACKAGES: granted=true
+      miui.permission.EXTRA_NETWORK: granted=true
+      android.permission.DELETE_PACKAGES: granted=true
+    User 0: ceDataInode=12479 deDataInode=9110 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/0/com.mfashiongallery.emag
+      firstInstallTime=1970-05-06 08:12:00
+      uninstallReason=0
+      overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      legacy overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+      com.miui.system overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      com.miui.system legacy overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+      lastDisabledCaller: com.xiaomi.market
+      gids=[3003]
+      runtime permissions:
+        android.permission.POST_NOTIFICATIONS: granted=false, flags=[ USER_FIXED|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+      disabledComponents:
+        com.xiaomi.push.service.XMPushService
+    User 999: ceDataInode=0 deDataInode=0 installed=false hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=null
+      firstInstallTime=1970-01-01 06:00:00
+      uninstallReason=0
+      overlay paths:
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      com.miui.system overlay paths:
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      gids=[3003]
+      runtime permissions:
+        android.permission.POST_NOTIFICATIONS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+
+Queries:
+  system apps queryable: false
+  queries via forceQueryable:
+  queries via package name:
+    com.xiaomi.aicr:
+      com.mfashiongallery.emag
+    [app id 10170 not installed]:
+      com.mfashiongallery.emag
+    com.mfashiongallery.emag:
+      com.android.mms
+      com.xiaomi.market
+      [app id 10169 not installed]
+      com.facebook.katana
+  queries via component:
+    [com.qualcomm.qti.xrvd.service,com.miui.notification,com.android.keychain,com.android.location.fused,com.xiaomi.digitalkey,com.xiaomi.aiasst.service,com.miui.securitycore,com.qualcomm.qti.services.systemhelper,com.xiaomi.aiasst.vision,com.miui.wmsvc,com.android.providers.settings,com.xiaomi.touchservice,miui.systemui.plugin,com.miui.misightservice,com.android.localtransport,com.xiaomi.mi_connect_service,com.android.systemui,com.xiaomi.mtb,com.android.DeviceAsWebcam,com.xiaomi.barrage,com.xiaomi.otrpbroker,com.miui.touchassistant,com.bsp.catchlog,com.android.settings,com.xiaomi.gnss.polaris,com.wapi.wapicertmanage,com.xiaomi.misettings,com.android.dynsystem,com.android.inputdevices,com.miui.aod,com.miui.thirdappassistant,com.miui.daemon,com.xiaomi.aon,com.miui.powerkeeper,com.miui.audiomonitor,com.android.server.telecom,android,com.android.provision,com.xiaomi.location.fused,com.xiaomi.mirror,com.miui.securitycenter,vendor.qti.frameworks.utils,com.miui.qr,com.xiaomi.trustservice]:
+      com.mfashiongallery.emag
+    com.miui.backup:
+      com.mfashiongallery.emag
+    com.xiaomi.finddevice:
+      com.mfashiongallery.emag
+    com.android.wallpaperbackup:
+      com.mfashiongallery.emag
+    [app id 10127 not installed]:
+      com.mfashiongallery.emag
+    com.android.contacts:
+      com.mfashiongallery.emag
+    com.miui.packageinstaller:
+      com.mfashiongallery.emag
+    [app id 10132 not installed]:
+      com.mfashiongallery.emag
+    [app id 10137 not installed]:
+      com.mfashiongallery.emag
+    com.android.settings.intelligence:
+      com.mfashiongallery.emag
+    [app id 10143 not installed]:
+      com.mfashiongallery.emag
+    com.xiaomi.aicr:
+      com.mfashiongallery.emag
+    com.miui.carlink:
+      com.mfashiongallery.emag
+    com.xiaomi.mis:
+      com.mfashiongallery.emag
+    com.miui.securityadd:
+      com.mfashiongallery.emag
+    com.xiaomi.market:
+      com.mfashiongallery.emag
+    [app id 10169 not installed]:
+      com.mfashiongallery.emag
+    com.xiaomi.account:
+      com.mfashiongallery.emag
+    [app id 10184 not installed]:
+      com.mfashiongallery.emag
+    com.xiaomi.simactivate.service:
+      com.mfashiongallery.emag
+    com.xiaomi.xmsf:
+      com.mfashiongallery.emag
+    com.whatsapp:
+      com.mfashiongallery.emag
+    com.duokan.phone.remotecontroller:
+      com.mfashiongallery.emag
+    us.zoom.videomeetings:
+      com.mfashiongallery.emag
+    com.miui.gallery:
+      com.mfashiongallery.emag
+    com.imo.android.imoim:
+      com.mfashiongallery.emag
+    com.mfashiongallery.emag:
+      com.google.android.documentsui
+      com.android.imsserviceentitlement
+      com.miui.mishare.connectivity
+      [app id 10127 not installed]
+      com.android.contacts
+      com.miui.packageinstaller
+      com.android.quicksearchbox
+      com.miui.home
+      com.android.mms
+      [app id 10143 not installed]
+      [app id 10158 not installed]
+      com.miui.securityadd
+      com.xiaomi.market
+      [app id 10169 not installed]
+      [app id 10184 not installed]
+      [app id 10185 not installed]
+      com.google.android.accessibility.switchaccess
+      com.unionpay.tsmservice.mi
+      [app id 10191 not installed]
+      com.android.virtualization.terminal
+      com.android.photopicker
+      com.android.healthconnect.controller
+      com.android.cts.priv.ctsshim
+      com.android.cts.ctsshim
+      com.google.android.apps.bard
+      com.google.android.contacts
+      com.google.android.googlequicksearchbox
+      com.jrustonapps.myearthquakealerts
+      com.cibl.pbl
+      com.shohoz.dtrainpwa
+      com.miui.cleanmaster
+      com.miui.compass
+      com.esound
+      com.whatsapp
+      com.miui.calculator
+      com.ptsl.caab
+      com.android.deskclock
+      com.xiaomi.scanner
+      com.opus_bd.lostandfound
+      com.ubercab
+      com.pathao.user
+      com.duokan.phone.remotecontroller
+      com.discord
+      us.zoom.videomeetings
+      com.miui.gallery
+      com.miui.screenrecorder
+      com.imo.android.imoim
+      com.google.android.apps.walletnfcrel
+      com.intsig.camscanner
+      cn.wps.moffice_eng.xiaomi.lite
+      com.aig.aigmitr
+      com.gozayaan.app
+      com.duolingo
+      com.linkedin.android
+      com.miui.weather2
+      com.android.providers.downloads.ui
+      com.miui.findmy
+      com.android.soundrecorder
+      com.google.android.inputmethod.latin
+      com.google.android.apps.maps
+      com.facebook.katana
+      com.instagram.android
+      com.android.chrome
+      com.google.android.apps.photos
+      com.google.android.calendar
+      com.facebook.orca
+      com.google.android.apps.credentialmanager
+      com.google.android.apps.authenticator2
+      com.google.android.gm
+      teletalk.teletalkcustomerapp
+      com.google.android.youtube
+      com.dbbl.mbs.apps.main
+      com.portonics.mygp
+      com.bKash.customerapp
+      com.konasl.nagad
+      com.google.android.apps.docs
+      com.whatsapp.w4b
+      com.makemytrip
+      com.ixigo
+      com.myairtelapp
+      com.openai.chatgpt
+      net.skyscanner.android.main
+      com.google.android.apps.subscriptions.red
+      com.global.foodpanda.android
+      games.vaveda.militaryoverturn
+      com.microsoft.teams
+      com.android.calendar
+    com.miui.notes:
+      com.mfashiongallery.emag
+    com.aig.aigmitr:
+      com.mfashiongallery.emag
+    com.android.soundrecorder:
+      com.mfashiongallery.emag
+    com.facebook.katana:
+      com.mfashiongallery.emag
+    com.instagram.android:
+      com.mfashiongallery.emag
+    com.facebook.orca:
+      com.mfashiongallery.emag
+    com.whatsapp.w4b:
+      com.mfashiongallery.emag
+    com.ixigo:
+      com.mfashiongallery.emag
+    com.myairtelapp:
+      com.mfashiongallery.emag
+    games.vaveda.militaryoverturn:
+      com.mfashiongallery.emag
+    com.android.calendar:
+      com.mfashiongallery.emag
+  queryable via interaction:
+    User 0:
+      [com.qualcomm.qti.xrvd.service,com.miui.notification,com.android.keychain,com.android.location.fused,com.xiaomi.digitalkey,com.xiaomi.aiasst.service,com.miui.securitycore,com.qualcomm.qti.services.systemhelper,com.xiaomi.aiasst.vision,com.miui.wmsvc,com.android.providers.settings,com.xiaomi.touchservice,miui.systemui.plugin,com.miui.misightservice,com.android.localtransport,com.xiaomi.mi_connect_service,com.android.systemui,com.xiaomi.mtb,com.android.DeviceAsWebcam,com.xiaomi.barrage,com.xiaomi.otrpbroker,com.miui.touchassistant,com.bsp.catchlog,com.android.settings,com.xiaomi.gnss.polaris,com.wapi.wapicertmanage,com.xiaomi.misettings,com.android.dynsystem,com.android.inputdevices,com.miui.aod,com.miui.thirdappassistant,com.miui.daemon,com.xiaomi.aon,com.miui.powerkeeper,com.miui.audiomonitor,com.android.server.telecom,android,com.android.provision,com.xiaomi.location.fused,com.xiaomi.mirror,com.miui.securitycenter,vendor.qti.frameworks.utils,com.miui.qr,com.xiaomi.trustservice]:
+        com.mfashiongallery.emag
+      com.miui.analytics:
+        com.mfashiongallery.emag
+      com.miui.miwallpaper:
+        com.mfashiongallery.emag
+      com.xiaomi.xmsf:
+        com.mfashiongallery.emag
+      com.mfashiongallery.emag:
+        [com.qualcomm.qti.xrvd.service,com.miui.notification,com.android.keychain,com.android.location.fused,com.xiaomi.digitalkey,com.xiaomi.aiasst.service,com.miui.securitycore,com.qualcomm.qti.services.systemhelper,com.xiaomi.aiasst.vision,com.miui.wmsvc,com.android.providers.settings,com.xiaomi.touchservice,miui.systemui.plugin,com.miui.misightservice,com.android.localtransport,com.xiaomi.mi_connect_service,com.android.systemui,com.xiaomi.mtb,com.android.DeviceAsWebcam,com.xiaomi.barrage,com.xiaomi.otrpbroker,com.miui.touchassistant,com.bsp.catchlog,com.android.settings,com.xiaomi.gnss.polaris,com.wapi.wapicertmanage,com.xiaomi.misettings,com.android.dynsystem,com.android.inputdevices,com.miui.aod,com.miui.thirdappassistant,com.miui.daemon,com.xiaomi.aon,com.miui.powerkeeper,com.miui.audiomonitor,com.android.server.telecom,android,com.android.provision,com.xiaomi.location.fused,com.xiaomi.mirror,com.miui.securitycenter,vendor.qti.frameworks.utils,com.miui.qr,com.xiaomi.trustservice]
+        com.android.thememanager
+        com.miui.home
+        com.miui.miwallpaper
+    User 999:
+  queryable via uses-library:
+
+Dexopt state:
+  [com.mfashiongallery.emag]
+    path: /data/app/~~AmlitkZZFXbs7J6Etbd_Qg==/com.mfashiongallery.emag-KN4j_hQ7G4Y7M3voffku9w==/base.apk
+      arm64: [status=speed-profile] [reason=bg-dexopt] [primary-abi]
+        [location is /data/app/~~AmlitkZZFXbs7J6Etbd_Qg==/com.mfashiongallery.emag-KN4j_hQ7G4Y7M3voffku9w==/oat/arm64/base.odex]
+    base APK odex file size: base.art: 343Kb base.odex: 2080Kb base.vdex: 23183Kb 
+
+Compiler stats:
+  [com.mfashiongallery.emag]
+    (No recorded stats)

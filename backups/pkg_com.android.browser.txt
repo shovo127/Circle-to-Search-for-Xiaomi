@@ -1,0 +1,3062 @@
+﻿Activity Resolver Table:
+  Full MIME Types:
+      application/epub+zip:
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+      application/x-zip-compressed:
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+      video/3gpp:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/m3u8:
+        8733c37 com.android.browser/.BrowserActivity filter 471f53c
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "file"
+          StaticType: "video/m3u8"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/mp2t:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/webm:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      image/jpeg:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      image/webp:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      application/vnd.wap.xhtml+xml:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+      application/pdf:
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+      application/zip:
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+      text/html:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+      application/x-mpegurl:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      image/bmp:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      image/gif:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      image/jpg:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      image/png:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      video/3gpp-encrypted:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      application/x-webarchive-xml:
+        8733c37 com.android.browser/.BrowserActivity filter c3564d3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          StaticType: "application/x-webarchive-xml"
+      video/quicktime:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/mp2ts:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/x-m4v:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      application/zip-compressed:
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+      application/x-rar-compressed:
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+      application/xhtml+xml:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+      text/plain:
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+      image/x-bmp:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      application/octet-stream:
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+      video/mp4v-es:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/3gp:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/m4v:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      video/mp4:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      application/x-7z-compressed:
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+      application/vnd.rar:
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+      image/x-ms-bmp:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      video/x-matroska:
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+
+  Base MIME Types:
+      text:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+      image:
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+      video:
+        8733c37 com.android.browser/.BrowserActivity filter 471f53c
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "file"
+          StaticType: "video/m3u8"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      application:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        8733c37 com.android.browser/.BrowserActivity filter c3564d3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          StaticType: "application/x-webarchive-xml"
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+
+  Schemes:
+      mibrowser.pwa:
+        8e027a5 com.android.browser/.webapps.pwa.PWADispatcherActivity filter f9b2b
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser.pwa"
+      mibrowsershop:
+        be34415 com.android.browser/com.duokan.shop.mibrowser.FictionSiteActivity filter bc0932a
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mibrowsershop"
+      dkfree:
+        be34415 com.android.browser/com.duokan.shop.mibrowser.FictionSiteActivity filter a51a51b
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "dkfree"
+          Authority: "bookshelf": -1
+          Path: "PatternMatcher{LITERAL: /open}"
+      duokan:
+        33d3dfc com.android.browser/com.duokan.shop.mibrowser.reading.SdkReaderActivity filter 6de5c85
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "duokan"
+          Authority: "com.duokan.readercore": -1
+          Path: "PatternMatcher{LITERAL: /detail_activity}"
+        b1e3de8 com.android.browser/com.duokan.shop.mibrowser.reading.SdkShortStoryActivity filter c2d3c01
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "duokan"
+          Authority: "com.duokan.readercore": -1
+          Path: "PatternMatcher{LITERAL: /shortstory}"
+        1510aa6 com.android.browser/com.duokan.shop.mibrowser.reading.ShortStoryReaderActivity filter 3244ce7
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "duokan"
+          Authority: "com.duokan.readercore": -1
+          Path: "PatternMatcher{LITERAL: /shortstory}"
+        78d5094 com.android.browser/com.duokan.detail.ReaderActivity filter c30973d
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "duokan"
+          Authority: "com.duokan.reader": -1
+          Path: "PatternMatcher{LITERAL: /detail_activity}"
+      inline:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+      mibrowser:
+        8733c37 com.android.browser/.BrowserActivity filter c17c41a
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser"
+          Authority: "miui.newhome.jump": -1
+        412b604 com.android.browser/.MiBrowserDispatcherActivity filter a84e7ed
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser"
+        7315bd2 com.android.browser/.preferences.activity.CustomizationPreferenceActivity filter 6a44a3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "mibrowser"
+          Authority: "personalized": -1
+          Path: "PatternMatcher{LITERAL: /single}"
+      mibrowser.micthotlist:
+        73b13a0 com.android.browser/.HotListCustomActivity filter 1e24b59
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser.micthotlist"
+      mibrowser.webapp:
+        72e70 com.android.browser/.webapps.WebAppDispatcherActivity filter b9d826e
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser.webapp"
+      file:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        8733c37 com.android.browser/.BrowserActivity filter c3564d3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          StaticType: "application/x-webarchive-xml"
+        8733c37 com.android.browser/.BrowserActivity filter 471f53c
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "file"
+          StaticType: "video/m3u8"
+      http:
+        8733c37 com.android.browser/.BrowserActivity filter 626df0d
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        8733c37 com.android.browser/.BrowserActivity filter c3564d3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          StaticType: "application/x-webarchive-xml"
+        8733c37 com.android.browser/.BrowserActivity filter 5a66810
+          Action: "android.nfc.action.NDEF_DISCOVERED"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+        87128c3 com.android.browser/.bookmark.activity.BookmarkSearchActivity filter e311c79
+          Action: "com.android.browser.BOOKMARK"
+          Scheme: "http"
+          Scheme: "https"
+        25631e com.android.browser/.customtabs.CustomTabActivity filter b5287ff
+          Action: "com.android.browser.CUSTOM_TABS"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+      about:
+        8733c37 com.android.browser/.BrowserActivity filter 626df0d
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+        25631e com.android.browser/.customtabs.CustomTabActivity filter b5287ff
+          Action: "com.android.browser.CUSTOM_TABS"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+      https:
+        8733c37 com.android.browser/.BrowserActivity filter 626df0d
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        8733c37 com.android.browser/.BrowserActivity filter c3564d3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          StaticType: "application/x-webarchive-xml"
+        8733c37 com.android.browser/.BrowserActivity filter 5a66810
+          Action: "android.nfc.action.NDEF_DISCOVERED"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+        87128c3 com.android.browser/.bookmark.activity.BookmarkSearchActivity filter e311c79
+          Action: "com.android.browser.BOOKMARK"
+          Scheme: "http"
+          Scheme: "https"
+        25631e com.android.browser/.customtabs.CustomTabActivity filter b5287ff
+          Action: "com.android.browser.CUSTOM_TABS"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+      browser:
+        8898664 com.android.browser/com.browser.aicamera.compose.CameraActivity filter ed8e0cd
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "browser"
+          Authority: "ai.camera": -1
+      javascript:
+        8733c37 com.android.browser/.BrowserActivity filter 626df0d
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+        25631e com.android.browser/.customtabs.CustomTabActivity filter b5287ff
+          Action: "com.android.browser.CUSTOM_TABS"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "about"
+          Scheme: "javascript"
+      mibrowser.webview:
+        ee23d0f com.android.browser/.webapps.WebViewActivity filter d88c19c
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser.webview"
+      content:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        8733c37 com.android.browser/.BrowserActivity filter c3564d3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          StaticType: "application/x-webarchive-xml"
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      mibrowser.novel:
+        78f2622 com.android.browser/.FictionDispatcherActivity filter 5ddc8b3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser.novel"
+          Authority: "infoflow": -1
+          Path: "PatternMatcher{PREFIX: /novel}"
+      default_value:
+        f476956 com.android.browser/com.baidu.talos.scheme.TalosSchemeProxyActivity filter 2043dd7
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "default_value"
+          Authority: "default_value": -1
+      mibrowser.mict:
+        25631e com.android.browser/.customtabs.CustomTabActivity filter 5cdc9cc
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "mibrowser.mict"
+
+  Non-Data Actions:
+      miui.intent.action.APP_SETTINGS:
+        886e641 com.android.browser/.BrowserSettingsActivity filter 2de07e6
+          Action: "miui.intent.action.APP_SETTINGS"
+          mPriority=95, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      android.intent.action.MEDIA_SEARCH:
+        8733c37 com.android.browser/.BrowserActivity filter 9d6650e
+          Action: "android.intent.action.MEDIA_SEARCH"
+          Category: "android.intent.category.DEFAULT"
+      com.baidu.talos.action.RN_DEBUG:
+        b40ee8a com.android.browser/com.baidu.searchbox.reactnative.debug.DebugRNActivity filter c0fccfb
+          Action: "com.baidu.talos.action.RN_DEBUG"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.MAIN:
+        31fa6d1 com.android.browser/.launch.SplashActivity filter ff3e536
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.LAUNCHER"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.APP_BROWSER"
+      android.intent.action.VIEW:
+        62cb7f6 com.android.browser/com.browser.aicamera.ui.AiCameraActivity filter f5b77f7
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+        bc1ada com.android.browser/com.duokan.shop.mibrowser.FictionMainActivity filter ee20b0b
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+      com.mibi.sdk.action.PAY:
+        d38e200 com.android.browser/com.mibi.sdk.pay.ChannelPayEntryActivity filter 2146a39
+          Action: "com.mibi.sdk.action.PAY"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.browser.MICLOUD_SYNC_SETTINGS:
+        8733c37 com.android.browser/.BrowserActivity filter 5a5e2c5
+          Action: "com.miui.browser.MICLOUD_SYNC_SETTINGS"
+          Category: "android.intent.category.DEFAULT"
+      com.mibi.sdk.action.DEDUCT:
+        c24c87e com.android.browser/com.mibi.sdk.deduct.ui.DeductEntryActivity filter 33f1df
+          Action: "com.mibi.sdk.action.DEDUCT"
+          Category: "android.intent.category.DEFAULT"
+      com.android.browser.HYPER_CAPTIVE_PORTAL:
+        2f3b6b8 com.android.browser/com.android.captiveportallogin.CaptivePortalLoginActivity filter dc10c91
+          Action: "com.android.browser.HYPER_CAPTIVE_PORTAL"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.MANAGE_NETWORK_USAGE:
+        886e641 com.android.browser/.BrowserSettingsActivity filter d5a127
+          Action: "android.intent.action.MANAGE_NETWORK_USAGE"
+          Category: "android.intent.category.DEFAULT"
+      com.android.browser.READMODE:
+        2c2dbe com.android.browser/.readmode.ReadModeDispatchActivity filter 7b38e1f
+          Action: "com.android.browser.READMODE"
+      android.speech.action.VOICE_SEARCH_RESULTS:
+        8733c37 com.android.browser/.BrowserActivity filter ef395a4
+          Action: "android.speech.action.VOICE_SEARCH_RESULTS"
+          Category: "android.intent.category.DEFAULT"
+      com.baidu.talos.action.BUNDLE_MANAGE:
+        850f118 com.android.browser/com.baidu.talos.devtools.DevBundleManageActivity filter 47c2771
+          Action: "com.baidu.talos.action.BUNDLE_MANAGE"
+          Category: "android.intent.category.DEFAULT"
+      miui.browser.webapps.OPEN_APP:
+        72e70 com.android.browser/.webapps.WebAppDispatcherActivity filter dd515e9
+          Action: "miui.browser.webapps.OPEN_APP"
+          Category: "android.intent.category.DEFAULT"
+      miui.browser.webapps.pwa.ACTION_OPEN_PWA:
+        8e027a5 com.android.browser/.webapps.pwa.PWADispatcherActivity filter 223577a
+          Action: "miui.browser.webapps.pwa.ACTION_OPEN_PWA"
+          Category: "android.intent.category.DEFAULT"
+      com.android.browser.action.MOVE_TO_PRIVACY_SPACE:
+        a7967ca com.android.browser/.privacyspace.PrivacyMoveInActivity filter 38ced3b
+          Action: "com.android.browser.action.MOVE_TO_PRIVACY_SPACE"
+          Category: "android.intent.category.DEFAULT"
+      com.mibi.sdk.action.SIGN_DEDUCT:
+        b4a1e2c com.android.browser/com.mibi.sdk.deduct.ui.SignDeductEntryActivity filter 5c870f5
+          Action: "com.mibi.sdk.action.SIGN_DEDUCT"
+          Category: "android.intent.category.DEFAULT"
+      com.xiaomi.account.action.XIAOMI_ACCOUNT_QUICK_LOGIN:
+        4f32b32 com.android.browser/com.xiaomi.passport.ui.internal.ConfirmCredentialActivity filter d5ed083
+          Action: "com.xiaomi.account.action.XIAOMI_ACCOUNT_QUICK_LOGIN"
+          Category: "android.intent.category.DEFAULT"
+      hyperos.action.AIACTION_ACTIVITY:
+        9fa9b4b com.android.browser/.MyAiActionActivity filter 2072928
+          Action: "hyperos.action.AIACTION_ACTIVITY"
+          Category: "android.intent.category.DEFAULT"
+      com.android.browser.WEB:
+        62e5b88 com.android.browser/.base.web.StandardWebViewActivity filter 4d09921
+          Action: "com.android.browser.WEB"
+          Category: "android.intent.category.DEFAULT"
+      com.android.browser.action.OPEN_PRIVACY_SPACE:
+        7bb256c com.android.browser/.privacyspace.PrivacySpaceActivity filter d9e0735
+          Action: "com.android.browser.action.OPEN_PRIVACY_SPACE"
+          Category: "android.intent.category.DEFAULT"
+      com.android.browser.OPEN_SETTINGS:
+        886e641 com.android.browser/.BrowserSettingsActivity filter 71aa57d
+          Action: "com.android.browser.OPEN_SETTINGS"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.passwords.action.OPEN_PASSWORDS_MAIN:
+        886e641 com.android.browser/.BrowserSettingsActivity filter 72bc72
+          Action: "com.miui.passwords.action.OPEN_PASSWORDS_MAIN"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.browser.ADDBOOKMARK:
+        9eb2c58 com.android.browser/.bookmark.activity.AddQuickLinkOrBookmarkActivity filter 4b4e1b1
+          Action: "com.miui.browser.ADDBOOKMARK"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.WEB_SEARCH:
+        8733c37 com.android.browser/.BrowserActivity filter 7ef5f09
+          Action: "android.intent.action.WEB_SEARCH"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.SEARCH:
+        8733c37 com.android.browser/.BrowserActivity filter 9e77b2f
+          Action: "android.intent.action.SEARCH"
+          Category: "android.intent.category.DEFAULT"
+        886e641 com.android.browser/.BrowserSettingsActivity filter d39afd4
+          Action: "android.intent.action.SEARCH"
+          Category: "android.intent.category.DEFAULT"
+        87128c3 com.android.browser/.bookmark.activity.BookmarkSearchActivity filter c6bf540
+          Action: "android.intent.action.SEARCH"
+          Category: "android.intent.category.DEFAULT"
+        bff7146 com.android.browser/.quicksearch.applications.ApplicationLauncher filter 26abf07
+          Action: "android.intent.action.SEARCH"
+          Category: "android.intent.category.DEFAULT"
+        411a834 com.android.browser/.quicksearch.settings.SettingsSourceActivity filter 8fca65d
+          Action: "android.intent.action.SEARCH"
+          Category: "android.intent.category.DEFAULT"
+
+  MIME Typed Actions:
+      android.intent.action.VIEW:
+        8733c37 com.android.browser/.BrowserActivity filter 7911ec2
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          Scheme: "inline"
+          StaticType: "text/html"
+          StaticType: "application/xhtml+xml"
+          StaticType: "application/vnd.wap.xhtml+xml"
+        8733c37 com.android.browser/.BrowserActivity filter c3564d3
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "http"
+          Scheme: "https"
+          Scheme: "file"
+          Scheme: "content"
+          StaticType: "application/x-webarchive-xml"
+        8733c37 com.android.browser/.BrowserActivity filter 471f53c
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.BROWSABLE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "file"
+          StaticType: "video/m3u8"
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+      com.android.browser.OPEN_FILE:
+        dae3696 com.android.browser/.FileOpenDispatcherActivity filter 5d32217
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.txt}"
+          Path: "PatternMatcher{GLOB: .*\.pdf}"
+          Path: "PatternMatcher{GLOB: .*\.epub}"
+          StaticType: "text/plain"
+          StaticType: "application/pdf"
+          StaticType: "application/epub+zip"
+          StaticType: "application/octet-stream"
+        2645d82 com.android.browser/.filemanager.extract.UnExtractedFilePreviewActivity filter dc59c93
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          Path: "PatternMatcher{GLOB: .*\.zip}"
+          Path: "PatternMatcher{GLOB: .*\.rar}"
+          Path: "PatternMatcher{GLOB: .*\.7z}"
+          StaticType: "application/zip"
+          StaticType: "application/zip-compressed"
+          StaticType: "application/x-zip-compressed"
+          StaticType: "application/x-rar-compressed"
+          StaticType: "application/vnd.rar"
+          StaticType: "application/x-7z-compressed"
+        f8aa4d0 com.android.browser/.filemanager.ImageOpenDispatcherActivity filter 51fbcc9
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "image/jpeg"
+          StaticType: "image/jpg"
+          StaticType: "image/png"
+          StaticType: "image/gif"
+          StaticType: "image/webp"
+          StaticType: "image/bmp"
+          StaticType: "image/x-ms-bmp"
+          StaticType: "image/x-bmp"
+        67ecfce com.android.browser/.filemanager.VideoPlayerActivity filter ea36eef
+          Action: "android.intent.action.VIEW"
+          Action: "com.android.browser.OPEN_FILE"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "content"
+          StaticType: "video/mp4"
+          StaticType: "video/x-matroska"
+          StaticType: "video/webm"
+          StaticType: "video/quicktime"
+          StaticType: "video/mp4v-es"
+          StaticType: "video/x-m4v"
+          StaticType: "video/m4v"
+          StaticType: "video/3gpp"
+          StaticType: "video/3gpp-encrypted"
+          StaticType: "video/3gp"
+          StaticType: "video/m3u8"
+          StaticType: "application/x-mpegurl"
+          StaticType: "video/mp2t"
+          StaticType: "video/mp2ts"
+
+Receiver Resolver Table:
+  Full MIME Types:
+      application/zip:
+        8ff51c1 com.android.browser/com.xiaomi.milogsdk.PushUploadLogReceiver filter be4cd66
+          Action: "com.xiaomi.milogsdk.UPLOAD_LOG_BY_SDK"
+          StaticType: "application/zip"
+
+  Base MIME Types:
+      application:
+        8ff51c1 com.android.browser/com.xiaomi.milogsdk.PushUploadLogReceiver filter be4cd66
+          Action: "com.xiaomi.milogsdk.UPLOAD_LOG_BY_SDK"
+          StaticType: "application/zip"
+
+  Non-Data Actions:
+      android.intent.action.BATTERY_OKAY:
+        a42a28d com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy filter 1f45c42
+          Action: "android.intent.action.BATTERY_OKAY"
+          Action: "android.intent.action.BATTERY_LOW"
+      com.xiaomi.mipush.MESSAGE_ARRIVED:
+        6e781d com.android.browser/.push.BrowserPushSDKReceiver filter b7d6060
+          Action: "com.xiaomi.mipush.MESSAGE_ARRIVED"
+      android.intent.action.ACTION_POWER_DISCONNECTED:
+        6c573b7 com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy filter 1de3724
+          Action: "android.intent.action.ACTION_POWER_DISCONNECTED"
+          Action: "android.intent.action.ACTION_POWER_CONNECTED"
+      com.xiaomi.mipush.ERROR:
+        6e781d com.android.browser/.push.BrowserPushSDKReceiver filter 1c6cc63
+          Action: "com.xiaomi.mipush.ERROR"
+      androidx.profileinstaller.action.SAVE_PROFILE:
+        1f006c4 com.android.browser/androidx.profileinstaller.ProfileInstallReceiver filter b48cb30
+          Action: "androidx.profileinstaller.action.SAVE_PROFILE"
+      com.android.browser.SHARE_RESULT:
+        a058dd5 com.android.browser/.ShareResultReceiver filter d5279ea
+          Action: "com.android.browser.SHARE_RESULT"
+      android.intent.action.DEVICE_STORAGE_LOW:
+        6339453 com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy filter 659a190
+          Action: "android.intent.action.DEVICE_STORAGE_LOW"
+          Action: "android.intent.action.DEVICE_STORAGE_OK"
+      android.net.conn.CONNECTIVITY_CHANGE:
+        8c3da89 com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy filter 6effa8e
+          Action: "android.net.conn.CONNECTIVITY_CHANGE"
+      android.intent.action.DEVICE_STORAGE_OK:
+        6339453 com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy filter 659a190
+          Action: "android.intent.action.DEVICE_STORAGE_LOW"
+          Action: "android.intent.action.DEVICE_STORAGE_OK"
+      com.xiaomi.market.DOWNLOAD_INSTALL_RESULT:
+        b1e3251 com.android.browser/com.duokan.advertisement.AppDownloadReceiver filter ad64ab6
+          Action: "com.xiaomi.market.DOWNLOAD_INSTALL_RESULT"
+      miui.intent.action.CONTENT_ACCESS_RESTRICTION_CHANGED:
+        30753a9 com.android.browser/.kids.KidsSwitchReceiver filter 3524d2e
+          Action: "miui.intent.action.CONTENT_ACCESS_RESTRICTION_CHANGED"
+      android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED:
+        1ff7919 com.android.browser/.MiAccountsChangedReceiver filter 3025dde
+          Action: "android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+      com.miui.whetstone.kloserver.BROWSER_ABORTED:
+        84fcbbf com.android.browser/.analytics.BrowserCrashReportReceiver filter ec8228c
+          Action: "com.miui.whetstone.kloserver.BROWSER_ABORTED"
+          Category: "android.intent.category.DEFAULT"
+      androidx.profileinstaller.action.INSTALL_PROFILE:
+        1f006c4 com.android.browser/androidx.profileinstaller.ProfileInstallReceiver filter 368c4e2
+          Action: "androidx.profileinstaller.action.INSTALL_PROFILE"
+      android.intent.action.BATTERY_LOW:
+        a42a28d com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy filter 1f45c42
+          Action: "android.intent.action.BATTERY_OKAY"
+          Action: "android.intent.action.BATTERY_LOW"
+      android.intent.action.TIMEZONE_CHANGED:
+        23f64db com.android.browser/androidx.work.impl.background.systemalarm.RescheduleReceiver filter 21adb78
+          Action: "android.intent.action.TIMEZONE_CHANGED"
+          Action: "android.intent.action.TIME_SET"
+      android.intent.action.TIME_SET:
+        23f64db com.android.browser/androidx.work.impl.background.systemalarm.RescheduleReceiver filter 21adb78
+          Action: "android.intent.action.TIMEZONE_CHANGED"
+          Action: "android.intent.action.TIME_SET"
+      androidx.profileinstaller.action.SKIP_FILE:
+        1f006c4 com.android.browser/androidx.profileinstaller.ProfileInstallReceiver filter 864e073
+          Action: "androidx.profileinstaller.action.SKIP_FILE"
+      androidx.profileinstaller.action.BENCHMARK_OPERATION:
+        1f006c4 com.android.browser/androidx.profileinstaller.ProfileInstallReceiver filter 4dac9ad
+          Action: "androidx.profileinstaller.action.BENCHMARK_OPERATION"
+      android.intent.action.ACTION_POWER_CONNECTED:
+        6c573b7 com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy filter 1de3724
+          Action: "android.intent.action.ACTION_POWER_DISCONNECTED"
+          Action: "android.intent.action.ACTION_POWER_CONNECTED"
+      miui.appwidget.action.APPWIDGET_UPDATE:
+        588165 com.android.browser/.widget.Search4x2Widget filter 63a0e3a
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+        1e9eaeb com.android.browser/.widget.ContinuationRead4x2Widget filter 2eed048
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+        2d4cee1 com.android.browser/.widget.Normal4x2Widget filter eaad406
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+        dfa4ac7 com.android.browser/.widget.IncentiveBrowserWidget filter 344a8f4
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+      com.xiaomi.push.PING_TIMER:
+        9f3acb com.android.browser/com.xiaomi.push.service.receivers.PingReceiver filter bb812a8
+          Action: "com.xiaomi.push.PING_TIMER"
+      com.xiaomi.mipush.RECEIVE_MESSAGE:
+        6e781d com.android.browser/.push.BrowserPushSDKReceiver filter b102a92
+          Action: "com.xiaomi.mipush.RECEIVE_MESSAGE"
+      miui.intent.action.PACKAGE_FIRST_LAUNCH:
+        d2310cf com.android.browser/.FirstLaunchReceiver filter 6276a5c
+          Action: "miui.intent.action.PACKAGE_FIRST_LAUNCH"
+      android.appwidget.action.APPWIDGET_UPDATE:
+        588165 com.android.browser/.widget.Search4x2Widget filter 63a0e3a
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+        1e9eaeb com.android.browser/.widget.ContinuationRead4x2Widget filter 2eed048
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+        2d4cee1 com.android.browser/.widget.Normal4x2Widget filter eaad406
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+        dfa4ac7 com.android.browser/.widget.IncentiveBrowserWidget filter 344a8f4
+          Action: "miui.appwidget.action.APPWIDGET_UPDATE"
+          Action: "android.appwidget.action.APPWIDGET_UPDATE"
+      androidx.work.diagnostics.REQUEST_DIAGNOSTICS:
+        2069645 com.android.browser/androidx.work.impl.diagnostics.DiagnosticsReceiver filter cf5319a
+          Action: "androidx.work.diagnostics.REQUEST_DIAGNOSTICS"
+      WIDGET_PINNED_SUCCESS:
+        9e4b8a7 com.android.browser/com.mi.ice.incentivesdk.h5.widget.WidgetPinReceiver filter ecfb154
+          Action: "WIDGET_PINNED_SUCCESS"
+      androidx.work.impl.background.systemalarm.UpdateProxies:
+        a5922af com.android.browser/androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver filter 2df46bc
+          Action: "androidx.work.impl.background.systemalarm.UpdateProxies"
+
+  MIME Typed Actions:
+      com.xiaomi.milogsdk.UPLOAD_LOG_BY_SDK:
+        8ff51c1 com.android.browser/com.xiaomi.milogsdk.PushUploadLogReceiver filter be4cd66
+          Action: "com.xiaomi.milogsdk.UPLOAD_LOG_BY_SDK"
+          StaticType: "application/zip"
+
+Service Resolver Table:
+  Non-Data Actions:
+      android.content.SyncAdapter:
+        3529ab5 com.android.browser/miui.browser.cloud.BrowserSyncService filter 24d354a
+          Action: "android.content.SyncAdapter"
+      com.xiaomi.accounts.AccountAuthenticator:
+        38d5169 com.android.browser/com.xiaomi.passport.accountmanager.OwnAppXiaomiAccountAuthenticatorService filter 22fd7ee
+          Action: "com.xiaomi.accounts.AccountAuthenticator"
+      androidx.media3.session.MediaSessionService:
+        3a9b833 com.android.browser/com.browser.libvoice.service.PlayBackService filter fd527f0
+          Action: "androidx.media3.session.MediaSessionService"
+      com.xiaomi.dist.intent.action.HANDOFF_CLIENT:
+        19e159f com.android.browser/com.xiaomi.dist.handoff.sdk.HandoffClientService filter 2dfd6ec permission com.xiaomi.dist.permission.ACCESS_HANDOFF_CLIENT
+          Action: "com.xiaomi.dist.intent.action.HANDOFF_CLIENT"
+      miui.action.CLOUD_BACKUP_SETTINGS:
+        2586cbb com.android.browser/.backup.BrowserBackupService filter 46975d8 permission com.xiaomi.permission.CLOUD_MANAGER
+          Action: "miui.action.CLOUD_BACKUP_SETTINGS"
+          Action: "miui.action.CLOUD_RESTORE_SETTINGS"
+      com.ss.android.socialbase.downloader.remote:
+        4a09b25 com.android.browser/com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService filter b4584fa
+          Action: "com.ss.android.socialbase.downloader.remote"
+      com.mi.browser.bind_browser_main_process:
+        fdf2d31 com.android.browser/.BrowserAidlService filter 6b15c16
+          Action: "com.mi.browser.bind_browser_main_process"
+      miui.action.CLOUD_RESTORE_SETTINGS:
+        2586cbb com.android.browser/.backup.BrowserBackupService filter 46975d8 permission com.xiaomi.permission.CLOUD_MANAGER
+          Action: "miui.action.CLOUD_BACKUP_SETTINGS"
+          Action: "miui.action.CLOUD_RESTORE_SETTINGS"
+      com.android.browser.netdisk.BIND:
+        2971997 com.android.browser/.netdisk.NetdiskAidlService filter 5ec1784
+          Action: "com.android.browser.netdisk.BIND"
+      com.android.browser.customtabs.action.CustomTabsService:
+        8c86b6d com.android.browser/.customtabs.CustomTabsConnectionService filter 15f23a2
+          Action: "com.android.browser.customtabs.action.CustomTabsService"
+      com.xiaomi.account.action.BIND_ACCOUNT_EXCHANGE_SERVICE_V2:
+        23da48f com.android.browser/com.xiaomi.account.service.AppAccountExchangeService filter 1fcd31c permission com.xiaomi.permission.CLOUD_MANAGER
+          Action: "com.xiaomi.account.action.BIND_ACCOUNT_EXCHANGE_SERVICE_V2"
+
+Provider Resolver Table:
+  Non-Data Actions:
+      com.miui.bugreport.intent.ACTION_DUMP_CACHED_LOG:
+        db77f9 com.android.browser/com.miui.bugreport.logprovider.DumpLogProvider filter f96233e
+          Action: "com.miui.bugreport.intent.ACTION_DUMP_CACHED_LOG"
+      miui.intent.action.SETTINGS_SEARCH_PROVIDER:
+        16e48fd com.android.browser/.provider.SystemSettingsSearchProvider filter 6e059f2
+          Action: "miui.intent.action.SETTINGS_SEARCH_PROVIDER"
+      hyperos.action.AIACTION_PROVIDER:
+        c1a3843 com.android.browser/.provider.AIActionProvider filter b208ec0
+          Action: "hyperos.action.AIACTION_PROVIDER"
+          Category: "android.intent.category.DEFAULT"
+
+Domain verification status:
+
+Permissions:
+  Permission [com.miui.webview.permission.MIGRATION_EXPORTER_DATA] (3a834b9):
+    sourcePackage=com.android.browser
+    uid=10127 gids=[] type=0 prot=normal
+    perm=PermissionInfo{adcfae6 com.miui.webview.permission.MIGRATION_EXPORTER_DATA}
+    flags=0x0
+
+Permissions:
+  Permission [com.android.browser.permission.ACCESS_MICT_HISTORY] (ec500fe):
+    sourcePackage=com.android.browser
+    uid=10127 gids=[] type=0 prot=signature|privileged
+    perm=PermissionInfo{8f95ad4 com.android.browser.permission.ACCESS_MICT_HISTORY}
+    flags=0x0
+
+Permissions:
+  Permission [com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (2a3005f):
+    sourcePackage=com.android.browser
+    uid=10127 gids=[] type=0 prot=signature
+    perm=PermissionInfo{4eddf72 com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
+    flags=0x0
+
+Permissions:
+  Permission [com.android.browser.permission.MIPUSH_RECEIVE] (1fe4aac):
+    sourcePackage=com.android.browser
+    uid=10127 gids=[] type=0 prot=signature|privileged
+    perm=PermissionInfo{bfb5040 com.android.browser.permission.MIPUSH_RECEIVE}
+    flags=0x0
+
+Permissions:
+  Permission [com.android.browser.customtabs.permission.READ_CTA] (10e6375):
+    sourcePackage=com.android.browser
+    uid=10127 gids=[] type=0 prot=normal
+    perm=PermissionInfo{4b680be com.android.browser.customtabs.permission.READ_CTA}
+    flags=0x0
+
+Permissions:
+  Permission [com.android.browser.permission.CHILD_SERVICE] (6ec2f0a):
+    sourcePackage=com.android.browser
+    uid=10127 gids=[] type=0 prot=signature
+    perm=PermissionInfo{65306c com.android.browser.permission.CHILD_SERVICE}
+    flags=0x0
+
+Permissions:
+  Permission [com.android.browser.customtabs.permission.WRITE_CTA] (4a1437b):
+    sourcePackage=com.android.browser
+    uid=10127 gids=[] type=0 prot=signature
+    perm=PermissionInfo{8d5eaca com.android.browser.customtabs.permission.WRITE_CTA}
+    flags=0x0
+
+Registered ContentProviders:
+  com.android.browser/com.newtech.common.filetransfer.db.MiFileTransferProvider:
+    Provider{2dab43b com.android.browser/com.newtech.common.filetransfer.db.MiFileTransferProvider}
+  com.android.browser/com.volcengine.zeusplayletsdk.ProviderProxy_plugin1:
+    Provider{aaae758 com.android.browser/com.volcengine.zeusplayletsdk.ProviderProxy_plugin1}
+  com.android.browser/.homepages.HomeProvider:
+    Provider{35180b1 com.android.browser/.homepages.HomeProvider}
+  com.android.browser/com.miui.bugreport.logprovider.DumpLogProvider:
+    Provider{db77f9 com.android.browser/com.miui.bugreport.logprovider.DumpLogProvider}
+  com.android.browser/com.mi.ice.incentivesdk.contentprovider.SyncDataProvider:
+    Provider{8cfe996 com.android.browser/com.mi.ice.incentivesdk.contentprovider.SyncDataProvider}
+  com.android.browser/com.xiaomi.passport.ui.settings.provider.PassportFileProvider:
+    Provider{9b65917 com.android.browser/com.xiaomi.passport.ui.settings.provider.PassportFileProvider}
+  com.android.browser/com.volcengine.zeusplayletsdk.ServerManager_downloader:
+    Provider{932104 com.android.browser/com.volcengine.zeusplayletsdk.ServerManager_downloader}
+  com.android.browser/.provider.QuicklinksContentProvider:
+    Provider{fcc76ed com.android.browser/.provider.QuicklinksContentProvider}
+  com.android.browser/.customtabs.CustomTabCtaProvider:
+    Provider{e990922 com.android.browser/.customtabs.CustomTabCtaProvider}
+  com.android.browser/com.volcengine.playlet.FileProvider:
+    Provider{a3d6fb3 com.android.browser/com.volcengine.playlet.FileProvider}
+  com.android.browser/org.chromium.ui.dragdrop.DropDataContentProvider:
+    Provider{ba34970 com.android.browser/org.chromium.ui.dragdrop.DropDataContentProvider}
+  com.android.browser/com.xunlei.common.XCloudFileProvider:
+    Provider{18694e9 com.android.browser/com.xunlei.common.XCloudFileProvider}
+  com.android.browser/com.volcengine.zeusplayletsdk.ServerManager_push:
+    Provider{ce2956e com.android.browser/com.volcengine.zeusplayletsdk.ServerManager_push}
+  com.android.browser/androidx.core.content.FileProvider:
+    Provider{715540f com.android.browser/androidx.core.content.FileProvider}
+  com.android.browser/.provider.SourceFileProvider:
+    Provider{64b8c9c com.android.browser/.provider.SourceFileProvider}
+  com.android.browser/com.volcengine.zeus.FileProvider:
+    Provider{faa96a5 com.android.browser/com.volcengine.zeus.FileProvider}
+  com.android.browser/.provider.ApksInstallBlackProvider:
+    Provider{e269a7a com.android.browser/.provider.ApksInstallBlackProvider}
+  com.android.browser/com.volcengine.zeus.servermanager.MainServerManager:
+    Provider{ddd222b com.android.browser/com.volcengine.zeus.servermanager.MainServerManager}
+  com.android.browser/.provider.MictHistoryContentProvider:
+    Provider{fd2d688 com.android.browser/.provider.MictHistoryContentProvider}
+  com.android.browser/.provider.BrowserProvider2:
+    Provider{f52f821 com.android.browser/.provider.BrowserProvider2}
+  com.android.browser/.provider.BookMarkSyncProvider:
+    Provider{873e446 com.android.browser/.provider.BookMarkSyncProvider}
+  com.android.browser/.provider.AdBlockRuleProvider:
+    Provider{d09b607 com.android.browser/.provider.AdBlockRuleProvider}
+  com.android.browser/.provider.VideoProvider:
+    Provider{302d334 com.android.browser/.provider.VideoProvider}
+  com.android.browser/com.bytedance.android.openliveplugin.process.server.LiveServerManager:
+    Provider{2c5f55d com.android.browser/com.bytedance.android.openliveplugin.process.server.LiveServerManager}
+  com.android.browser/com.volcengine.playlet.provider.MainProcessProviderProxy:
+    Provider{1f9fed2 com.android.browser/com.volcengine.playlet.provider.MainProcessProviderProxy}
+  com.android.browser/.provider.AIActionProvider:
+    Provider{c1a3843 com.android.browser/.provider.AIActionProvider}
+  com.android.browser/.provider.BdProvider:
+    Provider{b81aba3 com.android.browser/.provider.BdProvider}
+  com.android.browser/com.google.mlkit.common.internal.MlKitInitProvider:
+    Provider{b93eea0 com.android.browser/com.google.mlkit.common.internal.MlKitInitProvider}
+  com.android.browser/com.volcengine.zeus.provider.MainProcessProviderProxy:
+    Provider{718a59 com.android.browser/com.volcengine.zeus.provider.MainProcessProviderProxy}
+  com.android.browser/com.byted.live.lite.ServerManager_bytelive:
+    Provider{255361e com.android.browser/com.byted.live.lite.ServerManager_bytelive}
+  com.android.browser/com.xunlei.xcloud.uploader.UploadProvider:
+    Provider{df95eff com.android.browser/com.xunlei.xcloud.uploader.UploadProvider}
+  com.android.browser/.provider.SnapshotProvider:
+    Provider{65954cc com.android.browser/.provider.SnapshotProvider}
+  com.android.browser/com.petterp.floatingx.assist.FxContentProvider:
+    Provider{da77315 com.android.browser/com.petterp.floatingx.assist.FxContentProvider}
+  com.android.browser/.quicksearch.settings.SettingsSourceProvider:
+    Provider{c9a962a com.android.browser/.quicksearch.settings.SettingsSourceProvider}
+  com.android.browser/com.volcengine.playlet.servermanager.MainServerManager:
+    Provider{60eec1b com.android.browser/com.volcengine.playlet.servermanager.MainServerManager}
+  com.android.browser/com.android.webview.chromium.autofill.migration.ExporterDataProvider:
+    Provider{82cf1b8 com.android.browser/com.android.webview.chromium.autofill.migration.ExporterDataProvider}
+  com.android.browser/com.android.providers.downloads.DownloadProvider:
+    Provider{9192b91 com.android.browser/com.android.providers.downloads.DownloadProvider}
+  com.android.browser/androidx.startup.InitializationProvider:
+    Provider{e23eaf6 com.android.browser/androidx.startup.InitializationProvider}
+  com.android.browser/.webapps.db.WebappsContentProvider:
+    Provider{7262ef7 com.android.browser/.webapps.db.WebappsContentProvider}
+  com.android.browser/ru.noties.jlatexmath.JLatexMathInitProvider:
+    Provider{79b7164 com.android.browser/ru.noties.jlatexmath.JLatexMathInitProvider}
+  com.android.browser/com.byted.live.lite.ServerManager_push:
+    Provider{113efcd com.android.browser/com.byted.live.lite.ServerManager_push}
+  com.android.browser/.provider.SystemSettingsSearchProvider:
+    Provider{16e48fd com.android.browser/.provider.SystemSettingsSearchProvider}
+  com.android.browser/com.mitv.plugin.sdk.dynamic.component.ProxyContentProvider:
+    Provider{e1bc082 com.android.browser/com.mitv.plugin.sdk.dynamic.component.ProxyContentProvider}
+
+ContentProvider Authorities:
+  [com.android.browser.playlet.servermanager.main]:
+    Provider{60eec1b com.android.browser/com.volcengine.playlet.servermanager.MainServerManager}
+      applicationInfo=ApplicationInfo{75b6598 com.android.browser}
+  [com.android.browser.zeus.fileprovider]:
+    Provider{faa96a5 com.android.browser/com.volcengine.zeus.FileProvider}
+      applicationInfo=ApplicationInfo{66ec1f1 com.android.browser}
+  [miui.browser.webapps]:
+    Provider{7262ef7 com.android.browser/.webapps.db.WebappsContentProvider}
+      applicationInfo=ApplicationInfo{da631d6 com.android.browser}
+  [com.android.browser.mi_filetransfer]:
+    Provider{2dab43b com.android.browser/com.newtech.common.filetransfer.db.MiFileTransferProvider}
+      applicationInfo=ApplicationInfo{4769c57 com.android.browser}
+  [com.android.browser.zeus.servermanager.main]:
+    Provider{ddd222b com.android.browser/com.volcengine.zeus.servermanager.MainServerManager}
+      applicationInfo=ApplicationInfo{c6d4344 com.android.browser}
+  [com.miui.browser.video]:
+    Provider{302d334 com.android.browser/.provider.VideoProvider}
+      applicationInfo=ApplicationInfo{f9c8c2d com.android.browser}
+  [com.miui.browser.SystemSettingsSearchProvider]:
+    Provider{16e48fd com.android.browser/.provider.SystemSettingsSearchProvider}
+      applicationInfo=ApplicationInfo{2b9562 com.android.browser}
+  [com.miui.browser]:
+    Provider{f52f821 com.android.browser/.provider.BrowserProvider2}
+      applicationInfo=ApplicationInfo{5dea6f3 com.android.browser}
+  [com.miui.browser.fileprovider]:
+    Provider{715540f com.android.browser/androidx.core.content.FileProvider}
+      applicationInfo=ApplicationInfo{99d4fb0 com.android.browser}
+  [com.android.browser.provider.bugreport]:
+    Provider{db77f9 com.android.browser/com.miui.bugreport.logprovider.DumpLogProvider}
+      applicationInfo=ApplicationInfo{862be29 com.android.browser}
+  [com.miui.browser.sourceprovider]:
+    Provider{64b8c9c com.android.browser/.provider.SourceFileProvider}
+      applicationInfo=ApplicationInfo{4b1a5ae com.android.browser}
+  [com.android.browser.uploadprovider]:
+    Provider{df95eff com.android.browser/com.xunlei.xcloud.uploader.UploadProvider}
+      applicationInfo=ApplicationInfo{2b2bf4f com.android.browser}
+  [com.android.browser.jlatexmathinitprovider]:
+    Provider{79b7164 com.android.browser/ru.noties.jlatexmath.JLatexMathInitProvider}
+      applicationInfo=ApplicationInfo{27fb6dc com.android.browser}
+  [com.android.browser.playlet.fileprovider]:
+    Provider{a3d6fb3 com.android.browser/com.volcengine.playlet.FileProvider}
+      applicationInfo=ApplicationInfo{44013e5 com.android.browser}
+  [com.miui.browser.bookmark]:
+    Provider{873e446 com.android.browser/.provider.BookMarkSyncProvider}
+      applicationInfo=ApplicationInfo{d766eba com.android.browser}
+  [com.miui.browser.quicklinks]:
+    Provider{fcc76ed com.android.browser/.provider.QuicklinksContentProvider}
+      applicationInfo=ApplicationInfo{f06016b com.android.browser}
+  [com.android.browser.sync.provider]:
+    Provider{8cfe996 com.android.browser/com.mi.ice.incentivesdk.contentprovider.SyncDataProvider}
+      applicationInfo=ApplicationInfo{dbf64c8 com.android.browser}
+  [com.android.browser.fx.provider]:
+    Provider{da77315 com.android.browser/com.petterp.floatingx.assist.FxContentProvider}
+      applicationInfo=ApplicationInfo{5e30961 com.android.browser}
+  [com.android.browser.zeus.servermanager.push.com.byted.live.lite]:
+    Provider{113efcd com.android.browser/com.byted.live.lite.ServerManager_push}
+      applicationInfo=ApplicationInfo{8cbc86 com.android.browser}
+  [miuibrowser]:
+    Provider{f52f821 com.android.browser/.provider.BrowserProvider2}
+      applicationInfo=ApplicationInfo{3014947 com.android.browser}
+  [com.android.browser.playlet.provider.proxy.main]:
+    Provider{1f9fed2 com.android.browser/com.volcengine.playlet.provider.MainProcessProviderProxy}
+      applicationInfo=ApplicationInfo{fca0574 com.android.browser}
+  [com.android.browser.playlet.servermanager.push.com.volcengine.zeusplayletsdk]:
+    Provider{ce2956e com.android.browser/com.volcengine.zeusplayletsdk.ServerManager_push}
+      applicationInfo=ApplicationInfo{265da9d com.android.browser}
+  [com.android.browser.fileprovider]:
+    Provider{b81aba3 com.android.browser/.provider.BdProvider}
+      applicationInfo=ApplicationInfo{681b12 com.android.browser}
+  [com.android.browser.DropDataProvider]:
+    Provider{ba34970 com.android.browser/org.chromium.ui.dragdrop.DropDataContentProvider}
+      applicationInfo=ApplicationInfo{67f32e3 com.android.browser}
+  [com.android.browser.zeus.servermanager.bytelive.com.byted.live.lite]:
+    Provider{255361e com.android.browser/com.byted.live.lite.ServerManager_bytelive}
+      applicationInfo=ApplicationInfo{43c04e0 com.android.browser}
+  [com.android.browser.playlet.provider.proxy.plugin1.com.volcengine.zeusplayletsdk]:
+    Provider{aaae758 com.android.browser/com.volcengine.zeusplayletsdk.ProviderProxy_plugin1}
+      applicationInfo=ApplicationInfo{c4a8399 com.android.browser}
+  [com.android.browser.ai.action]:
+    Provider{c1a3843 com.android.browser/.provider.AIActionProvider}
+      applicationInfo=ApplicationInfo{128d65e com.android.browser}
+  [com.android.browser.home]:
+    Provider{35180b1 com.android.browser/.homepages.HomeProvider}
+      applicationInfo=ApplicationInfo{a681a3f com.android.browser}
+  [com.android.browser.playlet.servermanager.downloader.com.volcengine.zeusplayletsdk]:
+    Provider{932104 com.android.browser/com.volcengine.zeusplayletsdk.ServerManager_downloader}
+      applicationInfo=ApplicationInfo{20c8f0c com.android.browser}
+  [com.android.browser.snapshots]:
+    Provider{65954cc com.android.browser/.provider.SnapshotProvider}
+      applicationInfo=ApplicationInfo{236c055 com.android.browser}
+  [com.miui.browser.provider.ApksInstallBlackProvider]:
+    Provider{e269a7a com.android.browser/.provider.ApksInstallBlackProvider}
+      applicationInfo=ApplicationInfo{6a7fa6a com.android.browser}
+  [com.android.browser.zeus.provider.proxy.main]:
+    Provider{718a59 com.android.browser/com.volcengine.zeus.provider.MainProcessProviderProxy}
+      applicationInfo=ApplicationInfo{bce1b5b com.android.browser}
+  [com.android.browser.passport.fileprovider]:
+    Provider{9b65917 com.android.browser/com.xiaomi.passport.ui.settings.provider.PassportFileProvider}
+      applicationInfo=ApplicationInfo{6798ff8 com.android.browser}
+  [com.miui.browser.adblock]:
+    Provider{d09b607 com.android.browser/.provider.AdBlockRuleProvider}
+      applicationInfo=ApplicationInfo{d700cd1 com.android.browser}
+  [com.miui.webview.exporter.provider]:
+    Provider{82cf1b8 com.android.browser/com.android.webview.chromium.autofill.migration.ExporterDataProvider}
+      applicationInfo=ApplicationInfo{7435336 com.android.browser}
+  [com.android.browser.quicksearch.settings]:
+    Provider{c9a962a com.android.browser/.quicksearch.settings.SettingsSourceProvider}
+      applicationInfo=ApplicationInfo{cc91237 com.android.browser}
+  [com.android.browser.xdp]:
+    Provider{9192b91 com.android.browser/com.android.providers.downloads.DownloadProvider}
+      applicationInfo=ApplicationInfo{2b3b3a4 com.android.browser}
+  [com.android.browser.mlkitinitprovider]:
+    Provider{b93eea0 com.android.browser/com.google.mlkit.common.internal.MlKitInitProvider}
+      applicationInfo=ApplicationInfo{c17a50d com.android.browser}
+  [com.android.browser.micthistoryprovider]:
+    Provider{fd2d688 com.android.browser/.provider.MictHistoryContentProvider}
+      applicationInfo=ApplicationInfo{f696cc2 com.android.browser}
+  [com.android.browser.androidx-startup]:
+    Provider{e23eaf6 com.android.browser/androidx.startup.InitializationProvider}
+      applicationInfo=ApplicationInfo{f129ad3 com.android.browser}
+  [com.xcloud.open.com.android.browser.provider]:
+    Provider{18694e9 com.android.browser/com.xunlei.common.XCloudFileProvider}
+      applicationInfo=ApplicationInfo{84a6610 com.android.browser}
+  [com.android.browser.contentprovider.authority.dynamic]:
+    Provider{e1bc082 com.android.browser/com.mitv.plugin.sdk.dynamic.component.ProxyContentProvider}
+      applicationInfo=ApplicationInfo{3268509 com.android.browser}
+  [com.android.browser.bytedance.android.openliveplugin.process.server.LiveServerManager]:
+    Provider{2c5f55d com.android.browser/com.bytedance.android.openliveplugin.process.server.LiveServerManager}
+      applicationInfo=ApplicationInfo{1e5930e com.android.browser}
+  [com.xiaomi.browser.customtabs.cta_provider]:
+    Provider{e990922 com.android.browser/.customtabs.CustomTabCtaProvider}
+      applicationInfo=ApplicationInfo{c62112f com.android.browser}
+
+Key Set Manager:
+  [com.android.browser]
+      Signing KeySets: 1
+
+Packages:
+  Package [com.android.browser] (be841c7):
+    appId=10127
+    pkg=Package{cd8d3f4 com.android.browser}
+    codePath=/data/app/~~ZPIGBrZqJstBCbqpXBxNiw==/com.android.browser-QgQ5toqeKCxA197qR3ZUzA==
+    resourcePath=/data/app/~~ZPIGBrZqJstBCbqpXBxNiw==/com.android.browser-QgQ5toqeKCxA197qR3ZUzA==
+    legacyNativeLibraryDir=/data/app/~~ZPIGBrZqJstBCbqpXBxNiw==/com.android.browser-QgQ5toqeKCxA197qR3ZUzA==/lib
+    extractNativeLibs=true
+    primaryCpuAbi=arm64-v8a
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=203000300 minSdk=28 targetSdk=35
+    minExtensionVersions=[]
+    versionName=20.30.31026
+    hiddenApiEnforcementPolicy=0
+    usesNonSdkApi=false
+    isMiuiPreinstall=false
+    splits=[base]
+    apkSigningVersion=3
+    flags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA UPDATED_SYSTEM_APP ALLOW_BACKUP KILL_AFTER_RESTORE LARGE_HEAP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE HAS_DOMAIN_URLS PARTIALLY_DIRECT_BOOT_AWARE PRIVILEGED PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    hasPreserveLegacyExternalStorage=true
+    forceQueryable=false
+    pageSizeCompat=0
+    queriesPackages=[com.tencent.mm, de.robv.android.xposed.installer, com.saurik.substrate, com.xiaomi.account, com.xiaomi.controlscreen.account, com.tencent.mobileqq, com.facebook.katana, com.sina.weibo, com.xiaomi.smarthome, com.miui.greenguard, com.mi.health, com.android.mms, com.unionpay, com.xiaomi.market]
+    queriesIntents=[Intent { act=com.xiaomi.dist.intent.action.APP_HANDOFF }, Intent { act=android.intent.action.MAIN }, Intent { act=android.intent.action.VIEW }, Intent { act=android.intent.action.SEND }, Intent { act=com.android.camera.action.CROP }, Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] }, Intent { act=com.android.browser.customtabs.action.CustomTabsService }, Intent { act=com.baidu.intent.action.GALAXY }]
+    scannedAsStoppedSystemApp=false
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    usesLibraries:
+      micloud-sdk
+    usesOptionalLibraries:
+      org.apache.http.legacy
+      com.android.qualcomm.modemwarmup
+      androidx.window.extensions
+      androidx.window.sidecar
+    usesOptionalNativeLibraries:
+      libOpenCL.so
+    usesLibraryFiles:
+      /system_ext/priv-app/RtMiCloudSDK/RtMiCloudSDK.apk
+      /system_ext/app/miuisystem/miuisystem.apk
+      /system/framework/org.apache.http.legacy.jar
+      /system_ext/framework/androidx.window.extensions.jar
+      /system_ext/framework/androidx.window.sidecar.jar
+      libOpenCL.so
+    timeStamp=2026-10-31 22:22:26
+    lastUpdateTime=2026-10-31 22:22:32
+    installerPackageName=com.xiaomi.market
+    installerPackageUid=10168
+    initiatingPackageName=com.xiaomi.market
+    originatingPackageName=null
+    packageSource=0
+    appMetadataFilePath=null
+    appMetadataSource=0
+    signatures=PackageSignatures{b9ec71d version:3, signatures:[6c02dd51], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA UPDATED_SYSTEM_APP ALLOW_BACKUP KILL_AFTER_RESTORE LARGE_HEAP ]
+    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE HAS_DOMAIN_URLS PARTIALLY_DIRECT_BOOT_AWARE PRIVILEGED PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    apexModuleName=null
+    declared permissions:
+      com.android.browser.permission.MIPUSH_RECEIVE: prot=signature|privileged
+      com.android.browser.permission.ACCESS_MICT_HISTORY: prot=signature|privileged
+      com.android.browser.customtabs.permission.READ_CTA: prot=normal
+      com.android.browser.customtabs.permission.WRITE_CTA: prot=signature
+      com.miui.webview.permission.MIGRATION_EXPORTER_DATA: prot=normal
+      com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
+      com.android.browser.permission.CHILD_SERVICE: prot=signature
+    requested permissions:
+      android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
+      android.permission.WRITE_SETTINGS
+      android.permission.READ_CALENDAR
+      android.permission.POST_NOTIFICATIONS
+      com.xiaomi.market.sdk.UPDATE
+      android.permission.ACCESS_FINE_LOCATION
+      android.permission.USE_CREDENTIALS
+      com.android.browser.permission.READ_HOMEPAGE
+      android.permission.MODIFY_AUDIO_SETTINGS
+      android.permission.MANAGE_EXTERNAL_STORAGE
+      com.miui.passwords.permission.MIGRATION_IMPORTER_DATA
+      android.permission.MANAGE_ACCOUNTS
+      android.permission.SYSTEM_ALERT_WINDOW
+      miui.permission.USE_INTERNAL_GENERAL_API
+      android.permission.NFC
+      android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS
+      com.xiaomi.dist.permission.ACCESS_APP_META
+      android.permission.FOREGROUND_SERVICE
+      android.permission.READ_MEDIA_VISUAL_USER_SELECTED
+      android.permission.WRITE_SYNC_SETTINGS
+      com.xiaomi.permission.MICLOUD
+      android.permission.DEVICE_POWER
+      com.android.browser.permission.WRITE_HOMEPAGE
+      com.xiaomi.security.xsof.permission.ACCESS_XSOF_FRAUD_DETECTION
+      android.permission.EXPAND_STATUS_BAR
+      com.android.launcher.permission.UNINSTALL_SHORTCUT
+      com.asus.msa.SupplementaryDID.ACCESS
+      android.permission.BLUETOOTH
+      com.xiaomi.permission.BIND_CONTINUITY_SERVICE
+      android.permission.GET_TASKS
+      com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+      android.permission.AUTHENTICATE_ACCOUNTS
+      android.permission.INTERNET
+      com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL
+      android.permission.REORDER_TASKS
+      android.permission.READ_EXTERNAL_STORAGE
+      com.android.launcher.permission.WRITE_SETTINGS
+      com.baidu.duersdk.miui.provider
+      com.miui.systemAdSolution.adSwitch.PROVIDER
+      android.permission.ACCESS_ALL_DOWNLOADS
+      android.permission.STOP_APP_SWITCHES
+      com.xiaomi.permission.ACCESS_SECURITY_DEVICE_CREDENTIAL
+      android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+      android.permission.WRITE_SECURE_SETTINGS
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE
+      android.permission.ACCESS_COARSE_LOCATION
+      com.android.launcher.permission.READ_SETTINGS
+      android.permission.ACCESS_DOWNLOAD_MANAGER
+      android.permission.BROADCAST_STICKY
+      greenguard.permission.dangerous.interception
+      com.xiaomi.permission.CLOUD_MANAGER
+      android.permission.READ_MEDIA_IMAGES
+      android.permission.CHANGE_WIFI_STATE
+      com.xiaomi.permission.AUTH_SERVICE
+      android.permission.MANAGE_MEDIA
+      android.permission.SET_PREFERRED_APPLICATIONS
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.CAMERA
+      com.miui.securityadd.permission.KID_MODE_ACCESS
+      com.miui.bugreport.permission.DUMP_CACHED_LOG
+      android.permission.INTERACT_ACROSS_USERS
+      android.permission.SET_WALLPAPER
+      android.permission.CREDENTIAL_MANAGER_SET_ORIGIN
+      android.permission.WRITE_CALENDAR
+      android.permission.USE_REMOTE_MEDIA_SESSIONS
+      com.miui.passwords.permission.OPEN_SETTINGS
+      com.xiaomi.permission.USE_KEYBOX
+      android.permission.READ_MEDIA_AUDIO
+      android.permission.READ_MEDIA_VIDEO
+      android.permission.MAINLINE_NETWORK_STACK
+      android.permission.READ_SYNC_STATS
+      android.permission.MANAGE_LOCKSCREEN
+      com.miui.mishare.PERMISSION.ALL
+      android.permission.CLIPBOARD_MANAGE
+      android.permission.READ_SYNC_SETTINGS
+      android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK
+      com.xiaomi.permission.SYNC_TAG_DATA
+      miui.permission.NAVIGATIONBAR
+      android.permission.WRITE_EXTERNAL_STORAGE
+      android.permission.READ_AIACTION
+      android.permission.VIBRATE
+      com.android.browser.permission.MIPUSH_RECEIVE
+      com.xiaomi.dist.permission.ACCESS_APP_HANDOFF
+      com.miui.cloudserive.permission.USE_KEYCHAIN
+      android.permission.ACCESS_WIFI_STATE
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT
+      android.permission.INSTALL_SHORTCUT
+      android.permission.REQUEST_INSTALL_PACKAGES
+      com.android.launcher.permission.INSTALL_SHORTCUT
+      android.permission.QUERY_ALL_PACKAGES
+      android.permission.RECORD_AUDIO
+      android.permission.READ_DEVICE_CONFIG
+      android.permission.WAKE_LOCK
+    install permissions:
+      android.permission.DOWNLOAD_WITHOUT_NOTIFICATION: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.USE_CREDENTIALS: granted=true
+      android.permission.MODIFY_AUDIO_SETTINGS: granted=true
+      android.permission.MANAGE_EXTERNAL_STORAGE: granted=true
+      com.miui.passwords.permission.MIGRATION_IMPORTER_DATA: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      android.permission.SYSTEM_ALERT_WINDOW: granted=true
+      miui.permission.USE_INTERNAL_GENERAL_API: granted=true
+      android.permission.NFC: granted=true
+      android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS: granted=true
+      com.xiaomi.dist.permission.ACCESS_APP_META: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.WRITE_SYNC_SETTINGS: granted=true
+      android.permission.DEVICE_POWER: granted=true
+      com.xiaomi.security.xsof.permission.ACCESS_XSOF_FRAUD_DETECTION: granted=true
+      android.permission.EXPAND_STATUS_BAR: granted=true
+      com.android.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.BLUETOOTH: granted=true
+      com.xiaomi.permission.BIND_CONTINUITY_SERVICE: granted=true
+      android.permission.GET_TASKS: granted=true
+      com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.AUTHENTICATE_ACCOUNTS: granted=true
+      android.permission.INTERNET: granted=true
+      com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      com.android.launcher.permission.WRITE_SETTINGS: granted=true
+      com.miui.systemAdSolution.adSwitch.PROVIDER: granted=true
+      android.permission.ACCESS_ALL_DOWNLOADS: granted=true
+      android.permission.STOP_APP_SWITCHES: granted=true
+      com.xiaomi.permission.ACCESS_SECURITY_DEVICE_CREDENTIAL: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE: granted=true
+      com.android.launcher.permission.READ_SETTINGS: granted=true
+      android.permission.ACCESS_DOWNLOAD_MANAGER: granted=true
+      android.permission.BROADCAST_STICKY: granted=true
+      greenguard.permission.dangerous.interception: granted=true
+      com.xiaomi.permission.CLOUD_MANAGER: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      com.xiaomi.permission.AUTH_SERVICE: granted=true
+      android.permission.MANAGE_MEDIA: granted=true
+      android.permission.SET_PREFERRED_APPLICATIONS: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      com.miui.securityadd.permission.KID_MODE_ACCESS: granted=true
+      com.miui.bugreport.permission.DUMP_CACHED_LOG: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      android.permission.SET_WALLPAPER: granted=true
+      android.permission.CREDENTIAL_MANAGER_SET_ORIGIN: granted=true
+      com.miui.passwords.permission.OPEN_SETTINGS: granted=true
+      com.xiaomi.permission.USE_KEYBOX: granted=true
+      android.permission.MAINLINE_NETWORK_STACK: granted=true
+      android.permission.READ_SYNC_STATS: granted=true
+      com.miui.mishare.PERMISSION.ALL: granted=true
+      android.permission.READ_SYNC_SETTINGS: granted=true
+      android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK: granted=true
+      com.xiaomi.permission.SYNC_TAG_DATA: granted=true
+      miui.permission.NAVIGATIONBAR: granted=true
+      android.permission.VIBRATE: granted=true
+      com.android.browser.permission.MIPUSH_RECEIVE: granted=true
+      com.xiaomi.dist.permission.ACCESS_APP_HANDOFF: granted=true
+      com.miui.cloudserive.permission.USE_KEYCHAIN: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.REQUEST_INSTALL_PACKAGES: granted=true
+      com.android.launcher.permission.INSTALL_SHORTCUT: granted=true
+      android.permission.QUERY_ALL_PACKAGES: granted=true
+      android.permission.READ_DEVICE_CONFIG: granted=true
+      android.permission.WAKE_LOCK: granted=true
+    User 0: ceDataInode=14534 deDataInode=8790 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/0/com.android.browser
+      firstInstallTime=1970-05-06 08:11:49
+      uninstallReason=0
+      overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      legacy overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+      micloud-sdk overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      micloud-sdk legacy overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+      lastDisabledCaller: com.xiaomi.market
+      gids=[3002, 3003, 3005, 3004]
+      runtime permissions:
+        android.permission.READ_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.POST_NOTIFICATIONS: granted=false, flags=[ USER_FIXED|GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.RECORD_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+      disabledComponents:
+        com.xiaomi.push.service.XMPushService
+        androidx.work.impl.background.systemalarm.RescheduleReceiver
+      enabledComponents:
+        com.android.browser.filemanager.extract.UnExtractedFilePreviewActivity
+        com.android.browser.filemanager.ImageOpenDispatcherActivity
+        com.android.browser.FileOpenDispatcherActivity
+        androidx.work.impl.background.systemjob.SystemJobService
+        com.android.browser.filemanager.VideoPlayerActivity
+    User 999: ceDataInode=0 deDataInode=0 installed=false hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=null
+      firstInstallTime=2026-07-11 11:43:23
+      uninstallReason=0
+      overlay paths:
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      micloud-sdk overlay paths:
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      gids=[3002, 3003, 3005, 3004]
+      runtime permissions:
+        android.permission.READ_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.POST_NOTIFICATIONS: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_FINE_LOCATION: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_COARSE_LOCATION: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.RECORD_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+
+Hidden system packages:
+  Package [com.android.browser] (b3cd92):
+    appId=10127
+    pkg=Package{61d3363 com.android.browser}
+    codePath=/product/priv-app/MIUIBrowser
+    resourcePath=/product/priv-app/MIUIBrowser
+    legacyNativeLibraryDir=/product/priv-app/MIUIBrowser/lib
+    extractNativeLibs=true
+    primaryCpuAbi=arm64-v8a
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=200201100 minSdk=28 targetSdk=34
+    minExtensionVersions=[]
+    versionName=20.2.110122
+    hiddenApiEnforcementPolicy=2
+    usesNonSdkApi=false
+    isMiuiPreinstall=false
+    splits=[base]
+    apkSigningVersion=0
+    flags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP KILL_AFTER_RESTORE LARGE_HEAP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE HAS_DOMAIN_URLS PARTIALLY_DIRECT_BOOT_AWARE PRIVILEGED PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    hasPreserveLegacyExternalStorage=true
+    forceQueryable=false
+    pageSizeCompat=0
+    queriesPackages=[com.tencent.mm]
+    queriesIntents=[Intent { act=com.xiaomi.dist.intent.action.APP_HANDOFF }, Intent { act=com.android.browser.customtabs.action.CustomTabsService }]
+    scannedAsStoppedSystemApp=false
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    usesLibraries:
+      micloud-sdk
+    usesOptionalLibraries:
+      org.apache.http.legacy
+      com.android.qualcomm.modemwarmup
+      androidx.window.extensions
+      androidx.window.sidecar
+    timeStamp=2009-01-01 06:00:00
+    lastUpdateTime=1970-01-01 05:59:59
+    installerPackageName=null
+    installerPackageUid=-1
+    initiatingPackageName=null
+    originatingPackageName=null
+    packageSource=0
+    appMetadataFilePath=null
+    appMetadataSource=0
+    signatures=PackageSignatures{1a93b60 version:0, signatures:[], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ SYSTEM HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP KILL_AFTER_RESTORE LARGE_HEAP ]
+    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE HAS_DOMAIN_URLS PARTIALLY_DIRECT_BOOT_AWARE PRIVILEGED PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    apexModuleName=null
+    declared permissions:
+      com.android.browser.permission.MIPUSH_RECEIVE: prot=signature|privileged
+      com.android.browser.customtabs.permission.READ_CTA: prot=normal
+      com.android.browser.customtabs.permission.WRITE_CTA: prot=signature
+      com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
+      com.android.browser.permission.CHILD_SERVICE: prot=signature
+      com.miui.webview.permission.MIGRATION_EXPORTER_DATA: prot=normal
+    requested permissions:
+      android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
+      android.permission.WRITE_SETTINGS
+      android.permission.POST_NOTIFICATIONS
+      com.xiaomi.market.sdk.UPDATE
+      android.permission.ACCESS_FINE_LOCATION
+      android.permission.USE_CREDENTIALS
+      com.android.browser.permission.READ_HOMEPAGE
+      android.permission.MODIFY_AUDIO_SETTINGS
+      android.permission.MANAGE_EXTERNAL_STORAGE
+      com.miui.passwords.permission.MIGRATION_IMPORTER_DATA
+      android.permission.MANAGE_ACCOUNTS
+      android.permission.SYSTEM_ALERT_WINDOW
+      miui.permission.USE_INTERNAL_GENERAL_API
+      android.permission.NFC
+      android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS
+      android.permission.FOREGROUND_SERVICE
+      android.permission.READ_MEDIA_VISUAL_USER_SELECTED
+      android.permission.WRITE_SYNC_SETTINGS
+      com.xiaomi.permission.MICLOUD
+      android.permission.DEVICE_POWER
+      com.android.browser.permission.WRITE_HOMEPAGE
+      android.permission.EXPAND_STATUS_BAR
+      com.android.launcher.permission.UNINSTALL_SHORTCUT
+      com.xiaomi.passport.permission.PASSPORT_UI_CONTROLLER_SERVICE
+      com.asus.msa.SupplementaryDID.ACCESS
+      android.permission.BLUETOOTH
+      com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+      android.permission.AUTHENTICATE_ACCOUNTS
+      android.permission.INTERNET
+      android.permission.REORDER_TASKS
+      android.permission.READ_EXTERNAL_STORAGE
+      com.android.launcher.permission.WRITE_SETTINGS
+      com.baidu.duersdk.miui.provider
+      com.miui.systemAdSolution.adSwitch.PROVIDER
+      android.permission.STOP_APP_SWITCHES
+      com.xiaomi.permission.ACCESS_SECURITY_DEVICE_CREDENTIAL
+      android.permission.WRITE_SECURE_SETTINGS
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE
+      android.permission.ACCESS_COARSE_LOCATION
+      com.android.launcher.permission.READ_SETTINGS
+      android.permission.ACCESS_DOWNLOAD_MANAGER
+      greenguard.permission.dangerous.interception
+      com.xiaomi.permission.CLOUD_MANAGER
+      android.permission.READ_MEDIA_IMAGES
+      android.permission.CHANGE_WIFI_STATE
+      com.xiaomi.permission.AUTH_SERVICE
+      android.permission.SET_PREFERRED_APPLICATIONS
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.CAMERA
+      com.miui.securityadd.permission.KID_MODE_ACCESS
+      com.miui.bugreport.permission.DUMP_CACHED_LOG
+      android.permission.INTERACT_ACROSS_USERS
+      android.permission.SET_WALLPAPER
+      android.permission.CREDENTIAL_MANAGER_SET_ORIGIN
+      com.miui.passwords.permission.OPEN_SETTINGS
+      android.permission.READ_MEDIA_AUDIO
+      android.permission.READ_MEDIA_VIDEO
+      android.permission.MAINLINE_NETWORK_STACK
+      android.permission.READ_SYNC_STATS
+      com.miui.mishare.PERMISSION.ALL
+      android.permission.CLIPBOARD_MANAGE
+      android.permission.READ_SYNC_SETTINGS
+      com.xiaomi.permission.SYNC_TAG_DATA
+      android.permission.WRITE_EXTERNAL_STORAGE
+      android.permission.READ_AIACTION
+      android.permission.VIBRATE
+      com.android.browser.permission.MIPUSH_RECEIVE
+      com.xiaomi.dist.permission.ACCESS_APP_HANDOFF
+      com.miui.cloudserive.permission.USE_KEYCHAIN
+      android.permission.ACCESS_WIFI_STATE
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT
+      android.permission.REQUEST_INSTALL_PACKAGES
+      com.android.launcher.permission.INSTALL_SHORTCUT
+      android.permission.QUERY_ALL_PACKAGES
+      android.permission.RECORD_AUDIO
+      android.permission.READ_DEVICE_CONFIG
+      android.permission.WAKE_LOCK
+    install permissions:
+      android.permission.DOWNLOAD_WITHOUT_NOTIFICATION: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.USE_CREDENTIALS: granted=true
+      android.permission.MODIFY_AUDIO_SETTINGS: granted=true
+      android.permission.MANAGE_EXTERNAL_STORAGE: granted=true
+      com.miui.passwords.permission.MIGRATION_IMPORTER_DATA: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      android.permission.SYSTEM_ALERT_WINDOW: granted=true
+      miui.permission.USE_INTERNAL_GENERAL_API: granted=true
+      android.permission.NFC: granted=true
+      android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS: granted=true
+      com.xiaomi.dist.permission.ACCESS_APP_META: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.WRITE_SYNC_SETTINGS: granted=true
+      android.permission.DEVICE_POWER: granted=true
+      com.xiaomi.security.xsof.permission.ACCESS_XSOF_FRAUD_DETECTION: granted=true
+      android.permission.EXPAND_STATUS_BAR: granted=true
+      com.android.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.BLUETOOTH: granted=true
+      com.xiaomi.permission.BIND_CONTINUITY_SERVICE: granted=true
+      android.permission.GET_TASKS: granted=true
+      com.android.browser.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.AUTHENTICATE_ACCOUNTS: granted=true
+      android.permission.INTERNET: granted=true
+      com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      com.android.launcher.permission.WRITE_SETTINGS: granted=true
+      com.miui.systemAdSolution.adSwitch.PROVIDER: granted=true
+      android.permission.ACCESS_ALL_DOWNLOADS: granted=true
+      android.permission.STOP_APP_SWITCHES: granted=true
+      com.xiaomi.permission.ACCESS_SECURITY_DEVICE_CREDENTIAL: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE: granted=true
+      com.android.launcher.permission.READ_SETTINGS: granted=true
+      android.permission.ACCESS_DOWNLOAD_MANAGER: granted=true
+      android.permission.BROADCAST_STICKY: granted=true
+      greenguard.permission.dangerous.interception: granted=true
+      com.xiaomi.permission.CLOUD_MANAGER: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      com.xiaomi.permission.AUTH_SERVICE: granted=true
+      android.permission.MANAGE_MEDIA: granted=true
+      android.permission.SET_PREFERRED_APPLICATIONS: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      com.miui.securityadd.permission.KID_MODE_ACCESS: granted=true
+      com.miui.bugreport.permission.DUMP_CACHED_LOG: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      android.permission.SET_WALLPAPER: granted=true
+      android.permission.CREDENTIAL_MANAGER_SET_ORIGIN: granted=true
+      com.miui.passwords.permission.OPEN_SETTINGS: granted=true
+      com.xiaomi.permission.USE_KEYBOX: granted=true
+      android.permission.MAINLINE_NETWORK_STACK: granted=true
+      android.permission.READ_SYNC_STATS: granted=true
+      com.miui.mishare.PERMISSION.ALL: granted=true
+      android.permission.READ_SYNC_SETTINGS: granted=true
+      android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK: granted=true
+      com.xiaomi.permission.SYNC_TAG_DATA: granted=true
+      miui.permission.NAVIGATIONBAR: granted=true
+      android.permission.VIBRATE: granted=true
+      com.android.browser.permission.MIPUSH_RECEIVE: granted=true
+      com.xiaomi.dist.permission.ACCESS_APP_HANDOFF: granted=true
+      com.miui.cloudserive.permission.USE_KEYCHAIN: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.REQUEST_INSTALL_PACKAGES: granted=true
+      com.android.launcher.permission.INSTALL_SHORTCUT: granted=true
+      android.permission.QUERY_ALL_PACKAGES: granted=true
+      android.permission.READ_DEVICE_CONFIG: granted=true
+      android.permission.WAKE_LOCK: granted=true
+    User 0: ceDataInode=0 deDataInode=0 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/0/com.android.browser
+      firstInstallTime=1970-01-01 05:59:59
+      uninstallReason=0
+      gids=[3002, 3003, 3005, 3004]
+      runtime permissions:
+        android.permission.READ_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.POST_NOTIFICATIONS: granted=false, flags=[ USER_FIXED|GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.RECORD_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+    User 999: ceDataInode=0 deDataInode=0 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/999/com.android.browser
+      firstInstallTime=1970-01-01 06:00:00
+      uninstallReason=0
+      gids=[3002, 3003, 3005, 3004]
+      runtime permissions:
+        android.permission.READ_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.POST_NOTIFICATIONS: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_FINE_LOCATION: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_COARSE_LOCATION: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.RECORD_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+
+Queries:
+  system apps queryable: false
+  queries via forceQueryable:
+  forceQueryable:
+    com.android.browser
+  queries via package name:
+    com.android.browser:
+      com.android.mms
+      com.facebook.katana
+    com.xiaomi.aicr:
+      com.android.browser
+    com.android.providers.downloads.ui:
+      com.android.browser
+  queries via component:
+    [com.miui.powerkeeper,com.qualcomm.qti.xrvd.service,com.xiaomi.otrpbroker,com.qualcomm.qti.services.systemhelper,com.xiaomi.misettings,com.xiaomi.mi_connect_service,com.miui.securitycenter,com.xiaomi.aiasst.service,com.bsp.catchlog,com.android.dynsystem,com.android.location.fused,vendor.qti.frameworks.utils,com.android.DeviceAsWebcam,com.xiaomi.digitalkey,android,com.miui.wmsvc,com.xiaomi.location.fused,miui.systemui.plugin,com.wapi.wapicertmanage,com.miui.daemon,com.xiaomi.touchservice,com.miui.audiomonitor,com.miui.misightservice,com.android.provision,com.android.providers.settings,com.android.server.telecom,com.miui.aod,com.miui.qr,com.miui.securitycore,com.miui.thirdappassistant,com.android.inputdevices,com.xiaomi.mirror,com.android.keychain,com.android.localtransport,com.xiaomi.barrage,com.xiaomi.aon,com.xiaomi.aiasst.vision,com.miui.notification,com.xiaomi.trustservice,com.android.settings,com.android.systemui,com.xiaomi.mtb,com.xiaomi.gnss.polaris,com.miui.touchassistant]:
+      com.android.browser
+    [com.st.android.nfc_extensions_16,com.miui.tsmclient,com.android.nfc]:
+      com.android.browser
+    com.miui.backup:
+      com.android.browser
+    com.android.thememanager:
+      com.android.browser
+    com.xiaomi.finddevice:
+      com.android.browser
+    com.android.vending:
+      com.android.browser
+    com.google.android.gms:
+      com.android.browser
+    com.android.browser:
+      com.google.android.documentsui
+      com.android.imsserviceentitlement
+      com.android.contacts
+      com.android.mms
+      [app id 10143 not installed]
+      [app id 10185 not installed]
+      com.google.android.accessibility.switchaccess
+      com.unionpay.tsmservice.mi
+      com.android.virtualization.terminal
+      com.android.photopicker
+      com.android.healthconnect.controller
+      com.android.cts.priv.ctsshim
+      com.android.cts.ctsshim
+      com.google.android.apps.bard
+      com.google.android.contacts
+      com.google.android.googlequicksearchbox
+      com.jrustonapps.myearthquakealerts
+      com.cibl.pbl
+      com.shohoz.dtrainpwa
+      com.miui.cleanmaster
+      com.miui.compass
+      com.esound
+      com.whatsapp
+      com.miui.calculator
+      com.ptsl.caab
+      com.android.deskclock
+      com.xiaomi.scanner
+      com.opus_bd.lostandfound
+      com.ubercab
+      com.pathao.user
+      com.duokan.phone.remotecontroller
+      com.discord
+      us.zoom.videomeetings
+      com.miui.gallery
+      com.miui.screenrecorder
+      com.imo.android.imoim
+      com.google.android.apps.walletnfcrel
+      com.intsig.camscanner
+      com.mfashiongallery.emag
+      cn.wps.moffice_eng.xiaomi.lite
+      com.aig.aigmitr
+      com.gozayaan.app
+      com.duolingo
+      com.linkedin.android
+      com.miui.weather2
+      com.android.providers.downloads.ui
+      com.miui.findmy
+      com.android.soundrecorder
+      com.google.android.inputmethod.latin
+      com.google.android.apps.maps
+      com.facebook.katana
+      com.instagram.android
+      com.android.chrome
+      com.google.android.apps.photos
+      com.google.android.calendar
+      com.facebook.orca
+      com.google.android.apps.credentialmanager
+      com.google.android.apps.authenticator2
+      com.google.android.gm
+      teletalk.teletalkcustomerapp
+      com.google.android.youtube
+      com.dbbl.mbs.apps.main
+      com.portonics.mygp
+      com.bKash.customerapp
+      com.konasl.nagad
+      com.google.android.apps.docs
+      com.whatsapp.w4b
+      com.makemytrip
+      com.ixigo
+      com.myairtelapp
+      com.openai.chatgpt
+      net.skyscanner.android.main
+      com.google.android.apps.subscriptions.red
+      com.global.foodpanda.android
+      games.vaveda.militaryoverturn
+      com.microsoft.teams
+      com.android.calendar
+    com.android.contacts:
+      com.android.browser
+    com.miui.packageinstaller:
+      com.android.browser
+    [app id 10132 not installed]:
+      com.android.browser
+    [app id 10137 not installed]:
+      com.android.browser
+    com.android.settings.intelligence:
+      com.android.browser
+    [app id 10143 not installed]:
+      com.android.browser
+    com.xiaomi.aicr:
+      com.android.browser
+    com.miui.carlink:
+      com.android.browser
+    com.xiaomi.mis:
+      com.android.browser
+    [app id 10157 not installed]:
+      com.android.browser
+    [app id 10158 not installed]:
+      com.android.browser
+    com.miui.securityadd:
+      com.android.browser
+    com.xiaomi.market:
+      com.android.browser
+    com.miui.greenguard:
+      com.android.browser
+    [app id 10170 not installed]:
+      com.android.browser
+    com.xiaomi.account:
+      com.android.browser
+    [app id 10184 not installed]:
+      com.android.browser
+    com.google.android.accessibility.switchaccess:
+      com.android.browser
+    [app id 10191 not installed]:
+      com.android.browser
+    com.xiaomi.simactivate.service:
+      com.android.browser
+    com.xiaomi.xmsf:
+      com.android.browser
+    com.android.systemui.accessibility.accessibilitymenu:
+      com.android.browser
+    com.google.android.apps.bard:
+      com.android.browser
+    com.google.android.contacts:
+      com.android.browser
+    com.jrustonapps.myearthquakealerts:
+      com.android.browser
+    com.esound:
+      com.android.browser
+    com.whatsapp:
+      com.android.browser
+    com.ptsl.caab:
+      com.android.browser
+    com.opus_bd.lostandfound:
+      com.android.browser
+    com.ubercab:
+      com.android.browser
+    com.pathao.user:
+      com.android.browser
+    com.duokan.phone.remotecontroller:
+      com.android.browser
+    us.zoom.videomeetings:
+      com.android.browser
+    com.miui.gallery:
+      com.android.browser
+    com.imo.android.imoim:
+      com.android.browser
+    com.google.android.apps.walletnfcrel:
+      com.android.browser
+    com.intsig.camscanner:
+      com.android.browser
+    com.mfashiongallery.emag:
+      com.android.browser
+    com.miui.notes:
+      com.android.browser
+    cn.wps.moffice_eng.xiaomi.lite:
+      com.android.browser
+    com.aig.aigmitr:
+      com.android.browser
+    com.gozayaan.app:
+      com.android.browser
+    com.duolingo:
+      com.android.browser
+    com.android.providers.downloads.ui:
+      com.android.browser
+    com.android.soundrecorder:
+      com.android.browser
+    com.google.android.inputmethod.latin:
+      com.android.browser
+    com.google.android.apps.maps:
+      com.android.browser
+    com.facebook.katana:
+      com.android.browser
+    com.instagram.android:
+      com.android.browser
+    com.google.android.apps.photos:
+      com.android.browser
+    com.google.android.calendar:
+      com.android.browser
+    com.facebook.orca:
+      com.android.browser
+    com.google.android.gm:
+      com.android.browser
+    com.google.android.youtube:
+      com.android.browser
+    com.portonics.mygp:
+      com.android.browser
+    com.bKash.customerapp:
+      com.android.browser
+    com.konasl.nagad:
+      com.android.browser
+    com.google.android.apps.docs:
+      com.android.browser
+    com.whatsapp.w4b:
+      com.android.browser
+    com.makemytrip:
+      com.android.browser
+    com.ixigo:
+      com.android.browser
+    com.myairtelapp:
+      com.android.browser
+    com.openai.chatgpt:
+      com.android.browser
+    net.skyscanner.android.main:
+      com.android.browser
+    com.google.android.apps.subscriptions.red:
+      com.android.browser
+    com.global.foodpanda.android:
+      com.android.browser
+    games.vaveda.militaryoverturn:
+      com.android.browser
+    com.microsoft.teams:
+      com.android.browser
+    com.android.calendar:
+      com.android.browser
+  queryable via interaction:
+    User 0:
+    User 999:
+  queryable via uses-library:
+
+Dexopt state:
+  [com.android.browser]
+    path: /data/app/~~ZPIGBrZqJstBCbqpXBxNiw==/com.android.browser-QgQ5toqeKCxA197qR3ZUzA==/base.apk
+      arm64: [status=speed-profile] [reason=baseline] [primary-abi]
+        [location is /data/app/~~ZPIGBrZqJstBCbqpXBxNiw==/com.android.browser-QgQ5toqeKCxA197qR3ZUzA==/oat/arm64/base.odex]
+    known secondary dex files:
+      /data/user/0/com.android.browser/app_apk_dir/com.mitv.plugin.sdk.host-67/com.mitv.plugin.sdk.host.apk
+        arm64: [status=verify] [reason=bg-dexopt] [primary-abi]
+          [location is /data/user/0/com.android.browser/app_apk_dir/com.mitv.plugin.sdk.host-67/oat/arm64/com.mitv.plugin.sdk.host.odex]
+        class loader context: =UnsupportedClassLoaderContext=
+    base APK odex file size: base.art: 6749Kb base.odex: 28526Kb base.vdex: 185220Kb 
+
+Compiler stats:
+  [com.android.browser]
+     base.apk - 7265
+     MIUIBrowser.apk - 4572

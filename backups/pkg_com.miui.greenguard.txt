@@ -1,0 +1,1054 @@
+﻿Activity Resolver Table:
+  Schemes:
+      ggdl:
+        7be905c com.miui.greenguard/.ui.EntranceActivity filter 614a43a
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.BROWSABLE"
+          Scheme: "ggdl"
+          Authority: "greenguard.com": -1
+
+  Non-Data Actions:
+      com.greenguard.DangerInterceptActivity:
+        f74c88c com.miui.greenguard/com.miui.xm_base.ui.DangerInterceptActivity filter 21c3bd5
+          Action: "com.greenguard.DangerInterceptActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.android.action.ENTER_MINORS_MODE:
+        5c366 com.miui.greenguard/com.miui.minors.feature.presentation.ui.guide.local.MiddlePage filter ae176a7
+          Action: "com.android.action.ENTER_MINORS_MODE"
+          Action: "com.android.action.EXIT_MINORS_MODE"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.minors.guide:
+        5848b5 com.miui.greenguard/com.miui.minors.feature.presentation.ui.guide.GuideHomePageActivity filter cbc4b4a
+          Action: "com.miui.minors.guide"
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.MinorsVisitLimitActivity:
+        b4d3242 com.miui.greenguard/com.miui.xm_base.ui.MinorsVisitLimitActivity filter 63ab253
+          Action: "com.greenguard.MinorsVisitLimitActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.AppAndCategoryActivity:
+        ce78092 com.miui.greenguard/com.miui.xm_base.old.activity.AppAndCategoryActivity filter aaa6a63
+          Action: "com.greenguard.AppAndCategoryActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.minors.password.set:
+        1d2c79a com.miui.greenguard/com.miui.minors.feature.presentation.ui.password.MinorsPasswordSetActivity filter aac18cb
+          Action: "com.miui.minors.password.set"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.greenguard.screentime.name.category.detail:
+        291bb31 com.miui.greenguard/com.miui.minors.feature.presentation.ui.limit.NameAndCategoryDetailPage filter 7fbd216
+          Action: "com.miui.greenguard.screentime.name.category.detail"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.MAIN:
+        7be905c com.miui.greenguard/.ui.EntranceActivity filter f47af65
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.MONKEY"
+        fafc8eb com.miui.greenguard/.ui.MainActivity filter dd25648
+          Action: "android.intent.action.MAIN"
+        fafc8eb com.miui.greenguard/.ui.MainActivity filter c88dce1
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.MONKEY"
+        98ca06 com.miui.greenguard/com.miui.xm_base.ui.GuardedActivity filter 54008c7
+          Action: "android.intent.action.MAIN"
+        5848b5 com.miui.greenguard/com.miui.minors.feature.presentation.ui.guide.GuideHomePageActivity filter cbc4b4a
+          Action: "com.miui.minors.guide"
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+          Category: "android.intent.category.DEFAULT"
+      com.android.action.EXIT_MINORS_MODE:
+        5c366 com.miui.greenguard/com.miui.minors.feature.presentation.ui.guide.local.MiddlePage filter ae176a7
+          Action: "com.android.action.ENTER_MINORS_MODE"
+          Action: "com.android.action.EXIT_MINORS_MODE"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.MinorsDangerInterceptActivity:
+        bfe8fea com.miui.greenguard/com.miui.xm_base.ui.MinorsDangerInterceptActivity filter 438c2db
+          Action: "com.greenguard.MinorsDangerInterceptActivity"
+          Category: "android.intent.category.DEFAULT"
+      miui.intent.action.KIDMODE_ENTRANCE_NEW:
+        c00308e com.miui.greenguard/com.miui.child.home.kidspace.activity.KidModeActivity filter 6b420af
+          Action: "miui.intent.action.KIDMODE_ENTRANCE_NEW"
+          Category: "android.intent.category.DEFAULT"
+      com.android.action.PARENTAL_CREDENTIAL_AUTHENTICATE:
+        2d698a8 com.miui.greenguard/com.miui.minors.feature.presentation.ui.password.ValidPasswordActivity filter 1d25fc1
+          Action: "com.android.action.PARENTAL_CREDENTIAL_AUTHENTICATE"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.CommunicationActivity:
+        7ebe178 com.miui.greenguard/com.miui.xm_base.ui.CommunicationActivity filter 8f1c051
+          Action: "com.greenguard.CommunicationActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.AppManagerActivity:
+        9f913de com.miui.greenguard/com.miui.xm_base.ui.AppManagerActivity filter ecf49bf
+          Action: "com.greenguard.AppManagerActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.EyeSightActivity:
+        72dc0b6 com.miui.greenguard/com.miui.xm_base.ui.EyeSightActivity filter 1f6b1b7
+          Action: "com.greenguard.EyeSightActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.greenguard.screentime.detail:
+        34245f9 com.miui.greenguard/com.miui.minors.feature.presentation.ui.detail.MinorsScreenTimeDetailPage filter c1fd93e
+          Action: "com.miui.greenguard.screentime.detail"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.minors.home:
+        b1aaff2 com.miui.greenguard/com.miui.minors.feature.presentation.ui.MinorsHomeActivity filter 324d643
+          Action: "com.miui.minors.home"
+          Category: "android.intent.category.DEFAULT"
+      android.service.quicksettings.action.QS_TILE_PREFERENCES:
+        b1aaff2 com.miui.greenguard/com.miui.minors.feature.presentation.ui.MinorsHomeActivity filter ac9d4c0
+          Action: "android.service.quicksettings.action.QS_TILE_PREFERENCES"
+      com.greenguard.DeviceLimitActivity:
+        28ba660 com.miui.greenguard/com.miui.xm_base.ui.DeviceLimitActivity filter 674719
+          Action: "com.greenguard.DeviceLimitActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.VisitLimitActivity:
+        ab99d24 com.miui.greenguard/com.miui.xm_base.ui.VisitLimitActivity filter cc1108d
+          Action: "com.greenguard.VisitLimitActivity"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.greenguard.visualhealthy.detail:
+        1b4939f com.miui.greenguard/com.miui.minors.feature.presentation.ui.detail.MinorsVisualHealthDetailPage filter ad77cec
+          Action: "com.miui.greenguard.visualhealthy.detail"
+          Category: "android.intent.category.DEFAULT"
+      com.xiaomi.account.action.XIAOMI_ACCOUNT_QUICK_LOGIN:
+        33f5797 com.miui.greenguard/com.xiaomi.passport.ui.internal.ConfirmCredentialActivity filter 4727d84
+          Action: "com.xiaomi.account.action.XIAOMI_ACCOUNT_QUICK_LOGIN"
+          Category: "android.intent.category.DEFAULT"
+      miui.intent.kidmode.action.CHILD_PLAY_CONTENT:
+        8856790 com.miui.greenguard/com.miui.kidspace.child.view.activity.MainActivity filter fbb2889
+          Action: "miui.intent.kidmode.action.CHILD_PLAY_CONTENT"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.greenguard.screentime.app.limit:
+        58cabb com.miui.greenguard/com.miui.minors.feature.presentation.ui.limit.AppUsageLimitPage filter b357bd8
+          Action: "com.miui.greenguard.screentime.app.limit"
+          Category: "android.intent.category.DEFAULT"
+      miui.intent.kidmode.action.PARENT_CENTER:
+        3016cbc com.miui.greenguard/com.miui.kidspace.parentcenter.view.activity.ParentCenterMainActivity filter c24c445
+          Action: "miui.intent.kidmode.action.PARENT_CENTER"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.minors.password.select:
+        509754 com.miui.greenguard/com.miui.password.ui.PasswordTypeSelectActivity filter f6436fd
+          Action: "com.miui.minors.password.select"
+          Category: "android.intent.category.DEFAULT"
+      com.greenguard.AppUsageDetailActivity:
+        fda8ef4 com.miui.greenguard/com.miui.xm_base.old.activity.AppUsageDetailActivity filter c55661d
+          Action: "com.greenguard.AppUsageDetailActivity"
+          Category: "android.intent.category.DEFAULT"
+
+Receiver Resolver Table:
+  Non-Data Actions:
+      android.intent.action.BATTERY_OKAY:
+        bc634d9 com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy filter 54ce9e
+          Action: "android.intent.action.BATTERY_OKAY"
+          Action: "android.intent.action.BATTERY_LOW"
+      com.xiaomi.mipush.MESSAGE_ARRIVED:
+        e56d2a1 com.miui.greenguard/com.miui.xm_base.broadcastreceiver.XMPushMessageReceiver filter c0f5487
+          Action: "com.xiaomi.mipush.MESSAGE_ARRIVED"
+      android.intent.action.ACTION_POWER_DISCONNECTED:
+        b82b223 com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy filter 2feb320
+          Action: "android.intent.action.ACTION_POWER_DISCONNECTED"
+          Action: "android.intent.action.ACTION_POWER_CONNECTED"
+      com.xiaomi.mipush.ERROR:
+        e56d2a1 com.miui.greenguard/com.miui.xm_base.broadcastreceiver.XMPushMessageReceiver filter 5b24fb4
+          Action: "com.xiaomi.mipush.ERROR"
+      androidx.profileinstaller.action.SAVE_PROFILE:
+        3c0924d com.miui.greenguard/androidx.profileinstaller.ProfileInstallReceiver filter 9352450
+          Action: "androidx.profileinstaller.action.SAVE_PROFILE"
+      android.intent.action.DEVICE_STORAGE_LOW:
+        7444d7f com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy filter 6ebe14c
+          Action: "android.intent.action.DEVICE_STORAGE_LOW"
+          Action: "android.intent.action.DEVICE_STORAGE_OK"
+      android.net.conn.CONNECTIVITY_CHANGE:
+        d6dc925 com.miui.greenguard/com.xiaomi.push.service.receivers.NetworkStatusReceiver filter 2a61afa
+          Action: "android.net.conn.CONNECTIVITY_CHANGE"
+          Category: "android.intent.category.DEFAULT"
+        ddc4595 com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy filter a3b36aa
+          Action: "android.net.conn.CONNECTIVITY_CHANGE"
+      android.intent.action.LOCKED_BOOT_COMPLETED:
+        997d633 com.miui.greenguard/com.miui.kidspace.receiver.AppStartReceiver filter 75bedf0
+          Action: "android.intent.action.LOCKED_BOOT_COMPLETED"
+          Action: "android.intent.action.BOOT_COMPLETED"
+          mPriority=999, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      android.accounts.LOGIN_ACCOUNTS_POST_CHANGED:
+        c439f69 com.miui.greenguard/com.miui.xm_base.broadcastreceiver.AccountStatusChangeReceiver filter 7930dee
+          Action: "android.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Action: "android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.DEVICE_STORAGE_OK:
+        7444d7f com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy filter 6ebe14c
+          Action: "android.intent.action.DEVICE_STORAGE_LOW"
+          Action: "android.intent.action.DEVICE_STORAGE_OK"
+      com.xiaomi.market.DOWNLOAD_INSTALL_RESULT:
+        f15d96d com.miui.greenguard/com.miui.kidspace.parentcenter.receiver.DownloadInstallReceiver filter bdaf9a2
+          Action: "com.xiaomi.market.DOWNLOAD_INSTALL_RESULT"
+      com.xiaomi.mihomemanager.resetAppDataOrSetting:
+        a6cf7dd com.miui.greenguard/com.miui.minors.feature.presentation.receiver.RestoreByMiShowReceiver filter 5d90f52
+          Action: "com.xiaomi.mihomemanager.resetAppDataOrSetting"
+      android.intent.action.LOCALE_CHANGED:
+        befa28f com.miui.greenguard/com.miui.xm_base.broadcastreceiver.DeviceBootReceiver filter 229f91c
+          Action: "android.intent.action.LOCALE_CHANGED"
+          Action: "android.intent.action.BOOT_COMPLETED"
+      android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED:
+        c439f69 com.miui.greenguard/com.miui.xm_base.broadcastreceiver.AccountStatusChangeReceiver filter 7930dee
+          Action: "android.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Action: "android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Category: "android.intent.category.DEFAULT"
+      androidx.profileinstaller.action.INSTALL_PROFILE:
+        3c0924d com.miui.greenguard/androidx.profileinstaller.ProfileInstallReceiver filter a1ff102
+          Action: "androidx.profileinstaller.action.INSTALL_PROFILE"
+      android.intent.action.BATTERY_LOW:
+        bc634d9 com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy filter 54ce9e
+          Action: "android.intent.action.BATTERY_OKAY"
+          Action: "android.intent.action.BATTERY_LOW"
+      android.intent.action.TIMEZONE_CHANGED:
+        75a429b com.miui.greenguard/androidx.work.impl.background.systemalarm.RescheduleReceiver filter 9bc638
+          Action: "android.intent.action.TIMEZONE_CHANGED"
+          Action: "android.intent.action.TIME_SET"
+          Action: "android.intent.action.BOOT_COMPLETED"
+      android.intent.action.TIME_SET:
+        75a429b com.miui.greenguard/androidx.work.impl.background.systemalarm.RescheduleReceiver filter 9bc638
+          Action: "android.intent.action.TIMEZONE_CHANGED"
+          Action: "android.intent.action.TIME_SET"
+          Action: "android.intent.action.BOOT_COMPLETED"
+      androidx.profileinstaller.action.SKIP_FILE:
+        3c0924d com.miui.greenguard/androidx.profileinstaller.ProfileInstallReceiver filter 4946a13
+          Action: "androidx.profileinstaller.action.SKIP_FILE"
+      androidx.profileinstaller.action.BENCHMARK_OPERATION:
+        3c0924d com.miui.greenguard/androidx.profileinstaller.ProfileInstallReceiver filter 2910649
+          Action: "androidx.profileinstaller.action.BENCHMARK_OPERATION"
+      android.intent.action.BOOT_COMPLETED:
+        997d633 com.miui.greenguard/com.miui.kidspace.receiver.AppStartReceiver filter 75bedf0
+          Action: "android.intent.action.LOCKED_BOOT_COMPLETED"
+          Action: "android.intent.action.BOOT_COMPLETED"
+          mPriority=999, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+        befa28f com.miui.greenguard/com.miui.xm_base.broadcastreceiver.DeviceBootReceiver filter 229f91c
+          Action: "android.intent.action.LOCALE_CHANGED"
+          Action: "android.intent.action.BOOT_COMPLETED"
+        75a429b com.miui.greenguard/androidx.work.impl.background.systemalarm.RescheduleReceiver filter 9bc638
+          Action: "android.intent.action.TIMEZONE_CHANGED"
+          Action: "android.intent.action.TIME_SET"
+          Action: "android.intent.action.BOOT_COMPLETED"
+      android.intent.action.ACTION_POWER_CONNECTED:
+        b82b223 com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy filter 2feb320
+          Action: "android.intent.action.ACTION_POWER_DISCONNECTED"
+          Action: "android.intent.action.ACTION_POWER_CONNECTED"
+      com.xiaomi.accounts.LOGIN_ACCOUNTS_PRE_CHANGED:
+        c439f69 com.miui.greenguard/com.miui.xm_base.broadcastreceiver.AccountStatusChangeReceiver filter 7930dee
+          Action: "android.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Action: "android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Category: "android.intent.category.DEFAULT"
+      com.xiaomi.push.PING_TIMER:
+        44dd8ab com.miui.greenguard/com.xiaomi.push.service.receivers.PingReceiver filter c6b8b08
+          Action: "com.xiaomi.push.PING_TIMER"
+      com.xiaomi.mipush.RECEIVE_MESSAGE:
+        e56d2a1 com.miui.greenguard/com.miui.xm_base.broadcastreceiver.XMPushMessageReceiver filter 8aaecc6
+          Action: "com.xiaomi.mipush.RECEIVE_MESSAGE"
+      androidx.work.diagnostics.REQUEST_DIAGNOSTICS:
+        4106d77 com.miui.greenguard/androidx.work.impl.diagnostics.DiagnosticsReceiver filter d630de4
+          Action: "androidx.work.diagnostics.REQUEST_DIAGNOSTICS"
+      androidx.work.impl.background.systemalarm.UpdateProxies:
+        8a611 com.miui.greenguard/androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver filter 86e1376
+          Action: "androidx.work.impl.background.systemalarm.UpdateProxies"
+      com.xiaomi.accounts.LOGIN_ACCOUNTS_POST_CHANGED:
+        c439f69 com.miui.greenguard/com.miui.xm_base.broadcastreceiver.AccountStatusChangeReceiver filter 7930dee
+          Action: "android.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Action: "android.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_PRE_CHANGED"
+          Action: "com.xiaomi.accounts.LOGIN_ACCOUNTS_POST_CHANGED"
+          Category: "android.intent.category.DEFAULT"
+
+Service Resolver Table:
+  Non-Data Actions:
+      com.xiaomi.accounts.AccountAuthenticator:
+        ae69e5a com.miui.greenguard/com.xiaomi.passport.accountmanager.OwnAppXiaomiAccountAuthenticatorService filter c0d088b
+          Action: "com.xiaomi.accounts.AccountAuthenticator"
+      com.xiaomi.account.action.BIND_ACCOUNT_EXCHANGE_SERVICE_V2:
+        a92d68 com.miui.greenguard/com.xiaomi.account.service.AppAccountExchangeService filter a4e3581 permission com.xiaomi.permission.CLOUD_MANAGER
+          Action: "com.xiaomi.account.action.BIND_ACCOUNT_EXCHANGE_SERVICE_V2"
+
+Provider Resolver Table:
+  Non-Data Actions:
+      com.miui.greenguard.access.data:
+        d201b4e com.miui.greenguard/com.miui.minors.provider.AppDataProvider filter b51946f
+          Action: "com.miui.greenguard.access.data"
+          Category: "android.intent.category.DEFAULT"
+      com.miui.bugreport.intent.ACTION_DUMP_CACHED_LOG:
+        9d0357c com.miui.greenguard/com.miui.bugreport.logprovider.DumpLogProvider filter 7dabe05
+          Action: "com.miui.bugreport.intent.ACTION_DUMP_CACHED_LOG"
+
+Domain verification status:
+
+Permissions:
+  Permission [com.miui.greenguard.permission.MIPUSH_RECEIVE] (ffa41f):
+    sourcePackage=com.miui.greenguard
+    uid=10169 gids=[] type=0 prot=signature
+    perm=PermissionInfo{edcb63c com.miui.greenguard.permission.MIPUSH_RECEIVE}
+    flags=0x0
+
+Permissions:
+  Permission [greenguard.permission.dangerous.interception] (fd4836c):
+    sourcePackage=com.miui.greenguard
+    uid=10169 gids=[] type=0 prot=signature|privileged
+    perm=PermissionInfo{cf815bd greenguard.permission.dangerous.interception}
+    flags=0x0
+
+Permissions:
+  Permission [com.miui.greenguard.permission.ACCESS_APP_DATA] (f0f0d35):
+    sourcePackage=com.miui.greenguard
+    uid=10169 gids=[] type=0 prot=signature|privileged
+    perm=PermissionInfo{c410a89 com.miui.greenguard.permission.ACCESS_APP_DATA}
+    flags=0x0
+
+Permissions:
+  Permission [com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (b6cf5ca):
+    sourcePackage=com.miui.greenguard
+    uid=10169 gids=[] type=0 prot=signature
+    perm=PermissionInfo{834b0 com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
+    flags=0x0
+
+Registered ContentProviders:
+  com.miui.greenguard/androidx.startup.InitializationProvider:
+    Provider{38933f4 com.miui.greenguard/androidx.startup.InitializationProvider}
+  com.miui.greenguard/com.miui.kidspace.child.record.RecordProvider:
+    Provider{f84d6f3 com.miui.greenguard/com.miui.kidspace.child.record.RecordProvider}
+  com.miui.greenguard/com.miui.minors.provider.AppDataProvider:
+    Provider{d201b4e com.miui.greenguard/com.miui.minors.provider.AppDataProvider}
+  com.miui.greenguard/com.miui.bugreport.logprovider.DumpLogProvider:
+    Provider{9d0357c com.miui.greenguard/com.miui.bugreport.logprovider.DumpLogProvider}
+  com.miui.greenguard/com.xiaomi.passport.ui.settings.provider.PassportFileProvider:
+    Provider{8b46a99 com.miui.greenguard/com.xiaomi.passport.ui.settings.provider.PassportFileProvider}
+
+ContentProvider Authorities:
+  [com.miui.greenguard.provider.bugreport]:
+    Provider{9d0357c com.miui.greenguard/com.miui.bugreport.logprovider.DumpLogProvider}
+      applicationInfo=ApplicationInfo{484633b com.miui.greenguard}
+  [com.miui.greenguard.androidx-startup]:
+    Provider{38933f4 com.miui.greenguard/androidx.startup.InitializationProvider}
+      applicationInfo=ApplicationInfo{d3c6a58 com.miui.greenguard}
+  [com.miui.child.home.recordProvider_new]:
+    Provider{f84d6f3 com.miui.greenguard/com.miui.kidspace.child.record.RecordProvider}
+      applicationInfo=ApplicationInfo{33047b1 com.miui.greenguard}
+  [com.miui.greenguard.passport.fileprovider]:
+    Provider{8b46a99 com.miui.greenguard/com.xiaomi.passport.ui.settings.provider.PassportFileProvider}
+      applicationInfo=ApplicationInfo{54ca496 com.miui.greenguard}
+  [com.miui.greenguard.provider.AppDataProvider]:
+    Provider{d201b4e com.miui.greenguard/com.miui.minors.provider.AppDataProvider}
+      applicationInfo=ApplicationInfo{dcbf817 com.miui.greenguard}
+
+Key Set Manager:
+  [com.miui.greenguard]
+      Signing KeySets: 1
+
+Packages:
+  Package [com.miui.greenguard] (f27d69c):
+    appId=10169
+    pkg=Package{218a5 com.miui.greenguard}
+    codePath=/data/app/~~Q5fPT4TJMf-eRkaTkTuQpA==/com.miui.greenguard-eE5T-LlFM2gckgfIZE1gBw==
+    resourcePath=/data/app/~~Q5fPT4TJMf-eRkaTkTuQpA==/com.miui.greenguard-eE5T-LlFM2gckgfIZE1gBw==
+    legacyNativeLibraryDir=/data/app/~~Q5fPT4TJMf-eRkaTkTuQpA==/com.miui.greenguard-eE5T-LlFM2gckgfIZE1gBw==/lib
+    extractNativeLibs=false
+    primaryCpuAbi=arm64-v8a
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=1320260725 minSdk=26 targetSdk=35
+    minExtensionVersions=[]
+    versionName=3.13.07.25.00
+    hiddenApiEnforcementPolicy=0
+    usesNonSdkApi=false
+    isMiuiPreinstall=false
+    splits=[base]
+    apkSigningVersion=3
+    flags=[ SYSTEM HAS_CODE UPDATED_SYSTEM_APP ALLOW_BACKUP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_UNRESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PARTIALLY_DIRECT_BOOT_AWARE PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    pageSizeCompat=0
+    queriesPackages=[de.robv.android.xposed.installer, com.saurik.substrate, com.xiaomi.account, com.xiaomi.controlscreen.account, com.tencent.mm, com.tencent.mobileqq, com.facebook.katana, com.sina.weibo, com.xiaomi.smarthome, com.miui.greenguard, com.mi.health, com.android.mms, androidx.test.orchestrator, androidx.test.services, com.google.android.apps.common.testing.services]
+    queriesIntents=[Intent { act=android.intent.action.MAIN }, Intent { act=android.intent.action.VIEW }, Intent { act=android.intent.action.SEND }, Intent { act=com.android.camera.action.CROP }]
+    scannedAsStoppedSystemApp=false
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    usesOptionalLibraries:
+      org.apache.http.legacy
+      androidx.window.extensions
+      androidx.window.sidecar
+    usesLibraryFiles:
+      /system/framework/org.apache.http.legacy.jar
+      /system_ext/framework/androidx.window.extensions.jar
+      /system_ext/framework/androidx.window.sidecar.jar
+    timeStamp=2026-10-23 15:17:59
+    lastUpdateTime=2026-10-23 15:18:00
+    installerPackageName=com.xiaomi.market
+    installerPackageUid=10168
+    initiatingPackageName=com.xiaomi.market
+    originatingPackageName=null
+    packageSource=0
+    appMetadataFilePath=null
+    appMetadataSource=0
+    signatures=PackageSignatures{904f47a version:3, signatures:[6c02dd51], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ SYSTEM HAS_CODE UPDATED_SYSTEM_APP ALLOW_BACKUP ]
+    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_UNRESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PARTIALLY_DIRECT_BOOT_AWARE PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    apexModuleName=null
+    declared permissions:
+      greenguard.permission.dangerous.interception: prot=signature|privileged
+      com.miui.greenguard.permission.MIPUSH_RECEIVE: prot=signature
+      com.miui.greenguard.permission.ACCESS_APP_DATA: prot=signature|privileged
+      com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
+    requested permissions:
+      android.permission.FOREGROUND_SERVICE_CAMERA
+      android.permission.WRITE_SETTINGS
+      android.permission.READ_SMS
+      android.permission.POST_NOTIFICATIONS
+      android.permission.READ_CALL_LOG
+      android.permission.ACCESS_FINE_LOCATION
+      android.permission.USE_CREDENTIALS
+      com.android.settings.permission.READ_SETTINGS
+      android.permission.MODIFY_AUDIO_ROUTING
+      android.permission.ACCESS_MOCK_LOCATION
+      android.permission.START_ACTIVITY_AS_CALLER
+      android.permission.MANAGE_ACCOUNTS
+      com.miui.securitycenter.permission.ACCESS_SECURITY_CENTER_PROVIDER
+      com.xiaomi.mihomemanager.permission.receiveBroadcast
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE
+      android.permission.INTERNAL_SYSTEM_WINDOW
+      android.permission.FOREGROUND_SERVICE
+      android.permission.READ_MEDIA_VISUAL_USER_SELECTED
+      android.permission.MANAGE_ACTIVITY_TASKS
+      android.permission.RECEIVE_BOOT_COMPLETED
+      com.miui.securitycore.permission.KID_SPACE
+      android.permission.FOREGROUND_SERVICE_LOCATION
+      com.xiaomi.misettings.screentime
+      com.android.launcher.permission.UNINSTALL_SHORTCUT
+      com.miui.childmode.video.permission.KID_MODE_ACCESS
+      android.permission.GET_TASKS
+      android.permission.AUTHENTICATE_ACCOUNTS
+      android.permission.INTERNET
+      android.permission.REORDER_TASKS
+      android.permission.MANAGE_TIME_AND_ZONE_DETECTION
+      com.miui.greenguard.permission.MIPUSH_RECEIVE
+      com.xiaomi.misettings.test
+      android.permission.GET_PACKAGE_SIZE
+      android.permission.INTERACT_ACROSS_USERS_FULL
+      android.permission.SYSTEM_CAMERA
+      android.permission.PACKAGE_USAGE_STATS
+      android.permission.WRITE_SECURE_SETTINGS
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE
+      android.permission.ACCESS_COARSE_LOCATION
+      android.permission.STATUS_BAR_SERVICE
+      android.permission.READ_PHONE_STATE
+      android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+      greenguard.permission.dangerous.interception
+      android.permission.READ_MEDIA_IMAGES
+      android.permission.ACCESS_KEYGUARD_SECURE_STORAGE
+      android.permission.CHANGE_WIFI_STATE
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC
+      android.permission.MANAGE_USERS
+      android.permission.SET_PREFERRED_APPLICATIONS
+      android.permission.DELETE_CACHE_FILES
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.INTERNAL_DELETE_CACHE_FILES
+      android.permission.CAMERA
+      android.permission.CHANGE_CONFIGURATION
+      com.miui.bugreport.permission.DUMP_CACHED_LOG
+      android.permission.INTERACT_ACROSS_USERS
+      com.xiaomi.misettings.permission.ACCESS_APP_DATA
+      android.permission.READ_MEDIA_AUDIO
+      android.permission.READ_MEDIA_VIDEO
+      android.permission.MANAGE_APP_OPS_RESTRICTIONS
+      android.permission.KILL_BACKGROUND_PROCESSES
+      com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+      com.xiaomi.misettings.permission.ACCESS_SENSOR_SERVICE
+      android.permission.SCHEDULE_EXACT_ALARM
+      android.permission.REQUEST_DELETE_PACKAGES
+      android.permission.SUSPEND_APPS
+      android.permission.CLEAR_APP_CACHE
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND
+      android.permission.FORCE_STOP_PACKAGES
+      android.permission.VIBRATE
+      android.permission.ACCESS_WIFI_STATE
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT
+      android.permission.ACTIVITY_RECOGNITION
+      android.permission.MODIFY_PHONE_STATE
+      com.android.launcher.permission.INSTALL_SHORTCUT
+      android.permission.STATUS_BAR
+      android.permission.QUERY_ALL_PACKAGES
+      android.permission.WAKE_LOCK
+      android.permission.ACCESS_BACKGROUND_LOCATION
+      com.miui.antispam.permission.CONTENTPROVIDER
+      com.miui.securitycore.permission.DELETE_SECONDSPACE
+      android.permission.DELETE_PACKAGES
+    install permissions:
+      android.permission.FOREGROUND_SERVICE_CAMERA: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.USE_CREDENTIALS: granted=true
+      com.android.settings.permission.READ_SETTINGS: granted=true
+      android.permission.MODIFY_AUDIO_ROUTING: granted=true
+      android.permission.ACCESS_MOCK_LOCATION: granted=true
+      android.permission.START_ACTIVITY_AS_CALLER: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      com.miui.securitycenter.permission.ACCESS_SECURITY_CENTER_PROVIDER: granted=true
+      com.xiaomi.mihomemanager.permission.receiveBroadcast: granted=true
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE: granted=true
+      android.permission.INTERNAL_SYSTEM_WINDOW: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.MANAGE_ACTIVITY_TASKS: granted=true
+      android.permission.RECEIVE_BOOT_COMPLETED: granted=true
+      com.miui.securitycore.permission.KID_SPACE: granted=true
+      android.permission.FOREGROUND_SERVICE_LOCATION: granted=true
+      com.xiaomi.misettings.screentime: granted=true
+      com.android.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.GET_TASKS: granted=true
+      android.permission.AUTHENTICATE_ACCOUNTS: granted=true
+      android.permission.INTERNET: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      android.permission.MANAGE_TIME_AND_ZONE_DETECTION: granted=true
+      com.miui.greenguard.permission.MIPUSH_RECEIVE: granted=true
+      android.permission.GET_PACKAGE_SIZE: granted=true
+      android.permission.INTERACT_ACROSS_USERS_FULL: granted=true
+      android.permission.SYSTEM_CAMERA: granted=true
+      android.permission.PACKAGE_USAGE_STATS: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE: granted=true
+      android.permission.STATUS_BAR_SERVICE: granted=true
+      android.permission.ACCESS_LOCATION_EXTRA_COMMANDS: granted=true
+      greenguard.permission.dangerous.interception: granted=true
+      android.permission.ACCESS_KEYGUARD_SECURE_STORAGE: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC: granted=true
+      android.permission.MANAGE_USERS: granted=true
+      android.permission.SET_PREFERRED_APPLICATIONS: granted=true
+      android.permission.DELETE_CACHE_FILES: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      android.permission.INTERNAL_DELETE_CACHE_FILES: granted=true
+      android.permission.CHANGE_CONFIGURATION: granted=true
+      com.miui.bugreport.permission.DUMP_CACHED_LOG: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      com.xiaomi.misettings.permission.ACCESS_APP_DATA: granted=true
+      android.permission.MANAGE_APP_OPS_RESTRICTIONS: granted=true
+      android.permission.KILL_BACKGROUND_PROCESSES: granted=true
+      com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      com.xiaomi.misettings.permission.ACCESS_SENSOR_SERVICE: granted=true
+      android.permission.SCHEDULE_EXACT_ALARM: granted=true
+      android.permission.REQUEST_DELETE_PACKAGES: granted=true
+      android.permission.SUSPEND_APPS: granted=true
+      android.permission.CLEAR_APP_CACHE: granted=true
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND: granted=true
+      android.permission.FORCE_STOP_PACKAGES: granted=true
+      android.permission.VIBRATE: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.MODIFY_PHONE_STATE: granted=true
+      com.android.launcher.permission.INSTALL_SHORTCUT: granted=true
+      android.permission.STATUS_BAR: granted=true
+      android.permission.QUERY_ALL_PACKAGES: granted=true
+      android.permission.WAKE_LOCK: granted=true
+      com.miui.antispam.permission.CONTENTPROVIDER: granted=true
+      com.miui.securitycore.permission.DELETE_SECONDSPACE: granted=true
+      android.permission.DELETE_PACKAGES: granted=true
+    User 0: ceDataInode=14722 deDataInode=10047 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/0/com.miui.greenguard
+      firstInstallTime=1970-05-06 08:11:50
+      uninstallReason=0
+      overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      legacy overlay paths:
+        /product/overlay/GestureLineOverlay.apk
+      lastDisabledCaller: com.xiaomi.market
+      gids=[3003]
+      runtime permissions:
+        android.permission.READ_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.POST_NOTIFICATIONS: granted=false, flags=[ USER_FIXED|GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_CALL_LOG: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_PHONE_STATE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACTIVITY_RECOGNITION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_BACKGROUND_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+      disabledComponents:
+        com.xiaomi.push.service.XMPushService
+        com.miui.kidspace.receiver.AppStartReceiver
+      enabledComponents:
+        com.miui.minors.feature.presentation.ui.guide.GuideHomePageActivity
+        androidx.work.impl.background.systemjob.SystemJobService
+    User 999: ceDataInode=0 deDataInode=0 installed=false hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=null
+      firstInstallTime=2026-07-11 11:43:23
+      uninstallReason=0
+      overlay paths:
+        /data/resource-cache/com.android.systemui-neutral-Zy33.frro
+        /data/resource-cache/com.android.systemui-accent-Jz0F.frro
+        /data/resource-cache/com.android.systemui-dynamic-ZBDh.frro
+      gids=[3003]
+      runtime permissions:
+        android.permission.READ_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.POST_NOTIFICATIONS: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_CALL_LOG: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_PHONE_STATE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACTIVITY_RECOGNITION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_BACKGROUND_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+
+Hidden system packages:
+  Package [com.miui.greenguard] (dc0a359):
+    appId=10169
+    pkg=Package{ca0db1e com.miui.greenguard}
+    codePath=/product/app/MIUIgreenguard
+    resourcePath=/product/app/MIUIgreenguard
+    legacyNativeLibraryDir=/product/app/MIUIgreenguard/lib
+    extractNativeLibs=false
+    primaryCpuAbi=arm64-v8a
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=1320260429 minSdk=26 targetSdk=35
+    minExtensionVersions=[]
+    versionName=3.13.04.29.00
+    hiddenApiEnforcementPolicy=2
+    usesNonSdkApi=false
+    isMiuiPreinstall=false
+    splits=[base]
+    apkSigningVersion=0
+    flags=[ SYSTEM HAS_CODE ALLOW_BACKUP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_UNRESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PARTIALLY_DIRECT_BOOT_AWARE PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    pageSizeCompat=0
+    queriesPackages=[de.robv.android.xposed.installer, com.saurik.substrate, com.xiaomi.account, com.xiaomi.controlscreen.account, com.tencent.mm, com.tencent.mobileqq, com.facebook.katana, com.sina.weibo, com.xiaomi.smarthome, com.miui.greenguard, com.mi.health, com.android.mms, androidx.test.orchestrator, androidx.test.services, com.google.android.apps.common.testing.services]
+    queriesIntents=[Intent { act=android.intent.action.MAIN }, Intent { act=android.intent.action.VIEW }, Intent { act=android.intent.action.SEND }, Intent { act=com.android.camera.action.CROP }]
+    scannedAsStoppedSystemApp=false
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    usesOptionalLibraries:
+      org.apache.http.legacy
+      androidx.window.extensions
+      androidx.window.sidecar
+    timeStamp=2009-01-01 06:00:00
+    lastUpdateTime=1970-01-01 05:59:59
+    installerPackageName=null
+    installerPackageUid=-1
+    initiatingPackageName=null
+    originatingPackageName=null
+    packageSource=0
+    appMetadataFilePath=null
+    appMetadataSource=0
+    signatures=PackageSignatures{a749fff version:0, signatures:[], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ SYSTEM HAS_CODE ALLOW_BACKUP ]
+    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_UNRESIZEABLE ALLOW_AUDIO_PLAYBACK_CAPTURE PARTIALLY_DIRECT_BOOT_AWARE PRODUCT PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    apexModuleName=null
+    declared permissions:
+      greenguard.permission.dangerous.interception: prot=signature|privileged
+      com.miui.greenguard.permission.MIPUSH_RECEIVE: prot=signature
+      com.miui.greenguard.permission.ACCESS_APP_DATA: prot=signature|privileged
+      com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
+    requested permissions:
+      android.permission.FOREGROUND_SERVICE_CAMERA
+      android.permission.WRITE_SETTINGS
+      android.permission.READ_SMS
+      android.permission.POST_NOTIFICATIONS
+      android.permission.READ_CALL_LOG
+      android.permission.ACCESS_FINE_LOCATION
+      android.permission.USE_CREDENTIALS
+      com.android.settings.permission.READ_SETTINGS
+      android.permission.MODIFY_AUDIO_ROUTING
+      android.permission.ACCESS_MOCK_LOCATION
+      android.permission.START_ACTIVITY_AS_CALLER
+      android.permission.MANAGE_ACCOUNTS
+      com.miui.securitycenter.permission.ACCESS_SECURITY_CENTER_PROVIDER
+      com.xiaomi.mihomemanager.permission.receiveBroadcast
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE
+      android.permission.INTERNAL_SYSTEM_WINDOW
+      android.permission.FOREGROUND_SERVICE
+      android.permission.READ_MEDIA_VISUAL_USER_SELECTED
+      android.permission.MANAGE_ACTIVITY_TASKS
+      android.permission.RECEIVE_BOOT_COMPLETED
+      com.miui.securitycore.permission.KID_SPACE
+      android.permission.FOREGROUND_SERVICE_LOCATION
+      com.xiaomi.misettings.screentime
+      com.android.launcher.permission.UNINSTALL_SHORTCUT
+      com.miui.childmode.video.permission.KID_MODE_ACCESS
+      android.permission.GET_TASKS
+      android.permission.AUTHENTICATE_ACCOUNTS
+      android.permission.INTERNET
+      android.permission.REORDER_TASKS
+      android.permission.MANAGE_TIME_AND_ZONE_DETECTION
+      com.miui.greenguard.permission.MIPUSH_RECEIVE
+      com.xiaomi.misettings.test
+      android.permission.GET_PACKAGE_SIZE
+      android.permission.INTERACT_ACROSS_USERS_FULL
+      android.permission.SYSTEM_CAMERA
+      android.permission.PACKAGE_USAGE_STATS
+      android.permission.WRITE_SECURE_SETTINGS
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE
+      android.permission.ACCESS_COARSE_LOCATION
+      android.permission.STATUS_BAR_SERVICE
+      android.permission.READ_PHONE_STATE
+      android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+      greenguard.permission.dangerous.interception
+      android.permission.READ_MEDIA_IMAGES
+      android.permission.ACCESS_KEYGUARD_SECURE_STORAGE
+      android.permission.CHANGE_WIFI_STATE
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC
+      android.permission.MANAGE_USERS
+      android.permission.SET_PREFERRED_APPLICATIONS
+      android.permission.DELETE_CACHE_FILES
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.INTERNAL_DELETE_CACHE_FILES
+      android.permission.CAMERA
+      android.permission.CHANGE_CONFIGURATION
+      com.miui.bugreport.permission.DUMP_CACHED_LOG
+      android.permission.INTERACT_ACROSS_USERS
+      com.xiaomi.misettings.permission.ACCESS_APP_DATA
+      android.permission.READ_MEDIA_AUDIO
+      android.permission.READ_MEDIA_VIDEO
+      android.permission.MANAGE_APP_OPS_RESTRICTIONS
+      android.permission.KILL_BACKGROUND_PROCESSES
+      com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+      com.xiaomi.misettings.permission.ACCESS_SENSOR_SERVICE
+      android.permission.SCHEDULE_EXACT_ALARM
+      android.permission.REQUEST_DELETE_PACKAGES
+      android.permission.SUSPEND_APPS
+      android.permission.CLEAR_APP_CACHE
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND
+      android.permission.FORCE_STOP_PACKAGES
+      android.permission.VIBRATE
+      android.permission.ACCESS_WIFI_STATE
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT
+      android.permission.ACTIVITY_RECOGNITION
+      android.permission.MODIFY_PHONE_STATE
+      com.android.launcher.permission.INSTALL_SHORTCUT
+      android.permission.STATUS_BAR
+      android.permission.QUERY_ALL_PACKAGES
+      android.permission.WAKE_LOCK
+      android.permission.ACCESS_BACKGROUND_LOCATION
+      com.miui.antispam.permission.CONTENTPROVIDER
+      com.miui.securitycore.permission.DELETE_SECONDSPACE
+      android.permission.DELETE_PACKAGES
+    install permissions:
+      android.permission.FOREGROUND_SERVICE_CAMERA: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.USE_CREDENTIALS: granted=true
+      com.android.settings.permission.READ_SETTINGS: granted=true
+      android.permission.MODIFY_AUDIO_ROUTING: granted=true
+      android.permission.ACCESS_MOCK_LOCATION: granted=true
+      android.permission.START_ACTIVITY_AS_CALLER: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      com.miui.securitycenter.permission.ACCESS_SECURITY_CENTER_PROVIDER: granted=true
+      com.xiaomi.mihomemanager.permission.receiveBroadcast: granted=true
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE: granted=true
+      android.permission.INTERNAL_SYSTEM_WINDOW: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.MANAGE_ACTIVITY_TASKS: granted=true
+      android.permission.RECEIVE_BOOT_COMPLETED: granted=true
+      com.miui.securitycore.permission.KID_SPACE: granted=true
+      android.permission.FOREGROUND_SERVICE_LOCATION: granted=true
+      com.xiaomi.misettings.screentime: granted=true
+      com.android.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.GET_TASKS: granted=true
+      android.permission.AUTHENTICATE_ACCOUNTS: granted=true
+      android.permission.INTERNET: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      android.permission.MANAGE_TIME_AND_ZONE_DETECTION: granted=true
+      com.miui.greenguard.permission.MIPUSH_RECEIVE: granted=true
+      android.permission.GET_PACKAGE_SIZE: granted=true
+      android.permission.INTERACT_ACROSS_USERS_FULL: granted=true
+      android.permission.SYSTEM_CAMERA: granted=true
+      android.permission.PACKAGE_USAGE_STATS: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      com.miui.securitycenter.permission.SYSTEM_PERMISSION_DECLARE: granted=true
+      android.permission.STATUS_BAR_SERVICE: granted=true
+      android.permission.ACCESS_LOCATION_EXTRA_COMMANDS: granted=true
+      greenguard.permission.dangerous.interception: granted=true
+      android.permission.ACCESS_KEYGUARD_SECURE_STORAGE: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC: granted=true
+      android.permission.MANAGE_USERS: granted=true
+      android.permission.SET_PREFERRED_APPLICATIONS: granted=true
+      android.permission.DELETE_CACHE_FILES: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      android.permission.INTERNAL_DELETE_CACHE_FILES: granted=true
+      android.permission.CHANGE_CONFIGURATION: granted=true
+      com.miui.bugreport.permission.DUMP_CACHED_LOG: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      com.xiaomi.misettings.permission.ACCESS_APP_DATA: granted=true
+      android.permission.MANAGE_APP_OPS_RESTRICTIONS: granted=true
+      android.permission.KILL_BACKGROUND_PROCESSES: granted=true
+      com.miui.greenguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      com.xiaomi.misettings.permission.ACCESS_SENSOR_SERVICE: granted=true
+      android.permission.SCHEDULE_EXACT_ALARM: granted=true
+      android.permission.REQUEST_DELETE_PACKAGES: granted=true
+      android.permission.SUSPEND_APPS: granted=true
+      android.permission.CLEAR_APP_CACHE: granted=true
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND: granted=true
+      android.permission.FORCE_STOP_PACKAGES: granted=true
+      android.permission.VIBRATE: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      com.miui.home.launcher.permission.UNINSTALL_SHORTCUT: granted=true
+      android.permission.MODIFY_PHONE_STATE: granted=true
+      com.android.launcher.permission.INSTALL_SHORTCUT: granted=true
+      android.permission.STATUS_BAR: granted=true
+      android.permission.QUERY_ALL_PACKAGES: granted=true
+      android.permission.WAKE_LOCK: granted=true
+      com.miui.antispam.permission.CONTENTPROVIDER: granted=true
+      com.miui.securitycore.permission.DELETE_SECONDSPACE: granted=true
+      android.permission.DELETE_PACKAGES: granted=true
+    User 0: ceDataInode=0 deDataInode=0 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/0/com.miui.greenguard
+      firstInstallTime=1970-01-01 05:59:59
+      uninstallReason=0
+      gids=[3003]
+      runtime permissions:
+        android.permission.READ_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.POST_NOTIFICATIONS: granted=false, flags=[ USER_FIXED|GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_CALL_LOG: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_PHONE_STATE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACTIVITY_RECOGNITION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_BACKGROUND_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+    User 999: ceDataInode=0 deDataInode=0 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/999/com.miui.greenguard
+      firstInstallTime=1970-01-01 06:00:00
+      uninstallReason=0
+      gids=[3003]
+      runtime permissions:
+        android.permission.READ_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.POST_NOTIFICATIONS: granted=true, flags=[ GRANTED_BY_DEFAULT|USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_CALL_LOG: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VISUAL_USER_SELECTED: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_PHONE_STATE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_IMAGES: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.READ_MEDIA_VIDEO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACTIVITY_RECOGNITION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+        android.permission.ACCESS_BACKGROUND_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_UPGRADE_EXEMPT]
+
+Queries:
+  system apps queryable: false
+  queries via forceQueryable:
+  forceQueryable:
+    com.miui.greenguard
+  queries via package name:
+    com.miui.backup:
+      com.miui.greenguard
+    com.xiaomi.finddevice:
+      com.miui.greenguard
+    com.miui.packageinstaller:
+      com.miui.greenguard
+    [app id 10132 not installed]:
+      com.miui.greenguard
+    [app id 10137 not installed]:
+      com.miui.greenguard
+    [app id 10143 not installed]:
+      com.miui.greenguard
+    com.xiaomi.aicr:
+      com.miui.greenguard
+    com.miui.carlink:
+      com.miui.greenguard
+    com.xiaomi.mis:
+      com.miui.greenguard
+    com.miui.greenguard:
+      com.android.mms
+      com.xiaomi.market
+      com.facebook.katana
+    com.xiaomi.account:
+      com.miui.greenguard
+    [app id 10184 not installed]:
+      com.miui.greenguard
+    com.xiaomi.simactivate.service:
+      com.miui.greenguard
+    com.xiaomi.xmsf:
+      com.miui.greenguard
+    com.duokan.phone.remotecontroller:
+      com.miui.greenguard
+    com.miui.gallery:
+      com.miui.greenguard
+    com.mfashiongallery.emag:
+      com.miui.greenguard
+    com.miui.notes:
+      com.miui.greenguard
+    com.android.soundrecorder:
+      com.miui.greenguard
+  queries via component:
+    [com.st.android.nfc_extensions_16,com.miui.tsmclient,com.android.nfc]:
+      com.miui.greenguard
+    com.miui.backup:
+      com.miui.greenguard
+    com.xiaomi.finddevice:
+      com.miui.greenguard
+    com.android.contacts:
+      com.miui.greenguard
+    com.miui.packageinstaller:
+      com.miui.greenguard
+    [app id 10132 not installed]:
+      com.miui.greenguard
+    [app id 10137 not installed]:
+      com.miui.greenguard
+    com.android.settings.intelligence:
+      com.miui.greenguard
+    [app id 10143 not installed]:
+      com.miui.greenguard
+    com.xiaomi.aicr:
+      com.miui.greenguard
+    com.miui.carlink:
+      com.miui.greenguard
+    com.xiaomi.mis:
+      com.miui.greenguard
+    [app id 10157 not installed]:
+      com.miui.greenguard
+    com.miui.greenguard:
+      com.google.android.documentsui
+      com.android.imsserviceentitlement
+      com.android.browser
+      com.android.contacts
+      com.android.mms
+      [app id 10143 not installed]
+      [app id 10158 not installed]
+      com.miui.securityadd
+      com.xiaomi.market
+      [app id 10185 not installed]
+      com.google.android.accessibility.switchaccess
+      com.unionpay.tsmservice.mi
+      [app id 10191 not installed]
+      com.android.virtualization.terminal
+      com.android.photopicker
+      com.android.healthconnect.controller
+      com.android.cts.priv.ctsshim
+      com.android.cts.ctsshim
+      com.google.android.apps.bard
+      com.google.android.contacts
+      com.google.android.googlequicksearchbox
+      com.jrustonapps.myearthquakealerts
+      com.cibl.pbl
+      com.shohoz.dtrainpwa
+      com.miui.cleanmaster
+      com.miui.compass
+      com.esound
+      com.whatsapp
+      com.miui.calculator
+      com.ptsl.caab
+      com.android.deskclock
+      com.xiaomi.scanner
+      com.opus_bd.lostandfound
+      com.ubercab
+      com.pathao.user
+      com.duokan.phone.remotecontroller
+      com.discord
+      us.zoom.videomeetings
+      com.miui.gallery
+      com.miui.screenrecorder
+      com.imo.android.imoim
+      com.google.android.apps.walletnfcrel
+      com.intsig.camscanner
+      com.mfashiongallery.emag
+      cn.wps.moffice_eng.xiaomi.lite
+      com.aig.aigmitr
+      com.gozayaan.app
+      com.duolingo
+      com.linkedin.android
+      com.miui.weather2
+      com.android.providers.downloads.ui
+      com.miui.findmy
+      com.android.soundrecorder
+      com.google.android.inputmethod.latin
+      com.google.android.apps.maps
+      com.facebook.katana
+      com.instagram.android
+      com.android.chrome
+      com.google.android.apps.photos
+      com.google.android.calendar
+      com.facebook.orca
+      com.google.android.apps.credentialmanager
+      com.google.android.apps.authenticator2
+      com.google.android.gm
+      teletalk.teletalkcustomerapp
+      com.google.android.youtube
+      com.dbbl.mbs.apps.main
+      com.portonics.mygp
+      com.bKash.customerapp
+      com.konasl.nagad
+      com.google.android.apps.docs
+      com.whatsapp.w4b
+      com.makemytrip
+      com.ixigo
+      com.myairtelapp
+      com.openai.chatgpt
+      net.skyscanner.android.main
+      com.google.android.apps.subscriptions.red
+      com.global.foodpanda.android
+      games.vaveda.militaryoverturn
+      com.microsoft.teams
+      com.android.calendar
+    [app id 10170 not installed]:
+      com.miui.greenguard
+    com.xiaomi.account:
+      com.miui.greenguard
+    [app id 10184 not installed]:
+      com.miui.greenguard
+    com.xiaomi.simactivate.service:
+      com.miui.greenguard
+    com.xiaomi.xmsf:
+      com.miui.greenguard
+    com.duokan.phone.remotecontroller:
+      com.miui.greenguard
+    us.zoom.videomeetings:
+      com.miui.greenguard
+    com.miui.gallery:
+      com.miui.greenguard
+    com.intsig.camscanner:
+      com.miui.greenguard
+    com.mfashiongallery.emag:
+      com.miui.greenguard
+    com.miui.notes:
+      com.miui.greenguard
+    com.aig.aigmitr:
+      com.miui.greenguard
+    com.android.providers.downloads.ui:
+      com.miui.greenguard
+    com.android.soundrecorder:
+      com.miui.greenguard
+  queryable via interaction:
+    User 0:
+      [com.miui.powerkeeper,com.qualcomm.qti.xrvd.service,com.xiaomi.otrpbroker,com.qualcomm.qti.services.systemhelper,com.xiaomi.misettings,com.xiaomi.mi_connect_service,com.miui.securitycenter,com.xiaomi.aiasst.service,com.bsp.catchlog,com.android.dynsystem,com.android.location.fused,vendor.qti.frameworks.utils,com.android.DeviceAsWebcam,com.xiaomi.digitalkey,android,com.miui.wmsvc,com.xiaomi.location.fused,miui.systemui.plugin,com.wapi.wapicertmanage,com.miui.daemon,com.xiaomi.touchservice,com.miui.audiomonitor,com.miui.misightservice,com.android.provision,com.android.providers.settings,com.android.server.telecom,com.miui.aod,com.miui.qr,com.miui.securitycore,com.miui.thirdappassistant,com.android.inputdevices,com.xiaomi.mirror,com.android.keychain,com.android.localtransport,com.xiaomi.barrage,com.xiaomi.aon,com.xiaomi.aiasst.vision,com.miui.notification,com.xiaomi.trustservice,com.android.settings,com.android.systemui,com.xiaomi.mtb,com.xiaomi.gnss.polaris,com.miui.touchassistant]:
+        com.miui.greenguard
+      com.miui.analytics:
+        com.miui.greenguard
+    User 999:
+  queryable via uses-library:
+
+Dexopt state:
+  [com.miui.greenguard]
+    path: /data/app/~~Q5fPT4TJMf-eRkaTkTuQpA==/com.miui.greenguard-eE5T-LlFM2gckgfIZE1gBw==/base.apk
+      arm64: [status=speed-profile] [reason=baseline] [primary-abi]
+        [location is /data/app/~~Q5fPT4TJMf-eRkaTkTuQpA==/com.miui.greenguard-eE5T-LlFM2gckgfIZE1gBw==/oat/arm64/base.odex]
+    base APK odex file size: base.art: 1194Kb base.odex: 7472Kb base.vdex: 27263Kb 
+
+Compiler stats:
+  [com.miui.greenguard]
+    (No recorded stats)
