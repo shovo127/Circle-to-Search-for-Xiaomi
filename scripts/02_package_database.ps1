@@ -234,3 +234,4 @@ Write-Host "  D (Essential): $(($packages.Values | Where-Object {$_.cat -eq 'D'}
 
 # Export the hashtable for use by other scripts
 return $packages
+

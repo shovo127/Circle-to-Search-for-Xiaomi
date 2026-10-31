@@ -171,3 +171,4 @@ Write-Host "   > Apps > WhatsApp > Battery > Unrestricted" -ForegroundColor Yell
 Write-Host "   > Apps > WhatsApp > Notifications > All enabled" -ForegroundColor Yellow
 Write-Host "   > Security > Autostart > WhatsApp enabled" -ForegroundColor Yellow
 Write-Host "========================================`n"
+

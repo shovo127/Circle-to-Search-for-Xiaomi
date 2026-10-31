@@ -164,3 +164,4 @@ Log "  6. Settings > General > Language > Move English to top" "Yellow"
 Log ""
 Log "RESTORE COMMAND (if anything goes wrong):" "Cyan"
 Log "  Get-ChildItem '$BASE\backups\restore_*.ps1' | Sort LastWriteTime | Select -Last 1 | % { & `$_.FullName }" "Cyan"
+

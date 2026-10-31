@@ -76,3 +76,4 @@ $diskInfo | ForEach-Object { Write-Host "  $_" }
 Write-Host "`n========================================" -ForegroundColor Green
 Write-Host " PERFORMANCE OPTIMISATION COMPLETE" -ForegroundColor Green
 Write-Host "========================================`n"
+

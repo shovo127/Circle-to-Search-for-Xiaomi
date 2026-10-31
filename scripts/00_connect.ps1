@@ -58,3 +58,4 @@ if (-not $connected) {
 } else {
     Write-Host "`n[OK] Device already connected: $connected" -ForegroundColor Green
 }
+

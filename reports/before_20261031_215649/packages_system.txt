@@ -1,0 +1,7 @@
+﻿adb.exe : adb.exe: no devices/emulators found
+At line:9 char:1
++ & $ADB shell pm list packages -s 2>&1 | Out-File "$rep\packages_syste ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (adb.exe: no devices/emulators found:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
