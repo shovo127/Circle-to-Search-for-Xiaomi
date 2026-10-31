@@ -1,0 +1,683 @@
+﻿XIAOMI 13 PACKAGE AUDIT REPORT
+Generated: 10/31/2026 21:48:34
+================================================================================
+
+[A] SAFE TO REMOVE
+------------------------------------------------------------
+  cn.wps.moffice_eng
+    Label: WPS Office
+    Note : Remove if not used — bloatware
+
+  com.android.browser
+    Label: AOSP Browser
+    Note : Old browser — obsolete
+
+  com.android.egg
+    Label: Android Easter Egg
+    Note : Easter egg — cosmetic only
+
+  com.baidu.input_mi
+    Label: Baidu IME
+    Note : Chinese keyboard — privacy risk
+
+  com.baidu.map
+    Label: Baidu Maps
+    Note : Chinese maps service
+
+  com.iflytek.inputmethod.miui
+    Label: IFlytek IME
+    Note : Chinese voice input
+
+  com.jingdong.app.mall
+    Label: JD.com
+    Note : Chinese e-commerce
+
+  com.mi.globalbrowser
+    Label: Mi Browser Global
+    Note : Sends browsing data to Xiaomi
+
+  com.mi.globalbrowser.mini
+    Label: Mi Browser Mini
+    Note : Browser data collection
+
+  com.mipay.wallet
+    Label: MiPay Wallet
+    Note : Chinese payment
+
+  com.mipay.wallet.in
+    Label: MiPay India
+    Note : India payment
+
+  com.miui.adservice.global
+    Label: MIUI Ad Service Global
+    Note : Ad delivery service
+
+  com.miui.analytics.mdsp
+    Label: MIUI MDSP Analytics
+    Note : Advanced telemetry
+
+  com.miui.bugreport
+    Label: MIUI Bug Report
+    Note : Sends logs to Xiaomi servers
+
+  com.miui.cit
+    Label: CIT (Factory test)
+    Note : Factory test app — safe remove
+
+  com.miui.cleaner
+    Label: MIUI Cleaner
+    Note : Storage cleaner — duplicates Security
+
+  com.miui.cleanmaster
+    Label: Clean Master
+    Note : Junk cleaner — aggressive RAM killer
+
+  com.miui.contentextension
+    Label: MIUI Content Extension
+    Note : Promotional content injection
+
+  com.miui.fm
+    Label: MIUI FM Radio
+    Note : FM — remove if no FM aerial
+
+  com.miui.gamedetector
+    Label: Game Detector
+    Note : Game mode detection
+
+  com.miui.hybrid
+    Label: MIUI Hybrid
+    Note : Ad/promo framework
+
+  com.miui.hybrid.accessory
+    Label: MIUI Hybrid Accessory
+    Note : Ad extension
+
+  com.miui.mintnews
+    Label: Mint News
+    Note : CN news feed
+
+  com.miui.msa.global
+    Label: MSA Global (Ad engine)
+    Note : Xiaomi ad system — major
+
+  com.miui.personalassistant
+    Label: MIUI Personal Assistant (Negative Screen)
+    Note : Swipe-left newsfeed
+
+  com.miui.player
+    Label: MIUI Music Player
+    Note : CN streaming
+
+  com.miui.rom
+    Label: MIUI ROM Manager
+    Note : OTA updates via MIUI
+
+  com.miui.rom.checker
+    Label: ROM Checker
+    Note : MIUI ROM verification
+
+  com.miui.smarttravel
+    Label: Mi Smart Travel
+    Note : CN travel service
+
+  com.miui.storagecleaner
+    Label: Storage Cleaner
+    Note : Duplicate of Security cleaner
+
+  com.miui.systemAdSolution
+    Label: System Ad Solution
+    Note : System-level ads
+
+  com.miui.themestore
+    Label: MIUI Theme Store
+    Note : Promotes paid themes
+
+  com.miui.video
+    Label: MIUI Video
+    Note : CN streaming — replace with YouTube/VLC
+
+  com.miui.videoplayer
+    Label: MIUI Video Player
+    Note : Duplicate video app
+
+  com.miui.voiceassist
+    Label: MIUI Voice Assistant
+    Note : CN voice assistant — use Google instead
+
+  com.miui.voiceassist.global
+    Label: MIUI Voice Assistant Global
+    Note : Global voice assistant — use Google/Gemini
+
+  com.miui.yellowpage
+    Label: Yellow Pages (CN)
+    Note : Chinese business directory
+
+  com.miui.yellowpage.global
+    Label: Yellow Pages Global
+    Note : Business directory
+
+  com.sina.weibo
+    Label: Weibo
+    Note : Chinese social media
+
+  com.taobao.taobao
+    Label: Taobao (Alibaba)
+    Note : Chinese e-commerce
+
+  com.tencent.mm
+    Label: WeChat (Tencent)
+    Note : Remove if not used
+
+  com.tencent.qqlite
+    Label: QQ Lite (Tencent)
+    Note : Chinese social
+
+  com.tmall.wireless
+    Label: Tmall (Alibaba)
+    Note : Chinese e-commerce
+
+  com.weico.international
+    Label: Weico
+    Note : Chinese Weibo client
+
+  com.xiaomi.channels
+    Label: Xiaomi Channels
+    Note : CN notification promotions
+
+  com.xiaomi.gamecenter
+    Label: Xiaomi Game Center
+    Note : Game store
+
+  com.xiaomi.joyose
+    Label: Joyose (Game service)
+    Note : Game telemetry + ads
+
+  com.xiaomi.metoknlp
+    Label: Xiaomi NLP
+    Note : CN natural language processing telemetry
+
+  com.xiaomi.mipay
+    Label: Xiaomi MiPay
+    Note : Payment service
+
+  com.xiaomi.mipicks
+    Label: Mi Picks (CN)
+    Note : App recommendation ads
+
+  com.xiaomi.mitv.sideo
+    Label: Sideo/TV app
+    Note : Chinese TV streaming
+
+  com.xiaomi.payment
+    Label: Xiaomi Pay (CN)
+    Note : Chinese mobile payment
+
+  com.xiaomi.sdktest
+    Label: SDK Test
+    Note : Development artifact — safe remove
+
+  com.xiaomi.shop
+    Label: Xiaomi Store
+    Note : Xiaomi shopping — CN only
+
+  com.xiaomi.vipaccount
+    Label: Xiaomi VIP Account
+    Note : CN loyalty service
+
+  org.mipay.android.manager
+    Label: MiPay Manager
+    Note : CN payment
+
+
+[B] SAFE TO DISABLE
+------------------------------------------------------------
+  com.dolby.daxappui
+    Label: Dolby DAX
+    Note : Dolby audio — keep for audio quality
+
+  com.google.android.apps.translate
+    Label: Google Translate
+    Note : Keep if using translation
+
+  com.google.android.apps.wellbeing
+    Label: Digital Wellbeing
+    Note : Screen time tracking
+
+  com.google.android.contacts
+    Label: Google Contacts
+    Note : Alternative contacts
+
+  com.google.android.dialer
+    Label: Google Phone
+    Note : Alternative dialer
+
+  com.milink.service
+    Label: MiLink Service
+    Note : Xiaomi cross-device
+
+  com.miui.analytics
+    Label: MIUI Analytics
+    Note : Telemetry — can disable
+
+  com.miui.antispam
+    Label: MIUI Anti-spam
+    Note : Call spam filter
+
+  com.miui.backup
+    Label: MIUI Backup
+    Note : Backup to Mi Cloud
+
+  com.miui.bodysensor
+    Label: MIUI Body Sensor
+    Note : Health sensors
+
+  com.miui.calculator
+    Label: MIUI Calculator
+    Note : Keep or replace
+
+  com.miui.cloudbackup
+    Label: Cloud Backup
+    Note : Mi Cloud backup — disable if not using
+
+  com.miui.cloudservice
+    Label: Mi Cloud Service
+    Note : Sync service
+
+  com.miui.cloudservice.sysbase
+    Label: Mi Cloud Sysbase
+    Note : Cloud sync base
+
+  com.miui.compass
+    Label: MIUI Compass
+    Note : Compass app
+
+  com.miui.filemanager
+    Label: MIUI File Manager
+    Note : Keep or use alternative
+
+  com.miui.guardprovider
+    Label: Guard Provider
+    Note : Virus scan engine
+
+  com.miui.mishare.connectivity
+    Label: Mi Share
+    Note : Local file sharing
+
+  com.miui.misound
+    Label: Mi Sound
+    Note : Audio enhancement
+
+  com.miui.miwallpaper
+    Label: MIUI Wallpaper
+    Note : Wallpaper service — downloads CN wallpapers
+
+  com.miui.notes
+    Label: MIUI Notes
+    Note : Notes app — replace with Google Keep
+
+  com.miui.privacycomputing
+    Label: Privacy Computing
+    Note : On-device privacy — keep
+
+  com.miui.qr
+    Label: QR Scanner
+    Note : QR code scanner
+
+  com.miui.screenrecorder
+    Label: MIUI Screen Recorder
+    Note : Screen recorder
+
+  com.miui.screenshot
+    Label: MIUI Screenshot
+    Note : Screenshot tool
+
+  com.miui.themes
+    Label: MIUI Themes
+    Note : Theme engine — needed for custom themes
+
+  com.miui.touchassistant
+    Label: Touch Assistant
+    Note : Assistive touch ball
+
+  com.miui.translation.kingsoft
+    Label: Kingsoft Translation
+    Note : CN translation
+
+  com.miui.translation.youdao
+    Label: Youdao Translation
+    Note : CN translation service
+
+  com.miui.weather
+    Label: MIUI Weather (alt)
+    Note : Weather service
+
+  com.miui.weather2
+    Label: MIUI Weather
+    Note : CN weather data
+
+  com.miui.whetstone
+    Label: MIUI Whetstone
+    Note : Performance optimization service
+
+  com.xiaomi.ab.service
+    Label: Xiaomi AB Service
+    Note : A/B update tracking
+
+  com.xiaomi.drivemode
+    Label: Drive Mode
+    Note : Driving assistant
+
+  com.xiaomi.mi_connect_service
+    Label: Mi Connect Service
+    Note : PC-phone linking
+
+  com.xiaomi.micolors
+    Label: Mi Colors
+    Note : Display color profile
+
+  com.xiaomi.scanner
+    Label: Xiaomi Scanner
+    Note : Document scanner
+
+  com.xiaomi.wallpaper
+    Label: Xiaomi Wallpaper
+    Note : Wallpaper downloads
+
+  com.xiaomi.xr.screenrecorder
+    Label: Screen Recorder
+    Note : Built-in screen recorder
+
+
+[C] INVESTIGATE
+------------------------------------------------------------
+  com.android.stk
+    Label: SIM Toolkit
+    Note : Carrier toolkit — investigate
+
+  com.android.stk2
+    Label: SIM Toolkit 2
+    Note : Dual SIM toolkit
+
+  com.miui.newhome
+    Label: MIUI New Home
+    Note : Investigate — may be launcher component
+
+  com.miui.vsimcore
+    Label: vSIM Core
+    Note : Virtual SIM — investigate
+
+  com.xiaomi.ld.service
+    Label: Xiaomi LD Service
+    Note : Investigate — possible location/data service
+
+  com.xiaomi.mircs
+    Label: Xiaomi RCS
+    Note : RCS messaging — investigate
+
+  com.xiaomi.oversea.global
+    Label: Xiaomi Oversea Global
+    Note : Global services framework
+
+  com.xiaomi.simactivate.service
+    Label: SIM Activate Service
+    Note : Investigate before removing
+
+  com.xiaomi.smarthome
+    Label: Xiaomi Smart Home
+    Note : IoT — keep if using Mi devices
+
+
+[D] ESSENTIAL — DO NOT TOUCH
+------------------------------------------------------------
+  com.android.biometrics.dialog
+    Label: Biometrics Dialog
+    Note : Fingerprint/Face UI
+
+  com.android.bluetooth
+    Label: Bluetooth
+    Note : Connectivity
+
+  com.android.camera
+    Label: AOSP Camera
+    Note : Camera fallback
+
+  com.android.camera2
+    Label: AOSP Camera
+    Note : Camera fallback
+
+  com.android.certinstaller
+    Label: Cert Installer
+    Note : Certificate management
+
+  com.android.contacts
+    Label: Android Contacts
+    Note : Contact provider
+
+  com.android.documentsui
+    Label: Documents UI
+    Note : File picker — essential
+
+  com.android.inputmethod.latin
+    Label: Latin IME
+    Note : Keyboard fallback
+
+  com.android.keychain
+    Label: Key Chain
+    Note : Security credentials
+
+  com.android.launcher3
+    Label: Launcher3
+    Note : Base launcher
+
+  com.android.location.fused
+    Label: Fused Location Provider
+    Note : Location provider
+
+  com.android.messaging
+    Label: Android Messages
+    Note : SMS fallback
+
+  com.android.mms
+    Label: MMS Service
+    Note : Messaging infrastructure
+
+  com.android.nfc
+    Label: NFC Service
+    Note : NFC payments/data
+
+  com.android.packageinstaller
+    Label: Package Installer
+    Note : App installation
+
+  com.android.phone
+    Label: Android Phone/Dialer
+    Note : Core telephony
+
+  com.android.providers.contacts
+    Label: Contacts Provider
+    Note : Contact data
+
+  com.android.providers.downloads
+    Label: Download Manager
+    Note : System downloads
+
+  com.android.providers.media
+    Label: Media Provider
+    Note : Media access
+
+  com.android.providers.settings
+    Label: Settings Provider
+    Note : System settings data
+
+  com.android.providers.telephony
+    Label: Telephony Provider
+    Note : SMS/MMS data
+
+  com.android.server.biometrics
+    Label: Biometric Service
+    Note : Fingerprint/Face
+
+  com.android.server.devicelock
+    Label: Device Lock
+    Note : Security policy
+
+  com.android.server.telecom
+    Label: Android Telecom
+    Note : Call routing
+
+  com.android.settings
+    Label: Settings
+    Note : System settings
+
+  com.android.systemui
+    Label: System UI
+    Note : Status bar, notifications
+
+  com.android.vending
+    Label: Google Play Store
+    Note : App store
+
+  com.android.wifi
+    Label: Wi-Fi Service
+    Note : Connectivity
+
+  com.fingerprints.service
+    Label: Fingerprint Service
+    Note : FP unlock
+
+  com.google.android.gms
+    Label: Google Play Services
+    Note : Core GMS, FCM
+
+  com.google.android.gsf
+    Label: Google Services Framework
+    Note : Core Google sync
+
+  com.google.android.inputmethod.latin
+    Label: Gboard
+    Note : Google keyboard
+
+  com.google.android.syncadapters.contacts
+    Label: Google Contacts Sync
+    Note : Account sync
+
+  com.miui.catcherpatch
+    Label: MIUI Catcher Patch
+    Note : Crash handler
+
+  com.miui.core
+    Label: MIUI Core
+    Note : Framework core
+
+  com.miui.daemon
+    Label: MIUI Daemon
+    Note : Core daemon — do not touch
+
+  com.miui.face
+    Label: MIUI Face Unlock
+    Note : Face recognition
+
+  com.miui.gallery
+    Label: MIUI Gallery
+    Note : Photo viewer
+
+  com.miui.home
+    Label: Xiaomi Launcher
+    Note : Primary launcher
+
+  com.miui.miservice
+    Label: MIUI Service Framework
+    Note : Core services
+
+  com.miui.notification
+    Label: MIUI Notification Manager
+    Note : Notification routing
+
+  com.miui.packageinstaller
+    Label: MIUI Package Installer
+    Note : APK installs
+
+  com.miui.powerkeeper
+    Label: MIUI Power Keeper
+    Note : Battery management
+
+  com.miui.securityadd
+    Label: Security Add-on
+    Note : Security extension
+
+  com.miui.securitycenter
+    Label: Xiaomi Security
+    Note : Antivirus + permissions
+
+  com.miui.system
+    Label: MIUI System
+    Note : Core system component
+
+  com.miui.systemui.global
+    Label: MIUI Global System UI
+    Note : Global SystemUI extension
+
+  com.qualcomm.location
+    Label: Qualcomm Location
+    Note : GPS accuracy
+
+  com.sohu.inputmethod.sogou.xiaomi
+    Label: Sogou IME (Xiaomi)
+    Note : Primary IME — only remove if Gboard installed
+
+  com.widevine.l1
+    Label: Widevine L1
+    Note : DRM — needed for Netflix HD
+
+  com.xiaomi.account
+    Label: Xiaomi Account
+    Note : Mi account login
+
+  com.xiaomi.bluetooth
+    Label: Xiaomi Bluetooth
+    Note : BT extensions
+
+  com.xiaomi.camera
+    Label: Xiaomi Camera
+    Note : Primary camera
+
+  com.xiaomi.finddevice
+    Label: Find My Device
+    Note : Anti-theft
+
+  com.xiaomi.getapps
+    Label: GetApps Alt
+    Note : GetApps variant
+
+  com.xiaomi.location.fused
+    Label: Xiaomi Fused Location
+    Note : Location services
+
+  com.xiaomi.market
+    Label: GetApps
+    Note : Xiaomi app store — per user request
+
+  com.xiaomi.micloud.sdk
+    Label: Xiaomi Cloud SDK
+    Note : Cloud infrastructure
+
+  com.xiaomi.mipush.sdk
+    Label: MiPush Client SDK
+    Note : Push — essential
+
+  com.xiaomi.mipush.sdk.server
+    Label: MiPush SDK
+    Note : Push delivery
+
+  com.xiaomi.misettings
+    Label: Xiaomi Settings Extension
+    Note : Settings extension
+
+  com.xiaomi.passport
+    Label: Xiaomi Passport
+    Note : Account authentication
+
+  com.xiaomi.xmsf
+    Label: Xiaomi Push Service (XMSF)
+    Note : Push notifications
+
