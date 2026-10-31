@@ -1,7 +1,7 @@
 import subprocess
 import xml.etree.ElementTree as ET
 
-ADB = r'D:\Debload Phone with a Single Command\platform-tools\adb.exe'
+ADB = r'D:\CIRCLE TO SEARCH FOR XIAOMI\platform-tools\adb.exe'
 DEV = '192.168.1.160:42745'
 
 subprocess.run([ADB, 'connect', DEV], capture_output=True)

@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Circle to Search for Xiaomi"
 include(":app")
+

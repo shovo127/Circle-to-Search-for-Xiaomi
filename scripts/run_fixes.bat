@@ -1,6 +1,6 @@
 @echo off
 setlocal
-set ADB=D:\Debload Phone with a Single Command\platform-tools\adb.exe
+set ADB=D:\CIRCLE TO SEARCH FOR XIAOMI\platform-tools\adb.exe
 
 echo ============================================
 echo  XIAOMI 13 - COMPLETE FIX SUITE

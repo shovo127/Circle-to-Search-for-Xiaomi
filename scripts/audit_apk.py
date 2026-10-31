@@ -2,7 +2,7 @@ import struct
 import hashlib
 from datetime import datetime
 
-apk_path = r"D:\Debload Phone with a Single Command\NotiGuard-v2.1.apk"
+apk_path = r"D:\CIRCLE TO SEARCH FOR XIAOMI\NotiGuard-v2.1.apk"
 with open(apk_path, "rb") as f:
     data = f.read()
 

@@ -7,3 +7,4 @@
     android:canTakeScreenshot="true"
     android:description="@string/accessibility_desc"
     android:notificationTimeout="100" />
+

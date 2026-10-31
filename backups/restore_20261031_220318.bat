@@ -3,7 +3,7 @@
 :: Generated: 10/31/2026 22:03:18
 :: Run this if anything needs to be restored
 
-set ADB=D:\Debload Phone with a Single Command\platform-tools\adb.exe
+set ADB=D:\CIRCLE TO SEARCH FOR XIAOMI\platform-tools\adb.exe
 
 echo Restoring removed packages...
 "%ADB%" connect 192.168.1.160:37249 >nul

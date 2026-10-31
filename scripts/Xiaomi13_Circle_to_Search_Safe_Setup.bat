@@ -2,9 +2,9 @@
 setlocal EnableExtensions EnableDelayedExpansion
 title Xiaomi 13 - Safe Circle to Search Setup
 
-set "ADB=D:\Debload Phone with a Single Command\platform-tools\adb.exe"
+set "ADB=D:\CIRCLE TO SEARCH FOR XIAOMI\platform-tools\adb.exe"
 set "DEVICE_IP=192.168.1.160:42745"
-set "APK=D:\Debload Phone with a Single Command\MiCTS_2.6.apk"
+set "APK=D:\CIRCLE TO SEARCH FOR XIAOMI\MiCTS_2.6.apk"
 set "EXPECTED_SHA=4680d24112fbf0d7ff5bbc055b760f2d67173d7d5879ec5411540d5caa7a97b8"
 
 echo ============================================================

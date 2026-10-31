@@ -11,8 +11,8 @@ echo.
 set "ADB=adb"
 where adb >nul 2>&1
 if errorlevel 1 (
-  if exist "D:\Debload Phone with a Single Command\platform-tools\adb.exe" (
-    set "ADB=D:\Debload Phone with a Single Command\platform-tools\adb.exe"
+  if exist "D:\CIRCLE TO SEARCH FOR XIAOMI\platform-tools\adb.exe" (
+    set "ADB=D:\CIRCLE TO SEARCH FOR XIAOMI\platform-tools\adb.exe"
   ) else if exist "%~dp0platform-tools\adb.exe" (
     set "ADB=%~dp0platform-tools\adb.exe"
   ) else (

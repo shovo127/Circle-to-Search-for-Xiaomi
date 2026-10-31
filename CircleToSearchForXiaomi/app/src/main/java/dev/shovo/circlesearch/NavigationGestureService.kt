@@ -154,3 +154,4 @@ class NavigationGestureService : AccessibilityService() {
         }
     }
 }
+

@@ -71,3 +71,4 @@ class CircleSearchActivity : Activity() {
         currentScreenshot = null
     }
 }
+
