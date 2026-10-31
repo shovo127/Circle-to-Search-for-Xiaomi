@@ -13,3 +13,4 @@ subprocess.run([ADB, '-s', DEV, 'shell', 'settings', 'put', 'secure', 'entity_co
 
 check = subprocess.check_output([ADB, '-s', DEV, 'shell', 'settings', 'get', 'secure', 'entity_config_key_voice_assistant']).decode().strip()
 print('Current on device:', check)
+
