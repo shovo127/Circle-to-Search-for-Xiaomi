@@ -105,7 +105,9 @@ class NavigationGestureService : AccessibilityService() {
     private fun setupBottomGestureZone() {
         if (pillHandleView != null) {
             try {
-                windowManager?.removeView(pillHandleView)
+                if (pillHandleView?.isAttachedToWindow == true) {
+                    windowManager?.removeView(pillHandleView)
+                }
             } catch (_: Exception) {}
             pillHandleView = null
         }
@@ -366,7 +368,9 @@ class NavigationGestureService : AccessibilityService() {
         handler.removeCallbacksAndMessages(null)
         if (pillHandleView != null) {
             try {
-                windowManager?.removeView(pillHandleView)
+                if (pillHandleView?.isAttachedToWindow == true) {
+                    windowManager?.removeView(pillHandleView)
+                }
             } catch (e: Exception) {
                 Log.e(TAG, "Error removing pill overlay on destroy: ${e.message}")
             }

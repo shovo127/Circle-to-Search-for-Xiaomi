@@ -98,7 +98,6 @@ object SearchSessionManager {
             if (activeLeases == 0) {
                 if (state == State.EXPIRED || state == State.RELEASED || state == State.FAILED) {
                     destroyBitmapInternal()
-                    state = State.RELEASED
                     sessions.remove(id)
                 }
             }
@@ -117,12 +116,12 @@ object SearchSessionManager {
 
         @Synchronized
         internal fun expire() {
-            if (state == State.RELEASED || state == State.EXPIRED) return
+            if (state == State.RELEASED || state == State.EXPIRED || state == State.FAILED) return
             Log.d(TAG, "Session [$id] marked EXPIRED")
             state = State.EXPIRED
             if (activeLeases == 0) {
                 destroyBitmapInternal()
-                state = State.RELEASED
+                sessions.remove(id)
             }
         }
 
@@ -139,6 +138,13 @@ object SearchSessionManager {
         }
 
         @Synchronized
+        internal fun completeWithoutBitmapForTest(): Boolean {
+            if (state != State.CAPTURING) return false
+            state = State.READY
+            return true
+        }
+
+        @Synchronized
         internal fun fail(reason: String): Boolean {
             if (state != State.CAPTURING) {
                 Log.w(TAG, "Session [$id] is in state $state (not CAPTURING); rejecting fail")
@@ -149,7 +155,6 @@ object SearchSessionManager {
             Log.w(TAG, "Session [$id] transitioned to FAILED: $reason")
             if (activeLeases == 0) {
                 destroyBitmapInternal()
-                state = State.RELEASED
                 sessions.remove(id)
             }
             return true

@@ -39,23 +39,14 @@
             </intent-filter>
         </activity>
 
-        <!-- Interactive Visual Selection Overlay -->
+        <!-- Interactive Visual Selection Overlay (Secured internally) -->
         <activity
             android:name=".CircleSearchActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.CircleSearchTranslucent"
             android:launchMode="singleTask"
             android:excludeFromRecents="true"
-            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.ASSIST" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="dev.shovo.circlesearch.ACTION_CIRCLE_SEARCH" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
 
         <!-- Official Android Assistant / Voice Interaction Service -->
         <service

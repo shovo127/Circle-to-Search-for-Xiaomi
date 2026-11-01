@@ -211,13 +211,15 @@ class CircleSearchActivity : AppCompatActivity() {
         }
 
         // Execute background crop and save using structured coroutines
-        lifecycleScope.launch(Dispatchers.Default) {
+        val cropJob = lifecycleScope.launch(Dispatchers.Default) {
             try {
                 val workerBmp = workerLease.bitmap
                 if (workerBmp == null || workerBmp.isRecycled) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@CircleSearchActivity, "Capture buffer was recycled", Toast.LENGTH_SHORT).show()
-                        finish()
+                        if (!isFinishing && !isDestroyed) {
+                            Toast.makeText(this@CircleSearchActivity, "Capture buffer was recycled", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
                     }
                     return@launch
                 }
@@ -225,8 +227,10 @@ class CircleSearchActivity : AppCompatActivity() {
                 val cropped = LensSearchHelper.cropBitmap(workerBmp, finalCropRect)
                 if (cropped == null) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@CircleSearchActivity, "Failed to crop selection", Toast.LENGTH_SHORT).show()
-                        finish()
+                        if (!isFinishing && !isDestroyed) {
+                            Toast.makeText(this@CircleSearchActivity, "Failed to crop selection", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
                     }
                     return@launch
                 }
@@ -234,6 +238,8 @@ class CircleSearchActivity : AppCompatActivity() {
                 val uri = LensSearchHelper.saveCroppedBitmap(this@CircleSearchActivity, cropped)
 
                 withContext(Dispatchers.Main) {
+                    if (isFinishing || isDestroyed) return@withContext
+
                     if (uri != null) {
                         val result = LensSearchHelper.dispatchVisualSearch(this@CircleSearchActivity, uri)
                         when (result) {
@@ -266,6 +272,9 @@ class CircleSearchActivity : AppCompatActivity() {
             } finally {
                 workerLease.release()
             }
+        }
+        cropJob.invokeOnCompletion {
+            workerLease.release()
         }
     }
 

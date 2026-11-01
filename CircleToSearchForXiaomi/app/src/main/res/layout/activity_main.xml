@@ -173,34 +173,34 @@
                         android:layout_marginBottom="10dp" />
 
                     <RadioButton
-                        android:id="@+id/rbBackTap"
+                        android:id="@+id/rbQsTile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/method_back_tap"
+                        android:text="@string/method_qs_tile"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/method_back_tap_desc"
+                        android:text="@string/method_qs_tile_desc"
                         android:textColor="#888888"
                         android:textSize="12sp"
                         android:layout_marginStart="32dp"
                         android:layout_marginBottom="10dp" />
 
                     <RadioButton
-                        android:id="@+id/rbPowerLong"
+                        android:id="@+id/rbAssistant"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/method_power_long"
+                        android:text="@string/method_assistant"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/method_power_long_desc"
+                        android:text="@string/method_assistant_desc"
                         android:textColor="#888888"
                         android:textSize="12sp"
                         android:layout_marginStart="32dp"

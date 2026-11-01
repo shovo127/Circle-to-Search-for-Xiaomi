@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var rgActivation: RadioGroup
     private lateinit var rbBottomHold: RadioButton
-    private lateinit var rbBackTap: RadioButton
-    private lateinit var rbPowerLong: RadioButton
+    private lateinit var rbQsTile: RadioButton
+    private lateinit var rbAssistant: RadioButton
 
     private lateinit var layoutHoldSettings: LinearLayout
     private lateinit var tvHoldThreshold: TextView
@@ -72,8 +72,8 @@ class MainActivity : AppCompatActivity() {
 
         rgActivation = findViewById(R.id.rgActivationMethod)
         rbBottomHold = findViewById(R.id.rbBottomHold)
-        rbBackTap = findViewById(R.id.rbBackTap)
-        rbPowerLong = findViewById(R.id.rbPowerLong)
+        rbQsTile = findViewById(R.id.rbQsTile)
+        rbAssistant = findViewById(R.id.rbAssistant)
 
         layoutHoldSettings = findViewById(R.id.layoutHoldSettings)
         tvHoldThreshold = findViewById(R.id.tvHoldThreshold)
@@ -106,8 +106,8 @@ class MainActivity : AppCompatActivity() {
 
         // Activation Method
         when (prefs.getString("pref_activation_method", "BOTTOM_HOLD")) {
-            "BACK_TAP" -> rbBackTap.isChecked = true
-            "POWER_LONG" -> rbPowerLong.isChecked = true
+            "QS_TILE" -> rbQsTile.isChecked = true
+            "ASSISTANT" -> rbAssistant.isChecked = true
             else -> rbBottomHold.isChecked = true
         }
         updateHoldVisibility()
@@ -152,8 +152,8 @@ class MainActivity : AppCompatActivity() {
 
         rgActivation.setOnCheckedChangeListener { _, checkedId ->
             val selectedMethod = when (checkedId) {
-                R.id.rbBackTap -> "BACK_TAP"
-                R.id.rbPowerLong -> "POWER_LONG"
+                R.id.rbQsTile -> "QS_TILE"
+                R.id.rbAssistant -> "ASSISTANT"
                 else -> "BOTTOM_HOLD"
             }
             prefs.edit().putString("pref_activation_method", selectedMethod).apply()
