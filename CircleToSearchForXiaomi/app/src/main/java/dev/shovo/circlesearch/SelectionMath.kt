@@ -42,11 +42,14 @@ object SelectionMath {
     ): FitCenterTransform {
         if (!contentWidth.isFinite() || !contentHeight.isFinite() || !viewWidth.isFinite() || !viewHeight.isFinite() ||
             contentWidth <= 0f || contentHeight <= 0f || viewWidth <= 0f || viewHeight <= 0f) {
-            return FitCenterTransform(1f, 0f, 0f)
+            return FitCenterTransform(0f, 0f, 0f)
         }
         val scale = min(viewWidth / contentWidth, viewHeight / contentHeight)
         val dx = (viewWidth - contentWidth * scale) / 2f
         val dy = (viewHeight - contentHeight * scale) / 2f
+        if (!scale.isFinite() || scale <= 0f || !dx.isFinite() || !dy.isFinite()) {
+            return FitCenterTransform(0f, 0f, 0f)
+        }
         return FitCenterTransform(scale, dx, dy)
     }
 
