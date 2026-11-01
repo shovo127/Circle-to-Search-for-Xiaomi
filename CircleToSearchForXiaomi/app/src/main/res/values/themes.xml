@@ -1,18 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.CircleToSearchForXiaomi" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/card_bg</item>
-        <item name="android:navigationBarColor">@color/card_bg</item>
-    </style>
-
-    <style name="Theme.CircleSearchTranslucent" parent="Theme.Material3.DayNight.NoActionBar">
+<resources>
+    <style name="Theme.CircleToSearchTrigger" parent="@android:style/Theme.Translucent.NoTitleBar">
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
 </resources>
-

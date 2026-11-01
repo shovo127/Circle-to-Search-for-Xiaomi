@@ -1,82 +1,27 @@
-# Circle to Search for Xiaomi (`dev.shovo.circlesearch`)
+# Circle to Search for Xiaomi
 
-Comprehensive suite for **Xiaomi 13 (fuxi)** running **HyperOS 3.0 / Android 16**, featuring:
-1. **Circle to Search for Xiaomi (`dev.shovo.circlesearch`):** Full Android Studio project providing Samsung-inspired screen selection, circle/rectangle drawing, haptic feedback, and instant Google Lens visual search.
-2. **Notification Reliability & PowerKeeper Optimization:** HyperOS 3 MILLET watchdog, Android Doze whitelisting, and FCM socket protection (`cached_apps_freezer` configuration).
-3. **HyperOS 3 Complete Debloat & Master Restoration:** Safe, reversible debloat tooling with 1-click restore scripts for all 29 uninstalled packages.
-4. **AdGuard Private DNS:** Native system-wide ad sinkholing without battery drain or VPN overhead.
+Minimal native Google Circle to Search trigger for Xiaomi 13 / HyperOS 3 / Android 16.
 
----
+The app is designed to be launched by **Double Back Tap**. Its launcher activity is transparent: when HyperOS launches the app, it immediately invokes Google's native Circle to Search through Android's Voice Interaction Manager (VIS) entry point and exits. It does not show a dashboard, create a second screenshot overlay, install an accessibility touch overlay, or replace the Power-button menu.
 
-## 📱 Supported Target
-- **Device:** Xiaomi 13 (`2211133C`, codename `fuxi`)
-- **OS:** Xiaomi HyperOS 3.0 (`OS3.0.309.0.WMCCNXM`)
-- **Base:** Android 16 (SDK 36)
-- **Root Status:** Zero root, no bootloader unlock required.
+## Configure once
 
----
+1. Make sure the Google app is installed and updated.
+2. Set **Google** as the phone's default Digital Assistant. The app checks this and opens assistant settings if Google is not selected.
+3. Open HyperOS **Settings → Additional settings → Gesture shortcuts → Back tap** (the exact menu label can vary by firmware).
+4. Set **Press back twice / Double tap** to **Open app → Circle to Search for Xiaomi**, if that action is offered by this firmware.
+5. Double-tap the back of the phone. Google should display its native Circle to Search surface; circle or lasso the content there.
 
-## 📂 Repository Structure
+## Important compatibility boundary
 
-```text
-├── CircleToSearchForXiaomi/        # Complete Android Studio Project
-│   ├── app/
-│   │   ├── src/main/java/dev/shovo/circlesearch/
-│   │   │   ├── CircleCanvasView.kt         # Ethereal cyan glowing circle & box drawing
-│   │   │   ├── CircleSearchActivity.kt     # Translucent screen overlay & crop trigger
-│   │   │   ├── LensSearchHelper.kt         # Crop logic & Google Lens intent dispatcher
-│   │   │   ├── MainActivity.kt             # Device detector & diagnostics
-│   │   │   ├── NavigationGestureService.kt # Accessibility & bottom-zone hold detector
-│   │   │   └── QuickSearchTileService.kt   # Control Center Quick Settings tile
-│   │   ├── src/main/res/                   # Layouts, colors, drawables, accessibility XML
-│   │   └── AndroidManifest.xml             # Declared permissions & FileProvider
-│   ├── build.gradle.kts                    # Root build configuration
-│   └── settings.gradle.kts
-│
-├── platform-tools/                         # Official Android ADB tools
-│   ├── adb.exe
-│   └── ...
-│
-├── scripts/                                # Automation & diagnostic tools
-│   ├── Xiaomi13_Notification_OneCommand.bat  # 1-click notification & Doze optimizer
-│   ├── Xiaomi13_Circle_to_Search_Safe_Setup.bat
-│   ├── add_qs_tile.py                       # Control Center tile injector
-│   ├── audit_apk.py                         # APK signature & SHA-256 auditor
-│   └── ui_dump.py                           # Real-time UI dump & touch automation
-│
-├── backups/                                # Full device configuration & restoration
-│   ├── master_restore_20261031_223959.bat   # 100% reversible restore for all uninstalled packages
-│   └── ...
-│
-├── MiCTS_2.6.apk                           # Audited MiCTS release binary
-└── NotiGuard-v2.1.apk                      # Audited NotiGuard release binary
-```
+The app uses the same public-source VIS invocation route documented by the upstream MiCTS project. Rootless success depends on Google allowing Circle to Search on the device. If Google rejects the invocation (Omni invocation failed: not enabled / the app reports that Google rejected it), a normal third-party APK cannot change Google's device-eligibility flag or whitelist. That is a Google-side restriction, not a gesture or screenshot bug.
 
----
+Back Tap itself is owned by HyperOS. The app can expose a launchable activity, but it cannot add an unsupported Open app action to a firmware Back Tap menu that does not provide one.
 
-## 🚀 Quick Start
+## Build
 
-### 1. Notification Reliability & Zero-Delay Fix
-To ensure WhatsApp, Messenger, Gmail, and banking notifications arrive instantaneously on HyperOS 3:
-```bat
-scripts\Xiaomi13_Notification_OneCommand.bat
-```
-
-### 2. Circle to Search Trigger Options
-Because Xiaomi China ROM (`WMCCNXM`) hardcodes the bottom navigation handle to XiaoAI in the system partition:
-- **Method 1 (Quick Settings Tile):** Swipe down Control Center ➔ Tap **Circle to Search**.
-- **Method 2 (Double Back-Tap):** Go to `Settings ➔ Additional settings ➔ Gesture shortcuts ➔ Back tap` and select Open app ➔ **Circle to Search**.
-- **Method 3 (Navigation Gesture Service):** Enable the accessibility service from `CircleToSearchForXiaomi` for bottom-pill hold detection.
-
-### 3. Master Restoration
-To revert any debloated packages at any time:
-```bat
-backups\master_restore_20261031_223959.bat
-```
-
----
-
-## 🔒 Security & Privacy
-- Zero cloud AI dependencies for screenshot capture or image processing.
-- All cropped search bitmaps are cached locally in app cache and shared securely with Google Lens via Android's `FileProvider`.
-- All operations preserve Knox/Widevine L1 integrity, official OTA updates, and device warranties.
+- Application ID: dev.shovo.circlesearch
+- Version: 1.1.0 (versionCode 4)
+- Minimum Android: 9 (API 28)
+- Target / compile SDK: 36
+- No app-side accessibility service, overlay permission, screenshot permission, Quick Settings tile, Power Assistant service, or long-press Power handling.

@@ -1,133 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- Minimal Required Permissions -->
-    <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- HyperOS Inter-App Intent Package Visibility -->
     <queries>
         <package android:name="com.google.android.googlequicksearchbox" />
-        <package android:name="com.google.android.apps.photos" />
-        <package android:name="com.google.ar.lens" />
-        <package android:name="com.microsoft.bing" />
-        <package android:name="com.yandex.searchapp" />
-        <intent>
-            <action android:name="android.intent.action.SEND" />
-            <data android:mimeType="image/*" />
-        </intent>
-        <intent>
-            <action android:name="com.google.android.apps.photos.SEARCH_IMAGE" />
-            <data android:mimeType="image/*" />
-        </intent>
     </queries>
-
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CircleToSearchForXiaomi">
-
-        <!-- Shovo Settings & Diagnostics Dashboard -->
+        android:theme="@style/Theme.CircleToSearchTrigger">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.CircleToSearchTrigger">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Interactive Visual Selection Overlay (Secured internally) -->
-        <activity
-            android:name=".CircleSearchActivity"
-            android:exported="false"
-            android:theme="@style/Theme.CircleSearchTranslucent"
-            android:launchMode="singleTask"
-            android:excludeFromRecents="true"
-            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize" />
-
-        <!-- Official Android Assistant / Voice Interaction Service -->
-        <service
-            android:name=".ShovoVoiceInteractionService"
-            android:permission="android.permission.BIND_VOICE_INTERACTION"
-            android:exported="true">
-            <meta-data
-                android:name="android.voice_interaction"
-                android:resource="@xml/voice_interaction_service" />
-            <intent-filter>
-                <action android:name="android.service.voice.VoiceInteractionService" />
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".ShovoVoiceSessionService"
-            android:permission="android.permission.BIND_VOICE_INTERACTION"
-            android:exported="true" />
-
-        <!-- Supporting Recognition Service required by AOSP VoiceInteraction framework -->
-        <service
-            android:name=".ShovoRecognitionService"
-            android:permission="android.permission.BIND_RECOGNITION_SERVICE"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.speech.RecognitionService" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-
-        <!-- Navigation Gesture Interception & Screen Capture Service -->
-        <service
-            android:name=".NavigationGestureService"
-            android:exported="true"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_service_config" />
-        </service>
-
-        <!-- Quick Settings Tile and System Assist Trampoline Activity -->
-        <activity
-            android:name=".TileTriggerActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:exported="true"
-            android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.ASSIST" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VOICE_ASSIST" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <service
-            android:name=".QuickSearchTileService"
-            android:exported="true"
-            android:label="@string/tile_name"
-            android:icon="@drawable/ic_qs_tile"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE" />
-            </intent-filter>
-        </service>
-
-        <!-- Secure Private Scoped File Provider for Crop Sharing -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="dev.shovo.circlesearch.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
     </application>
-
 </manifest>

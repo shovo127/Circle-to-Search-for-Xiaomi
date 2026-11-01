@@ -1,283 +1,95 @@
 package dev.shovo.circlesearch
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
-import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.switchmaterial.SwitchMaterial
 
 /**
- * Main Dashboard and Configuration Center for Shovo Circle Search.
- *
- * Provides real-time Accessibility Service monitoring, activation method selection,
- * hold duration calibration (300-750ms), multi-engine visual search provider selection,
- * haptic controls, cache maintenance, and about information.
+ * Transparent launcher trampoline. HyperOS Back Tap launches this activity;
+ * it invokes Google's native Circle to Search and exits without showing a dashboard.
  */
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var tvDevice: TextView
-    private lateinit var tvHyperOs: TextView
-    private lateinit var tvServiceStatus: TextView
-    private lateinit var btnEnable: Button
-    private lateinit var btnBatteryOptimization: Button
-
-    private lateinit var rgActivation: RadioGroup
-    private lateinit var rbBottomHold: RadioButton
-    private lateinit var rbQsTile: RadioButton
-    private lateinit var rbAssistant: RadioButton
-
-    private lateinit var layoutHoldSettings: LinearLayout
-    private lateinit var tvHoldThreshold: TextView
-    private lateinit var btnHoldDec: Button
-    private lateinit var btnHoldInc: Button
-
-    private lateinit var btnOpenGestureSettings: Button
-    private lateinit var btnOpenAssistantSettings: Button
-
-    private lateinit var rgSearchEngine: RadioGroup
-    private lateinit var rbEngineGoogle: RadioButton
-    private lateinit var rbEngineBing: RadioButton
-    private lateinit var rbEngineYandex: RadioButton
-    private lateinit var rbEngineChooser: RadioButton
-
-    private lateinit var switchHaptics: SwitchMaterial
-    private lateinit var btnTest: Button
-    private lateinit var btnClearCache: Button
+class MainActivity : Activity() {
+    private val handler = Handler(Looper.getMainLooper())
+    private var triggerQueued = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        bindViews()
-        setupDeviceInfo()
-        loadPreferences()
-        setupListeners()
+        hideTransition()
+        queueTrigger()
     }
 
-    private fun bindViews() {
-        tvDevice = findViewById(R.id.tvDeviceStatus)
-        tvHyperOs = findViewById(R.id.tvHyperOsStatus)
-        tvServiceStatus = findViewById(R.id.tvServiceStatus)
-        btnEnable = findViewById(R.id.btnEnableOverlay)
-        btnBatteryOptimization = findViewById(R.id.btnBatteryOptimization)
-
-        rgActivation = findViewById(R.id.rgActivationMethod)
-        rbBottomHold = findViewById(R.id.rbBottomHold)
-        rbQsTile = findViewById(R.id.rbQsTile)
-        rbAssistant = findViewById(R.id.rbAssistant)
-
-        layoutHoldSettings = findViewById(R.id.layoutHoldSettings)
-        tvHoldThreshold = findViewById(R.id.tvHoldThreshold)
-        btnHoldDec = findViewById(R.id.btnHoldDec)
-        btnHoldInc = findViewById(R.id.btnHoldInc)
-
-        btnOpenGestureSettings = findViewById(R.id.btnOpenGestureSettings)
-        btnOpenAssistantSettings = findViewById(R.id.btnOpenAssistantSettings)
-
-        rgSearchEngine = findViewById(R.id.rgSearchEngine)
-        rbEngineGoogle = findViewById(R.id.rbEngineGoogle)
-        rbEngineBing = findViewById(R.id.rbEngineBing)
-        rbEngineYandex = findViewById(R.id.rbEngineYandex)
-        rbEngineChooser = findViewById(R.id.rbEngineChooser)
-
-        switchHaptics = findViewById(R.id.switchHaptics)
-        btnTest = findViewById(R.id.btnTestSearch)
-        btnClearCache = findViewById(R.id.btnClearCache)
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        queueTrigger()
     }
 
-    private fun setupDeviceInfo() {
-        val model = Build.MODEL
-        val incremental = Build.VERSION.INCREMENTAL
-        tvDevice.text = "Device: Xiaomi 13 ($model)"
-        tvHyperOs.text = "Firmware: HyperOS 3 ($incremental) • Android ${Build.VERSION.RELEASE}"
-    }
-
-    private fun loadPreferences() {
-        val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
-
-        // Migrate old installations away from the unsafe bottom overlay.
-        // Accessibility overlays consume touch input and cannot replay native navigation.
-        val storedActivation = prefs.getString("pref_activation_method", null)
-        val activationMethod = if (storedActivation == "ASSISTANT") "ASSISTANT" else "QS_TILE"
-        if (storedActivation != activationMethod) {
-            prefs.edit().putString("pref_activation_method", activationMethod).apply()
-        }
-
-        rgActivation.clearCheck()
-        rbBottomHold.isEnabled = false
-        rbBottomHold.alpha = 0.55f
-        if (activationMethod == "ASSISTANT") rbAssistant.isChecked = true else rbQsTile.isChecked = true
-        updateHoldVisibility()
-
-        // Hold threshold
-        val threshold = prefs.getLong("pref_hold_threshold_ms", 450L)
-        updateThresholdDisplay(threshold)
-
-        // Search engine
-        when (prefs.getString("pref_search_engine", LensSearchHelper.SearchEngine.GOOGLE_LENS.key)) {
-            LensSearchHelper.SearchEngine.BING_VISUAL.key -> rbEngineBing.isChecked = true
-            LensSearchHelper.SearchEngine.YANDEX_IMAGES.key -> rbEngineYandex.isChecked = true
-            LensSearchHelper.SearchEngine.SYSTEM_CHOOSER.key -> rbEngineChooser.isChecked = true
-            else -> rbEngineGoogle.isChecked = true
-        }
-
-        // Haptics
-        switchHaptics.isChecked = prefs.getBoolean("pref_haptic_feedback", true)
-    }
-
-    private fun setupListeners() {
-        val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
-
-        btnEnable.setOnClickListener {
-            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            }
-            startActivity(intent)
-        }
-
-        btnBatteryOptimization.setOnClickListener {
-            try {
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                    data = android.net.Uri.fromParts("package", packageName, null)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    private fun queueTrigger() {
+        if (triggerQueued) return
+        triggerQueued = true
+        handler.postDelayed({
+            when (val result = OmniTrigger.invoke(this)) {
+                OmniTrigger.Result.Triggered -> {
+                    Log.i(TAG, "Google Circle to Search invocation accepted.")
                 }
-                startActivity(intent)
+                OmniTrigger.Result.GoogleNotDefault -> {
+                    Toast.makeText(
+                        this,
+                        "Set Google as the default Digital Assistant, then use Double Back Tap again.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    openAssistantSettings()
+                }
+                OmniTrigger.Result.Rejected -> {
+                    Toast.makeText(
+                        this,
+                        "Google rejected Circle to Search for this device. Check Google app support and eligibility.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    Log.w(TAG, "VoiceInteractionManagerService rejected the invocation.")
+                }
+                is OmniTrigger.Result.Failed -> {
+                    Toast.makeText(
+                        this,
+                        "Circle to Search could not start: " + result.reason,
+                        Toast.LENGTH_LONG
+                    ).show()
+                    Log.e(TAG, "Native invocation failed: " + result.reason)
+                }
+            }
+            finish()
+        }, TRIGGER_DELAY_MS)
+    }
+
+    private fun openAssistantSettings() {
+        try {
+            startActivity(Intent(Settings.ACTION_VOICE_INPUT_SETTINGS))
+        } catch (_: Exception) {
+            try {
+                startActivity(Intent(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS))
             } catch (e: Exception) {
-                Toast.makeText(this, "Could not open App Info: ${e.message}", Toast.LENGTH_SHORT).show()
+                Log.e(TAG, "Could not open default assistant settings.", e)
             }
-        }
-
-        rgActivation.setOnCheckedChangeListener { _, checkedId ->
-            val selectedMethod = if (checkedId == R.id.rbAssistant) "ASSISTANT" else "QS_TILE"
-            prefs.edit().putString("pref_activation_method", selectedMethod).apply()
-            updateHoldVisibility()
-            NavigationGestureService.instance?.updateGestureZoneConfiguration()
-        }
-
-        btnHoldDec.setOnClickListener {
-            var current = prefs.getLong("pref_hold_threshold_ms", 450L)
-            if (current > 300) {
-                current -= 50
-                prefs.edit().putLong("pref_hold_threshold_ms", current).apply()
-                updateThresholdDisplay(current)
-            }
-        }
-
-        btnHoldInc.setOnClickListener {
-            var current = prefs.getLong("pref_hold_threshold_ms", 450L)
-            if (current < 750) {
-                current += 50
-                prefs.edit().putLong("pref_hold_threshold_ms", current).apply()
-                updateThresholdDisplay(current)
-            }
-        }
-
-        btnOpenGestureSettings.setOnClickListener {
-            try {
-                startActivity(Intent("android.settings.QUICK_LAUNCH_SETTINGS").apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                })
-            } catch (_: Exception) {
-                startActivity(Intent(Settings.ACTION_SETTINGS).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                })
-            }
-        }
-
-        btnOpenAssistantSettings.setOnClickListener {
-            try {
-                startActivity(Intent(Settings.ACTION_VOICE_INPUT_SETTINGS).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                })
-            } catch (_: Exception) {
-                startActivity(Intent(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                })
-            }
-        }
-
-        rgSearchEngine.setOnCheckedChangeListener { _, checkedId ->
-            val engine = when (checkedId) {
-                R.id.rbEngineBing -> LensSearchHelper.SearchEngine.BING_VISUAL.key
-                R.id.rbEngineYandex -> LensSearchHelper.SearchEngine.YANDEX_IMAGES.key
-                R.id.rbEngineChooser -> LensSearchHelper.SearchEngine.SYSTEM_CHOOSER.key
-                else -> LensSearchHelper.SearchEngine.GOOGLE_LENS.key
-            }
-            prefs.edit().putString("pref_search_engine", engine).apply()
-        }
-
-        switchHaptics.setOnCheckedChangeListener { _, isChecked ->
-            prefs.edit().putBoolean("pref_haptic_feedback", isChecked).apply()
-        }
-
-        btnTest.setOnClickListener {
-            val service = NavigationGestureService.instance
-            if (service != null) {
-                moveTaskToBack(true)
-                window.decorView.postDelayed({
-                    service.triggerCircleToSearch()
-                }, 300)
-            } else {
-                Toast.makeText(
-                    this,
-                    "Accessibility Service is not enabled. Please enable it first.",
-                    Toast.LENGTH_LONG
-                ).show()
-                val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }
-                startActivity(intent)
-            }
-        }
-
-        btnClearCache.setOnClickListener {
-            LensSearchHelper.clearAllCrops(this)
-            Toast.makeText(this, getString(R.string.cache_cleared), Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun updateHoldVisibility() {
-        layoutHoldSettings.visibility = if (rbBottomHold.isChecked) View.VISIBLE else View.GONE
+    @Suppress("DEPRECATION")
+    private fun hideTransition() {
+        overridePendingTransition(0, 0)
     }
 
-    private fun updateThresholdDisplay(thresholdMs: Long) {
-        tvHoldThreshold.text = getString(R.string.hold_threshold_label, thresholdMs.toInt())
+    override fun onDestroy() {
+        handler.removeCallbacksAndMessages(null)
+        super.onDestroy()
     }
 
-    override fun onResume() {
-        super.onResume()
-        updateServiceStatus()
-    }
-
-    private fun updateServiceStatus() {
-        val isEnabled = isAccessibilityServiceEnabled(this, NavigationGestureService::class.java)
-        if (isEnabled) {
-            tvServiceStatus.text = "Accessibility Service: Active (Connected)"
-            tvServiceStatus.setTextColor(getColor(R.color.cyan_glow))
-            btnEnable.text = "Accessibility Active"
-        } else {
-            tvServiceStatus.text = "Accessibility Service: Inactive"
-            tvServiceStatus.setTextColor(getColor(R.color.google_red))
-            btnEnable.text = getString(R.string.start_service)
-        }
-    }
-
-    private fun isAccessibilityServiceEnabled(context: Context, serviceClass: Class<*>): Boolean {
-        val expected = "${context.packageName}/${serviceClass.name}"
-        val enabledServices = Settings.Secure.getString(
-            context.contentResolver,
-            Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
-        ) ?: return false
-
-        return enabledServices.split(':').any { it.equals(expected, ignoreCase = true) }
+    companion object {
+        private const val TAG = "CircleToSearchTrigger"
+        private const val TRIGGER_DELAY_MS = 100L
     }
 }
