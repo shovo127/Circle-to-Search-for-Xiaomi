@@ -187,6 +187,30 @@ class SelectionMathTest {
     }
 
     @Test
+    fun testInvalidFitCenterDimensionsProduceInvalidTransform() {
+        val transform = SelectionMath.computeFitCenterTransform(
+            contentWidth = 0f,
+            contentHeight = 2400f,
+            viewWidth = 1080f,
+            viewHeight = 2400f
+        )
+
+        assertEquals(0f, transform.scale, 0.001f)
+        val mapped = SelectionMath.mapViewToContentSpace(
+            viewLeft = 10f,
+            viewTop = 10f,
+            viewRight = 100f,
+            viewBottom = 100f,
+            transform = transform
+        )
+        assertEquals(0f, mapped.width, 0.001f)
+        assertEquals(0f, mapped.height, 0.001f)
+        assertNull(
+            SelectionMath.clampAndValidateCrop(mapped, 0f, 2400f)
+        )
+    }
+
+    @Test
     fun testFullScreenSelection() {
         val crop = SelectionMath.computeCrop(
             viewLeft = 0f,
