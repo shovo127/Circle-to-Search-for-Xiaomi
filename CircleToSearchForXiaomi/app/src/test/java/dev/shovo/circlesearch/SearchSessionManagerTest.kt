@@ -66,6 +66,7 @@ class SearchSessionManagerTest {
         val lease2 = s.acquireLease("Owner2")
         assertNotNull(lease2)
         lease2!!.release()
+        s.closeSession()
     }
 
     @Test
@@ -131,6 +132,7 @@ class SearchSessionManagerTest {
         }
 
         assertTrue("All concurrent leases must complete", latch.await(5, TimeUnit.SECONDS))
+        s.closeSession()
     }
 
     @Test
