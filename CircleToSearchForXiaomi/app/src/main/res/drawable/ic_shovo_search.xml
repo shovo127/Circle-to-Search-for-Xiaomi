@@ -4,45 +4,83 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- Dark Obsidian Background -->
+    <!-- Dark Obsidian Squircle Foundation (HyperOS Aesthetic) -->
     <path
-        android:fillColor="#0D1117"
-        android:pathData="M18,0 L90,0 A18,18 0 0 1 108,18 L108,90 A18,18 0 0 1 90,108 L18,108 A18,18 0 0 1 0,90 L0,18 A18,18 0 0 1 18,0 Z" />
+        android:fillColor="#0D111A"
+        android:pathData="M24,4 L84,4 A20,20 0 0 1 104,24 L104,84 A20,20 0 0 1 84,104 L24,104 A20,20 0 0 1 4,84 L4,24 A20,20 0 0 1 24,4 Z" />
 
-    <!-- Subtle Outer Ambient Glow Ring -->
+    <!-- Ambient Glow Core -->
     <path
-        android:strokeColor="#1E3A5F"
+        android:fillColor="#15243B"
+        android:pathData="M54,16 A38,38 0 1,1 53.9,16 Z" />
+
+    <!-- Subtle Tech Axis Lines -->
+    <path
+        android:strokeColor="#1E3252"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.5"
+        android:pathData="M18,54 L90,54 M54,18 L54,90" />
+
+    <!-- Dynamic Gesture Arc (Circling Gesture) -->
+    <path
+        android:strokeColor="#2979FF"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:strokeAlpha="0.85"
+        android:pathData="M31,30 C36,24 43,21 50,21 C64.9,21 77,33.1 77,48 C77,59 70.4,68.4 61,72.5" />
+
+    <!-- Outer Ambient Glow for Search Ring -->
+    <path
+        android:strokeColor="#4D00E5FF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:pathData="M50,28 A20,20 0 1,1 49.9,28 Z" />
+
+    <!-- Primary Electric Cyan Optical Reticle Ring -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="3.2"
+        android:strokeLineCap="round"
+        android:pathData="M50,28 A20,20 0 1,1 49.9,28 Z" />
+
+    <!-- Optical Lens Specular Shimmer Arc -->
+    <path
+        android:strokeColor="#FFFFFF"
         android:strokeWidth="1.5"
-        android:pathData="M54,16 A38,38 0 1 1 53.9,16 Z" />
+        android:strokeLineCap="round"
+        android:strokeAlpha="0.5"
+        android:pathData="M38,34 A16,16 0 0,1 62,34" />
 
-    <!-- Circular Search Reticle (Electric Cyan) -->
+    <!-- Precision Reticle Crosshair Ticks -->
     <path
         android:strokeColor="#00E5FF"
-        android:strokeWidth="3.5"
+        android:strokeWidth="2.2"
         android:strokeLineCap="round"
-        android:pathData="M54,24 A30,30 0 1 1 53.9,24 Z" />
+        android:pathData="M50,23 L50,27 M50,69 L50,73 M25,48 L29,48 M71,48 L75,48" />
 
-    <!-- Precision Crosshair Ticks -->
+    <!-- Center AI Multimodal Intelligence Spark (Stylized 4-Point Star) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,38 Q50,48 60,48 Q50,48 50,58 Q50,48 40,48 Q50,48 50,38 Z" />
+
+    <!-- Center Core Dot (Electric Cyan) -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M50,46 A2,2 0 1,1 49.9,46 Z" />
+
+    <!-- Precision Optical Lens Handle (Diagonal Base) -->
     <path
         android:strokeColor="#00E5FF"
-        android:strokeWidth="2.5"
+        android:strokeWidth="4.5"
         android:strokeLineCap="round"
-        android:pathData="M54,19 L54,27 M54,81 L54,89 M19,54 L27,54 M81,54 L89,54" />
+        android:pathData="M64,62 L77,75" />
 
-    <!-- Stylized "S" Emblem in Center (Shovo Identity) -->
+    <!-- Handle Metallic Specular Core -->
     <path
-        android:strokeColor="#00E5FF"
-        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
         android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M62,42 C60,37 46,37 46,45 C46,55 62,53 62,63 C62,71 46,71 44,66" />
-
-    <!-- Diagonal Search Lens Handle (Lower Right) -->
-    <path
-        android:strokeColor="#80D8FF"
-        android:strokeWidth="4"
-        android:strokeLineCap="round"
-        android:pathData="M75,75 L88,88" />
+        android:strokeAlpha="0.75"
+        android:pathData="M65,63 L75,73" />
 
 </vector>
-

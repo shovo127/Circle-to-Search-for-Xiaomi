@@ -17,5 +17,7 @@ scratch/
 *.png
 *.jpg
 *.jpeg
+!CircleToSearchForXiaomi/app/src/main/res/**/*.png
+!CircleToSearchForXiaomi/app/src/main/res/**/*.jpg
 *.log
 
