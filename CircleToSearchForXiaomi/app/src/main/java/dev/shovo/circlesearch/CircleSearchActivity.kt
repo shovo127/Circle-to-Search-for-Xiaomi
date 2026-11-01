@@ -236,7 +236,7 @@ class CircleSearchActivity : AppCompatActivity() {
                 } finally {
                     // Safe bitmap ownership: Only recycle if cropped is a distinct buffer.
                     // If crop covers the entire image, Android createBitmap may return workerBmp itself.
-                    if (cropped !== workerBmp && !cropped.isRecycled) {
+                    if (LensSearchHelper.shouldRecycleCroppedBitmap(workerBmp, cropped)) {
                         cropped.recycle()
                     }
                 }
