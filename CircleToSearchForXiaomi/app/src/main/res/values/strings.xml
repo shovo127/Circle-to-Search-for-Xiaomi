@@ -2,7 +2,7 @@
     <!-- Project Identity -->
     <string name="app_name">Circle to Search for Xiaomi</string>
     <string name="tile_name">Circle to Search</string>
-    <string name="accessibility_desc">Enables Circle to Search via bottom navigation handle hold and screen capture.</string>
+    <string name="accessibility_desc">Provides screen capture for Circle to Search through the Quick Settings Tile or supported assistant activation.</string>
     <string name="status_detected">Device: Xiaomi 13 (fuxi)</string>
     <string name="status_hyperos">Firmware: HyperOS 3 (Android 16)</string>
     <string name="start_service">Enable Accessibility Service</string>
