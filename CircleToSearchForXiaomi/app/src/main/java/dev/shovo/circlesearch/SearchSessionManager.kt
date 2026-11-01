@@ -237,16 +237,10 @@ object SearchSessionManager {
 
     internal fun cleanExpiredSessions() {
         val now = timeProvider()
-        val iterator = sessions.entries.iterator()
-        while (iterator.hasNext()) {
-            val entry = iterator.next()
-            val s = entry.value
-            if (now - s.createdAt > SESSION_TTL_MS) {
-                Log.d(TAG, "Purging expired session [${s.id}]")
-                s.expire()
-                if (s.state == State.EXPIRED || s.state == State.RELEASED || s.state == State.FAILED) {
-                    iterator.remove()
-                }
+        for (session in sessions.values) {
+            if (now - session.createdAt > SESSION_TTL_MS) {
+                Log.d(TAG, "Purging expired session [${session.id}]")
+                session.expire()
             }
         }
     }

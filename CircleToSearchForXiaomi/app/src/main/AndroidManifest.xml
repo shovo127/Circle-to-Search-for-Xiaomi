@@ -90,7 +90,7 @@
             android:name=".QuickSearchTileService"
             android:exported="true"
             android:label="@string/tile_name"
-            android:icon="@drawable/ic_shovo_search"
+            android:icon="@drawable/ic_qs_tile"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />

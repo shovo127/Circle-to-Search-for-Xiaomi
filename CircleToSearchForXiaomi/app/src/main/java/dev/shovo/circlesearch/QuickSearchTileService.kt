@@ -3,8 +3,10 @@ package dev.shovo.circlesearch
 import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
+import android.graphics.drawable.Icon
 import android.os.Build
 import android.provider.Settings
+import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.widget.Toast
 
@@ -15,6 +17,19 @@ import android.widget.Toast
  * ACTION_CLOSE_SYSTEM_DIALOGS broadcast, properly collapsing the shade before capture.
  */
 class QuickSearchTileService : TileService() {
+
+    override fun onStartListening() {
+        super.onStartListening()
+        qsTile?.let { tile ->
+            val isServiceActive = NavigationGestureService.instance != null
+            tile.state = if (isServiceActive) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
+            tile.icon = Icon.createWithResource(this, R.drawable.ic_qs_tile)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                tile.subtitle = if (isServiceActive) "Ready" else "Tap to Enable"
+            }
+            tile.updateTile()
+        }
+    }
 
     @SuppressLint("StartActivityAndCollapseDeprecated")
     override fun onClick() {

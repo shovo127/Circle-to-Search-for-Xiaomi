@@ -24,9 +24,10 @@ class TileTriggerActivity : Activity() {
 
         val service = NavigationGestureService.instance
         if (service != null) {
+            // Allow 200ms for HyperOS notification shade collapse animation to complete cleanly
             Handler(Looper.getMainLooper()).postDelayed({
                 service.triggerCircleToSearch()
-            }, 100)
+            }, 200)
         }
         finish()
     }
