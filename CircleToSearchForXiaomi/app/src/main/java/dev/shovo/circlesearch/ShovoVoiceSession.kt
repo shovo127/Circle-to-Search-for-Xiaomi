@@ -91,9 +91,14 @@ class ShovoVoiceSession(context: Context) : VoiceInteractionSession(context) {
                 hide()
             }
         } else {
-            Log.w(TAG, "Assist screenshot is null or blocked by system policy (FLAG_SECURE)")
-            Handler(Looper.getMainLooper()).post {
-                Toast.makeText(context, "Circle to Search: Screen capture blocked by security policy", Toast.LENGTH_SHORT).show()
+            Log.w(TAG, "Assist screenshot is null; attempting Accessibility capture fallback")
+            val accessibility = NavigationGestureService.instance
+            if (accessibility != null) {
+                accessibility.triggerCircleToSearch()
+            } else {
+                Handler(Looper.getMainLooper()).post {
+                    Toast.makeText(context, "Circle to Search: Screen capture unavailable", Toast.LENGTH_SHORT).show()
+                }
             }
             hide()
         }
