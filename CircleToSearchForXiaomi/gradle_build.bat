@@ -31,4 +31,7 @@ call ".\gradlew.bat" --no-daemon %*
 set "BUILD_EXIT=%ERRORLEVEL%"
 popd
 
+rem Remove only the project-owned temporary tool/cache directory after Gradle exits.
+if exist "%WORK_DIR%" rmdir /s /q "%WORK_DIR%"
+
 endlocal & exit /b %BUILD_EXIT%
