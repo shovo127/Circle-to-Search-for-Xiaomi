@@ -1,12 +1,12 @@
 <resources>
-    <!-- Shovo Product Identity -->
-    <string name="app_name">Shovo Circle Search</string>
-    <string name="tile_name">Shovo Search</string>
-    <string name="accessibility_desc">Enables Shovo Circle Search via bottom navigation handle hold and non-root screen capture.</string>
+    <!-- Project Identity -->
+    <string name="app_name">Circle to Search for Xiaomi</string>
+    <string name="tile_name">Circle to Search</string>
+    <string name="accessibility_desc">Enables Circle to Search via bottom navigation handle hold and screen capture.</string>
     <string name="status_detected">Device: Xiaomi 13 (fuxi)</string>
     <string name="status_hyperos">Firmware: HyperOS 3 (Android 16)</string>
     <string name="start_service">Enable Accessibility Service</string>
-    <string name="test_search">Test Shovo Search</string>
+    <string name="test_search">Test Circle to Search</string>
     <string name="hint_circle">Draw a circle or rectangle around any content to search</string>
     <string name="searching">Processing visual search…</string>
 
@@ -15,9 +15,9 @@
     <string name="method_bottom_hold">Bottom-Center Hold (Primary • Native)</string>
     <string name="method_bottom_hold_desc">Hold the bottom navigation pill. HyperOS native Home and Recents swipes remain fully preserved.</string>
     <string name="method_back_tap">Back Tap (System-Assisted)</string>
-    <string name="method_back_tap_desc">Assign Shovo Circle Search under HyperOS Gesture Shortcuts (Settings → Additional Settings → Gestures → Back Tap).</string>
+    <string name="method_back_tap_desc">Assign Circle to Search under HyperOS Gesture Shortcuts (Settings → Additional Settings → Gestures → Back Tap).</string>
     <string name="method_power_long">Power Button Long Press (Digital Assistant)</string>
-    <string name="method_power_long_desc">Assign Shovo Circle Search as Default Digital Assistant (Settings → Apps → Default Apps → Digital Assistant).</string>
+    <string name="method_power_long_desc">Assign Circle to Search as Default Digital Assistant (Settings → Apps → Default Apps → Digital Assistant).</string>
 
     <!-- Hold Threshold -->
     <string name="hold_threshold_label">Hold Duration: %d ms</string>
@@ -38,7 +38,7 @@
     <string name="open_assistant_settings">Default Assistant Settings</string>
 
     <!-- About & Legal -->
-    <string name="about_title">About Shovo Circle Search</string>
+    <string name="about_title">About Circle to Search for Xiaomi</string>
     <string name="about_subtitle">Professional Circle to Search for Xiaomi 13 (HyperOS 3 • Android 16)</string>
     <string name="about_developer">Engineered by Shovo (@shovo127)</string>
     <string name="about_version">Version 1.0.0 (API 36 Compatible)</string>

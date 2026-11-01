@@ -11,23 +11,24 @@ import android.util.Log
 import androidx.core.content.FileProvider
 import java.io.File
 import java.io.FileOutputStream
+import java.util.UUID
 import kotlin.math.max
 import kotlin.math.min
 
 /**
- * Visual search dispatcher and image cropping engine for Shovo Circle Search.
+ * Visual search dispatcher and image cropping engine for Circle to Search for Xiaomi.
  *
  * Implements truthful multi-engine visual search:
- * - Google Lens: Direct image dispatch via LensShareEntryPointActivity or Google App.
- * - Microsoft Bing: Dispatches image to Microsoft Bing application if installed.
- * - Yandex Search: Dispatches image to Yandex application if installed.
+ * - Google Lens: Direct image dispatch via standalone Lens, LensShareEntryPointActivity, or Google App.
+ * - Microsoft Bing: Dispatches image to Microsoft Bing application if verified installed.
+ * - Yandex Search: Dispatches image to Yandex application if verified installed.
  * - System Chooser: Dispatches image to any installed visual search / OCR application.
  *
- * Never fakes visual search by opening blank browser landing pages without the image.
+ * Adheres to Honest Provider Protocol: Never fakes visual search by opening blank browser URLs.
  */
 object LensSearchHelper {
 
-    private const val TAG = "ShovoLensHelper"
+    private const val TAG = "LensSearchHelper"
 
     const val PKG_GOOGLE_APP = "com.google.android.googlequicksearchbox"
     const val PKG_STANDALONE_LENS = "com.google.ar.lens"
@@ -38,9 +39,10 @@ object LensSearchHelper {
     private const val LENS_SEARCH_ACTION = "com.google.android.apps.photos.SEARCH_IMAGE"
 
     sealed class DispatchResult {
-        data class Success(val providerName: String) : DispatchResult()
-        data class EngineNotInstalled(val engineName: String, val targetPackage: String) : DispatchResult()
-        data class Failed(val reason: String) : DispatchResult()
+        data class HandedOff(val providerName: String) : DispatchResult()
+        object ChooserOpened : DispatchResult()
+        data class ProviderUnavailable(val reason: String) : DispatchResult()
+        data class DispatchFailure(val error: String) : DispatchResult()
     }
 
     enum class SearchEngine(
@@ -74,9 +76,14 @@ object LensSearchHelper {
             val cacheFolder = File(context.cacheDir, "crops").apply { mkdirs() }
             cleanOldCrops(cacheFolder)
 
-            val cropFile = File(cacheFolder, "shovo_crop_${System.currentTimeMillis()}.jpg")
-            FileOutputStream(cropFile).use { out ->
+            // Collision-resistant UUID filename
+            val cropFile = File(cacheFolder, "crop_${UUID.randomUUID()}.jpg")
+            val compressed = FileOutputStream(cropFile).use { out ->
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 95, out)
+            }
+            if (!compressed) {
+                Log.e(TAG, "Bitmap compression failed")
+                return null
             }
             FileProvider.getUriForFile(context, "dev.shovo.circlesearch.fileprovider", cropFile)
         } catch (e: Exception) {
@@ -136,7 +143,7 @@ object LensSearchHelper {
     }
 
     private fun dispatchGoogleLens(context: Context, imageUri: Uri): DispatchResult {
-        // Check standalone Google Lens app first if installed
+        // Strategy 1: Check standalone Google Lens app first if installed
         if (isPackageInstalled(context, PKG_STANDALONE_LENS)) {
             try {
                 context.grantUriPermission(PKG_STANDALONE_LENS, imageUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
@@ -150,7 +157,7 @@ object LensSearchHelper {
                 }
                 if (standaloneIntent.resolveActivity(context.packageManager) != null) {
                     context.startActivity(standaloneIntent)
-                    return DispatchResult.Success("Google Lens (Standalone App)")
+                    return DispatchResult.HandedOff("Google Lens (Standalone App)")
                 }
             } catch (e: Exception) {
                 Log.w(TAG, "Standalone Lens dispatch failed: ${e.message}")
@@ -159,7 +166,7 @@ object LensSearchHelper {
 
         if (!isPackageInstalled(context, PKG_GOOGLE_APP)) {
             Log.w(TAG, "Neither Google App nor Standalone Lens is installed on device")
-            // Attempt system chooser fallback
+            // Fallback to system chooser
             return dispatchSystemChooser(context, imageUri)
         }
 
@@ -169,7 +176,7 @@ object LensSearchHelper {
             Log.w(TAG, "grantUriPermission failed: ${e.message}")
         }
 
-        // Strategy 1: Google Lens Direct Share Activity
+        // Strategy 2: Google Lens Direct Share Activity with ArrayList extra
         val lensShareIntent = Intent(Intent.ACTION_SEND).apply {
             setClassName(PKG_GOOGLE_APP, LENS_SHARE_ACTIVITY)
             type = "image/jpeg"
@@ -180,15 +187,15 @@ object LensSearchHelper {
         }
         if (lensShareIntent.resolveActivity(context.packageManager) != null) {
             try {
-                Log.i(TAG, "Dispatching via Strategy 1: LensShareEntryPointActivity")
+                Log.i(TAG, "Dispatching via Strategy 2: LensShareEntryPointActivity")
                 context.startActivity(lensShareIntent)
-                return DispatchResult.Success("Google Lens (Direct Entry)")
+                return DispatchResult.HandedOff("Google Lens (Direct Entry)")
             } catch (e: Exception) {
-                Log.w(TAG, "Strategy 1 failed: ${e.message}")
+                Log.w(TAG, "Strategy 2 failed: ${e.message}")
             }
         }
 
-        // Strategy 2: Google Photos SEARCH_IMAGE Action
+        // Strategy 3: Google Photos SEARCH_IMAGE Action
         val lensActionIntent = Intent(LENS_SEARCH_ACTION).apply {
             setPackage(PKG_GOOGLE_APP)
             setDataAndType(imageUri, "image/jpeg")
@@ -199,15 +206,15 @@ object LensSearchHelper {
         }
         if (lensActionIntent.resolveActivity(context.packageManager) != null) {
             try {
-                Log.i(TAG, "Dispatching via Strategy 2: SEARCH_IMAGE action on Google App")
+                Log.i(TAG, "Dispatching via Strategy 3: SEARCH_IMAGE action on Google App")
                 context.startActivity(lensActionIntent)
-                return DispatchResult.Success("Google Lens (Search Image Action)")
+                return DispatchResult.HandedOff("Google Lens (Search Image Action)")
             } catch (e: Exception) {
-                Log.w(TAG, "Strategy 2 failed: ${e.message}")
+                Log.w(TAG, "Strategy 3 failed: ${e.message}")
             }
         }
 
-        // Strategy 3: Standard ACTION_SEND targeted to Google App
+        // Strategy 4: Standard ACTION_SEND targeted to Google App
         val googleSendIntent = Intent(Intent.ACTION_SEND).apply {
             setPackage(PKG_GOOGLE_APP)
             type = "image/jpeg"
@@ -218,22 +225,22 @@ object LensSearchHelper {
         }
         if (googleSendIntent.resolveActivity(context.packageManager) != null) {
             try {
-                Log.i(TAG, "Dispatching via Strategy 3: Google App SEND share")
+                Log.i(TAG, "Dispatching via Strategy 4: Google App SEND share")
                 context.startActivity(googleSendIntent)
-                return DispatchResult.Success("Google App (Image Share)")
+                return DispatchResult.HandedOff("Google App (Image Share)")
             } catch (e: Exception) {
-                Log.w(TAG, "Strategy 3 failed: ${e.message}")
+                Log.w(TAG, "Strategy 4 failed: ${e.message}")
             }
         }
 
-        // Fallback to Chooser
+        // Fallback to Universal Chooser
         return dispatchSystemChooser(context, imageUri)
     }
 
     private fun dispatchBing(context: Context, imageUri: Uri): DispatchResult {
         if (!isPackageInstalled(context, PKG_MICROSOFT_BING)) {
             Log.w(TAG, "Microsoft Bing app not installed on device")
-            return DispatchResult.EngineNotInstalled("Microsoft Bing", PKG_MICROSOFT_BING)
+            return DispatchResult.ProviderUnavailable("Microsoft Bing app is not installed. Please install it or select Google Lens.")
         }
 
         return try {
@@ -247,17 +254,17 @@ object LensSearchHelper {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             context.startActivity(intent)
-            DispatchResult.Success("Microsoft Bing App")
+            DispatchResult.HandedOff("Microsoft Bing App")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to launch Bing image search: ${e.message}")
-            DispatchResult.Failed(e.message ?: "Failed to launch Bing app")
+            DispatchResult.DispatchFailure(e.message ?: "Failed to launch Bing app")
         }
     }
 
     private fun dispatchYandex(context: Context, imageUri: Uri): DispatchResult {
         if (!isPackageInstalled(context, PKG_YANDEX)) {
             Log.w(TAG, "Yandex Search app not installed on device")
-            return DispatchResult.EngineNotInstalled("Yandex Search", PKG_YANDEX)
+            return DispatchResult.ProviderUnavailable("Yandex Search app is not installed. Please install it or select Google Lens.")
         }
 
         return try {
@@ -271,10 +278,10 @@ object LensSearchHelper {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             context.startActivity(intent)
-            DispatchResult.Success("Yandex Search App")
+            DispatchResult.HandedOff("Yandex Search App")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to launch Yandex image search: ${e.message}")
-            DispatchResult.Failed(e.message ?: "Failed to launch Yandex app")
+            DispatchResult.DispatchFailure(e.message ?: "Failed to launch Yandex app")
         }
     }
 
@@ -290,10 +297,10 @@ object LensSearchHelper {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             context.startActivity(chooser)
-            DispatchResult.Success("System App Chooser")
+            DispatchResult.ChooserOpened
         } catch (e: Exception) {
             Log.e(TAG, "System chooser launch failed: ${e.message}", e)
-            DispatchResult.Failed(e.message ?: "System chooser failed")
+            DispatchResult.DispatchFailure(e.message ?: "System chooser failed")
         }
     }
 }

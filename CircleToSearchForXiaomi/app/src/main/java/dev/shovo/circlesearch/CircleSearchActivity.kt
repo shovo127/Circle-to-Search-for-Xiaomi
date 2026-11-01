@@ -3,6 +3,7 @@ package dev.shovo.circlesearch
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Color
+import android.graphics.Matrix
 import android.graphics.RectF
 import android.os.Build
 import android.os.Bundle
@@ -18,19 +19,23 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.max
 import kotlin.math.min
 
 /**
- * Fullscreen translucent overlay for Shovo Circle Search.
+ * Fullscreen translucent overlay for Circle to Search for Xiaomi.
  *
- * Automatically adapts to display orientation (portrait / landscape), matches cutouts,
- * displays screenshot, provides visual lasso selection, and dispatches to visual engines.
+ * Implements request-scoped session leases, mathematically verified inverse matrix
+ * selection coordinate mapping, and lifecycle-aware structured concurrency.
  */
 class CircleSearchActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG = "ShovoCircleSearchAct"
+        private const val TAG = "CircleSearchActivity"
     }
 
     private lateinit var ivBackground: ImageView
@@ -39,6 +44,9 @@ class CircleSearchActivity : AppCompatActivity() {
     private lateinit var tvHint: TextView
     private lateinit var layoutTopBar: View
     private lateinit var btnClose: ImageButton
+
+    private var activeSessionId: String? = null
+    private var currentSession: SearchSessionManager.Session? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,7 +84,7 @@ class CircleSearchActivity : AppCompatActivity() {
             finish()
         }
 
-        loadSessionScreenshot()
+        bindSessionFromIntent(intent)
 
         circleCanvas.setOnSelectionCompleteListener { rect ->
             handleSelectionComplete(rect)
@@ -86,90 +94,131 @@ class CircleSearchActivity : AppCompatActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        loadSessionScreenshot()
+        bindSessionFromIntent(intent)
     }
 
-    private fun loadSessionScreenshot() {
-        val session = SearchSessionManager.getActiveSession()
-        val bmp = session?.bitmap
+    private fun bindSessionFromIntent(intent: Intent) {
+        // Release previous session lease if updating
+        currentSession?.releaseLease()
 
-        if (bmp != null && !bmp.isRecycled) {
-            // Adapt orientation dynamically to match screenshot aspect ratio
-            if (bmp.width > bmp.height) {
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        val sessionId = intent.getStringExtra(NavigationGestureService.EXTRA_SESSION_ID)
+        activeSessionId = sessionId
+        val session = SearchSessionManager.getSession(sessionId)
+
+        if (session != null && session.acquireLease()) {
+            currentSession = session
+            val bmp = session.bitmap
+
+            if (bmp != null && !bmp.isRecycled) {
+                // Adapt orientation dynamically to match screenshot aspect ratio
+                if (bmp.width > bmp.height) {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+                } else {
+                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+
+                ivBackground.setImageBitmap(bmp)
+                pbLoading.visibility = View.GONE
+                layoutTopBar.visibility = View.VISIBLE
+                tvHint.setText(R.string.hint_circle)
             } else {
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                Log.w(TAG, "Session [$sessionId] bitmap is null or recycled")
+                Toast.makeText(this, "Circle to Search: Capture buffer unavailable", Toast.LENGTH_SHORT).show()
+                finish()
             }
-
-            ivBackground.setImageBitmap(bmp)
-            pbLoading.visibility = View.GONE
-            layoutTopBar.visibility = View.VISIBLE
-            tvHint.setText(R.string.hint_circle)
         } else {
-            // No valid session available. Terminate cleanly without recursive re-triggering
-            Log.w(TAG, "No valid screenshot session available; terminating activity cleanly")
-            Toast.makeText(this, "Shovo Circle Search: No capture session active", Toast.LENGTH_SHORT).show()
+            Log.w(TAG, "Failed to acquire lease for session [$sessionId]; terminating cleanly")
+            Toast.makeText(this, "Circle to Search: No active capture session", Toast.LENGTH_SHORT).show()
             finish()
         }
     }
 
     private fun handleSelectionComplete(rect: RectF) {
+        val session = currentSession
+        val bmp = session?.bitmap
+
+        if (session == null || bmp == null || bmp.isRecycled) {
+            Toast.makeText(this, "Session expired or unavailable", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
         layoutTopBar.visibility = View.GONE
         pbLoading.visibility = View.VISIBLE
 
-        Thread {
-            val session = SearchSessionManager.getActiveSession()
-            val bmp = session?.bitmap
-            if (bmp != null && !bmp.isRecycled) {
-                val canvasW = circleCanvas.width.toFloat()
-                val canvasH = circleCanvas.height.toFloat()
+        // Mathematical coordinate mapping from view space to bitmap space
+        val mappedRect = RectF()
+        val inverseMatrix = Matrix()
+        if (ivBackground.imageMatrix != null && ivBackground.imageMatrix.invert(inverseMatrix)) {
+            inverseMatrix.mapRect(mappedRect, rect)
+        } else {
+            // Direct scale fallback for FIT_XY
+            val canvasW = max(1f, circleCanvas.width.toFloat())
+            val canvasH = max(1f, circleCanvas.height.toFloat())
+            val scaleX = bmp.width.toFloat() / canvasW
+            val scaleY = bmp.height.toFloat() / canvasH
+            mappedRect.set(
+                rect.left * scaleX,
+                rect.top * scaleY,
+                rect.right * scaleX,
+                rect.bottom * scaleY
+            )
+        }
 
-                val scaleX = if (canvasW > 0) bmp.width / canvasW else 1.0f
-                val scaleY = if (canvasH > 0) bmp.height / canvasH else 1.0f
+        // Clamp strictly to bitmap dimensions
+        val left = max(0f, min(mappedRect.left, (bmp.width - 1).toFloat()))
+        val top = max(0f, min(mappedRect.top, (bmp.height - 1).toFloat()))
+        val right = max(left + 1f, min(mappedRect.right, bmp.width.toFloat()))
+        val bottom = max(top + 1f, min(mappedRect.bottom, bmp.height.toFloat()))
+        val finalCropRect = RectF(left, top, right, bottom)
 
-                val left = max(0f, min(rect.left * scaleX, (bmp.width - 1).toFloat()))
-                val top = max(0f, min(rect.top * scaleY, (bmp.height - 1).toFloat()))
-                val right = max(left + 1f, min(rect.right * scaleX, bmp.width.toFloat()))
-                val bottom = max(top + 1f, min(rect.bottom * scaleY, bmp.height.toFloat()))
+        // Execute background crop and save using structured coroutines
+        lifecycleScope.launch(Dispatchers.Default) {
+            // Acquire temporary lease for background worker
+            session.acquireLease()
+            try {
+                val cropped = LensSearchHelper.cropBitmap(bmp, finalCropRect)
+                val uri = LensSearchHelper.saveCroppedBitmap(this@CircleSearchActivity, cropped)
 
-                val mappedRect = RectF(left, top, right, bottom)
-                val cropped = LensSearchHelper.cropBitmap(bmp, mappedRect)
-                val uri = LensSearchHelper.saveCroppedBitmap(this, cropped)
-
-                runOnUiThread {
+                withContext(Dispatchers.Main) {
                     if (uri != null) {
-                        val result = LensSearchHelper.dispatchVisualSearch(this, uri)
+                        val result = LensSearchHelper.dispatchVisualSearch(this@CircleSearchActivity, uri)
                         when (result) {
-                            is LensSearchHelper.DispatchResult.Success -> {
-                                Log.i(TAG, "Visual search launched successfully: ${result.providerName}")
+                            is LensSearchHelper.DispatchResult.HandedOff -> {
+                                Log.i(TAG, "Handoff to provider: ${result.providerName}")
                             }
-                            is LensSearchHelper.DispatchResult.EngineNotInstalled -> {
+                            is LensSearchHelper.DispatchResult.ChooserOpened -> {
+                                Log.i(TAG, "Universal system chooser opened")
+                            }
+                            is LensSearchHelper.DispatchResult.ProviderUnavailable -> {
                                 Toast.makeText(
-                                    this,
-                                    "${result.engineName} app is not installed. Please install it or use Google Lens.",
+                                    this@CircleSearchActivity,
+                                    result.reason,
                                     Toast.LENGTH_LONG
                                 ).show()
                             }
-                            is LensSearchHelper.DispatchResult.Failed -> {
-                                Toast.makeText(this, "Could not dispatch visual search: ${result.reason}", Toast.LENGTH_SHORT).show()
+                            is LensSearchHelper.DispatchResult.DispatchFailure -> {
+                                Toast.makeText(
+                                    this@CircleSearchActivity,
+                                    "Could not dispatch visual search: ${result.error}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                     } else {
-                        Toast.makeText(this, "Failed to crop selection", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@CircleSearchActivity, "Failed to crop selection", Toast.LENGTH_SHORT).show()
                     }
                     finish()
                 }
-            } else {
-                runOnUiThread {
-                    Toast.makeText(this, "Session expired or unavailable", Toast.LENGTH_SHORT).show()
-                    finish()
-                }
+            } finally {
+                session.releaseLease()
             }
-        }.start()
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        SearchSessionManager.clearSession()
+        currentSession?.releaseLease()
+        currentSession = null
     }
 }

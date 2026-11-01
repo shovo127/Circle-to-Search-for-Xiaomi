@@ -1,6 +1,6 @@
 # Product Requirements Document (PRD)
 
-**Product Name:** Shovo Circle Search  
+**Product Name:** Circle to Search for Xiaomi  
 **Package:** `dev.shovo.circlesearch`  
 **Target Hardware:** Xiaomi 13 (`2211133C`, codename `fuxi`)  
 **Firmware:** HyperOS 3 China ROM (`OS3.0.309.0.WMCCNXM`, Android 16 / API 36)  

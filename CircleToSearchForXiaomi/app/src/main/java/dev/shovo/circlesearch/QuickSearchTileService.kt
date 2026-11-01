@@ -1,5 +1,6 @@
 package dev.shovo.circlesearch
 
+import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
 import android.os.Handler
@@ -9,10 +10,10 @@ import android.service.quicksettings.TileService
 import android.widget.Toast
 
 /**
- * Quick Settings Tile allowing one-tap invocation of Shovo Circle Search.
+ * Quick Settings Tile for one-tap invocation of Circle to Search for Xiaomi.
  *
- * Automatically collapses notification shade and triggers zero-prompt screen capture
- * through the active NavigationGestureService.
+ * Uses official TileService.startActivityAndCollapse APIs without deprecated/restricted
+ * ACTION_CLOSE_SYSTEM_DIALOGS broadcast.
  */
 class QuickSearchTileService : TileService() {
 
@@ -21,29 +22,32 @@ class QuickSearchTileService : TileService() {
 
         val service = NavigationGestureService.instance
         if (service != null) {
-            // Collapse notification shade cleanly
-            @Suppress("DEPRECATION")
-            val collapseIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
-            sendBroadcast(collapseIntent)
-
+            // Trigger screenshot capture after brief delay to allow notification shade to retract
             Handler(Looper.getMainLooper()).postDelayed({
                 service.triggerCircleToSearch()
-            }, 300)
+            }, 250)
         } else {
             Toast.makeText(
                 this,
-                "Please enable Shovo Circle Search Accessibility Service",
+                "Please enable Circle to Search Accessibility Service",
                 Toast.LENGTH_LONG
             ).show()
 
-            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
+            val settingsIntent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-                startActivityAndCollapse(intent)
+                val pendingIntent = PendingIntent.getActivity(
+                    this,
+                    0,
+                    settingsIntent,
+                    PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+                )
+                startActivityAndCollapse(pendingIntent)
             } else {
                 @Suppress("DEPRECATION")
-                startActivityAndCollapse(intent)
+                startActivityAndCollapse(settingsIntent)
             }
         }
     }
