@@ -33,7 +33,16 @@ class ShovoVoiceSession(context: Context) : VoiceInteractionSession(context) {
 
         val hasScreenshotFlag = (showFlags and SHOW_WITH_SCREENSHOT) != 0
         if (!hasScreenshotFlag) {
-            Log.w(TAG, "onShow called without SHOW_WITH_SCREENSHOT flag")
+            Log.w(TAG, "onShow called without SHOW_WITH_SCREENSHOT flag; attempting Accessibility capture fallback")
+            val accessibility = NavigationGestureService.instance
+            if (accessibility != null) {
+                accessibility.triggerCircleToSearch()
+            } else {
+                Handler(Looper.getMainLooper()).post {
+                    Toast.makeText(context, "Circle to Search: Assistant screenshot not provided by system", Toast.LENGTH_SHORT).show()
+                }
+            }
+            hide()
         }
     }
 

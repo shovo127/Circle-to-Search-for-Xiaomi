@@ -167,8 +167,8 @@ class NavigationGestureService : AccessibilityService() {
                         if (gestureState == GestureState.PENDING) {
                             val pointerIndex = event.findPointerIndex(activePointerId)
                             if (pointerIndex >= 0) {
-                                val currentX = event.getRawX(pointerIndex)
-                                val currentY = event.getRawY(pointerIndex)
+                                val currentX = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) event.getRawX(pointerIndex) else event.rawX
+                                val currentY = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) event.getRawY(pointerIndex) else event.rawY
                                 val dx = abs(currentX - downX)
                                 val dy = downY - currentY // positive when swiping upwards
 

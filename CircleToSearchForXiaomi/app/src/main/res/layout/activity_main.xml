@@ -110,6 +110,18 @@
                     android:textSize="14sp"
                     app:cornerRadius="12dp" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBatteryOptimization"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/fix_service_kill"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    app:strokeColor="#444444"
+                    app:cornerRadius="12dp" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

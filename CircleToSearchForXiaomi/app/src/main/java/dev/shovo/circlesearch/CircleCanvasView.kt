@@ -78,6 +78,8 @@ class CircleCanvasView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (!isEnabled) return false
+
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 activePointerId = event.getPointerId(0)
@@ -130,11 +132,9 @@ class CircleCanvasView @JvmOverloads constructor(
             MotionEvent.ACTION_POINTER_UP -> {
                 val pointerIndex = event.actionIndex
                 if (event.getPointerId(pointerIndex) == activePointerId) {
-                    // Active pointer lifted; choose another pointer if available or cancel
-                    val newPointerIndex = if (pointerIndex == 0) 1 else 0
-                    if (newPointerIndex < event.pointerCount) {
-                        activePointerId = event.getPointerId(newPointerIndex)
-                    }
+                    val rawX = event.getX(pointerIndex)
+                    val rawY = event.getY(pointerIndex)
+                    finalizeSelection(rawX, rawY)
                 }
                 return true
             }
@@ -142,47 +142,13 @@ class CircleCanvasView @JvmOverloads constructor(
             MotionEvent.ACTION_UP -> {
                 if (isDrawing) {
                     val pointerIndex = event.findPointerIndex(activePointerId)
-                    if (pointerIndex >= 0) {
-                        val rawX = event.getX(pointerIndex)
-                        val rawY = event.getY(pointerIndex)
-                        if (rawX.isFinite() && rawY.isFinite()) {
-                            val clampedX = max(0f, min(rawX, width.toFloat()))
-                            val clampedY = max(0f, min(rawY, height.toFloat()))
-                            path.lineTo(clampedX, clampedY)
-                            minX = min(minX, clampedX)
-                            minY = min(minY, clampedY)
-                            maxX = max(maxX, clampedX)
-                            maxY = max(maxY, clampedY)
-                        }
+                    val (rawX, rawY) = if (pointerIndex >= 0) {
+                        Pair(event.getX(pointerIndex), event.getY(pointerIndex))
+                    } else {
+                        Pair(null, null)
                     }
-
-                    isDrawing = false
-                    isSelectionConfirmed = true
-                    path.close()
-                    invalidate()
-
-                    // Density-aware minimum dimension (48dp ~ 130-150px on modern high-DPI displays)
-                    val minDimension = 48f * resources.displayMetrics.density
-                    val rect = RectF(minX, minY, maxX, maxY)
-
-                    if (rect.width() < minDimension || rect.height() < minDimension) {
-                        val centerX = (minX + maxX) / 2f
-                        val centerY = (minY + maxY) / 2f
-                        val halfSpan = max(minDimension, max(rect.width(), rect.height())) / 2f
-                        rect.set(
-                            max(0f, centerX - halfSpan),
-                            max(0f, centerY - halfSpan),
-                            min(width.toFloat(), centerX + halfSpan),
-                            min(height.toFloat(), centerY + halfSpan)
-                        )
-                    }
-
-                    if (rect.width() > 0f && rect.height() > 0f && !rect.isEmpty) {
-                        vibrateConfirm()
-                        onSelectionCompleteListener?.invoke(rect)
-                    }
+                    finalizeSelection(rawX, rawY)
                 }
-                activePointerId = MotionEvent.INVALID_POINTER_ID
                 return true
             }
 
@@ -200,6 +166,46 @@ class CircleCanvasView @JvmOverloads constructor(
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    private fun finalizeSelection(rawX: Float?, rawY: Float?) {
+        if (!isDrawing) return
+        if (rawX != null && rawY != null && rawX.isFinite() && rawY.isFinite()) {
+            val clampedX = max(0f, min(rawX, width.toFloat()))
+            val clampedY = max(0f, min(rawY, height.toFloat()))
+            path.lineTo(clampedX, clampedY)
+            minX = min(minX, clampedX)
+            minY = min(minY, clampedY)
+            maxX = max(maxX, clampedX)
+            maxY = max(maxY, clampedY)
+        }
+
+        isDrawing = false
+        isSelectionConfirmed = true
+        path.close()
+        invalidate()
+
+        // Density-aware minimum dimension (48dp ~ 130-150px on modern high-DPI displays)
+        val minDimension = 48f * resources.displayMetrics.density
+        val rect = RectF(minX, minY, maxX, maxY)
+
+        if (rect.width() < minDimension || rect.height() < minDimension) {
+            val centerX = (minX + maxX) / 2f
+            val centerY = (minY + maxY) / 2f
+            val halfSpan = max(minDimension, max(rect.width(), rect.height())) / 2f
+            rect.set(
+                max(0f, centerX - halfSpan),
+                max(0f, centerY - halfSpan),
+                min(width.toFloat(), centerX + halfSpan),
+                min(height.toFloat(), centerY + halfSpan)
+            )
+        }
+
+        if (rect.width() > 0f && rect.height() > 0f && !rect.isEmpty) {
+            vibrateConfirm()
+            onSelectionCompleteListener?.invoke(rect)
+        }
+        activePointerId = MotionEvent.INVALID_POINTER_ID
     }
 
     override fun onDraw(canvas: Canvas) {

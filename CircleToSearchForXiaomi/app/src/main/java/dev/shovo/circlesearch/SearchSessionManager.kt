@@ -123,7 +123,6 @@ object SearchSessionManager {
             if (activeLeases == 0) {
                 destroyBitmapInternal()
                 state = State.RELEASED
-                sessions.remove(id)
             }
         }
 

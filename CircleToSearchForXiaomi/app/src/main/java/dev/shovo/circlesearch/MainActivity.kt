@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvHyperOs: TextView
     private lateinit var tvServiceStatus: TextView
     private lateinit var btnEnable: Button
+    private lateinit var btnBatteryOptimization: Button
 
     private lateinit var rgActivation: RadioGroup
     private lateinit var rbBottomHold: RadioButton
@@ -67,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         tvHyperOs = findViewById(R.id.tvHyperOsStatus)
         tvServiceStatus = findViewById(R.id.tvServiceStatus)
         btnEnable = findViewById(R.id.btnEnableOverlay)
+        btnBatteryOptimization = findViewById(R.id.btnBatteryOptimization)
 
         rgActivation = findViewById(R.id.rgActivationMethod)
         rbBottomHold = findViewById(R.id.rbBottomHold)
@@ -134,6 +136,18 @@ class MainActivity : AppCompatActivity() {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             startActivity(intent)
+        }
+
+        btnBatteryOptimization.setOnClickListener {
+            try {
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                    data = android.net.Uri.fromParts("package", packageName, null)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                startActivity(intent)
+            } catch (e: Exception) {
+                Toast.makeText(this, "Could not open App Info: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
 
         rgActivation.setOnCheckedChangeListener { _, checkedId ->

@@ -76,6 +76,9 @@ class CircleSearchActivity : AppCompatActivity() {
         layoutTopBar = findViewById(R.id.layoutTopBar)
         btnClose = findViewById(R.id.btnClose)
 
+        // Disable canvas until image matrix is calculated from layout
+        circleCanvas.isEnabled = false
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 finish()
@@ -155,6 +158,7 @@ class CircleSearchActivity : AppCompatActivity() {
         matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER)
         ivBackground.imageMatrix = matrix
         currentMatrix = matrix
+        circleCanvas.isEnabled = true
     }
 
     private fun handleSelectionComplete(rect: RectF) {
@@ -167,6 +171,9 @@ class CircleSearchActivity : AppCompatActivity() {
             finish()
             return
         }
+
+        // Prevent repeated selection touches while search handoff is in progress
+        circleCanvas.isEnabled = false
 
         // Acquire dedicated worker lease before starting background processing
         val workerLease = session.acquireLease("BackgroundCropWorker")
@@ -190,17 +197,16 @@ class CircleSearchActivity : AppCompatActivity() {
         }
         inverseMatrix.mapRect(mappedRect, rect)
 
-        // Clamp strictly to bitmap dimensions
-        val left = max(0f, min(mappedRect.left, (bmp.width - 1).toFloat()))
-        val top = max(0f, min(mappedRect.top, (bmp.height - 1).toFloat()))
-        val right = max(left + 1f, min(mappedRect.right, bmp.width.toFloat()))
-        val bottom = max(top + 1f, min(mappedRect.bottom, bmp.height.toFloat()))
-        val finalCropRect = RectF(left, top, right, bottom)
-
-        if (finalCropRect.width() <= 0f || finalCropRect.height() <= 0f) {
-            Log.w(TAG, "Invalid crop bounds: $finalCropRect")
+        // Strict intersection calculation with bitmap bounds to prevent letterbox edge slivers
+        val bmpBounds = RectF(0f, 0f, bmp.width.toFloat(), bmp.height.toFloat())
+        val finalCropRect = RectF()
+        if (!finalCropRect.setIntersect(mappedRect, bmpBounds) || finalCropRect.width() < 10f || finalCropRect.height() < 10f) {
+            Log.w(TAG, "Selection outside content boundaries: mapped=$mappedRect, bmpBounds=$bmpBounds")
             workerLease.release()
-            finish()
+            circleCanvas.isEnabled = true
+            pbLoading.visibility = View.GONE
+            layoutTopBar.visibility = View.VISIBLE
+            Toast.makeText(this, "Please select an area on the screen", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -265,7 +271,9 @@ class CircleSearchActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        val session = currentLease?.session
         currentLease?.release()
         currentLease = null
+        session?.closeSession()
     }
 }

@@ -36,6 +36,8 @@
     <string name="cache_cleared">Temporary search cache purged</string>
     <string name="open_gesture_settings">HyperOS Gesture Settings</string>
     <string name="open_assistant_settings">Default Assistant Settings</string>
+    <string name="fix_service_kill">Prevent Service Disabling (App Info)</string>
+    <string name="fix_service_kill_desc">Set Battery Saver to \'No restrictions\' and toggle Autostart to keep the service running permanently on HyperOS.</string>
 
     <!-- About & Legal -->
     <string name="about_title">About Circle to Search for Xiaomi</string>
