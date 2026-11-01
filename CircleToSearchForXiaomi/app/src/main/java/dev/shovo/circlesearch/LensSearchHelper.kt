@@ -56,19 +56,35 @@ object LensSearchHelper {
         SYSTEM_CHOOSER("SYSTEM_CHOOSER", "System App Chooser", null)
     }
 
-    fun cropBitmap(source: Bitmap, rect: RectF): Bitmap {
+    fun cropBitmap(source: Bitmap, rect: RectF): Bitmap? {
         if (source.isRecycled) {
-            Log.e(TAG, "Source bitmap is recycled, returning fallback empty frame")
-            return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
+            Log.e(TAG, "Source bitmap is recycled, cropping rejected")
+            return null
         }
+        if (rect.isEmpty || !rect.left.isFinite() || !rect.top.isFinite() ||
+            !rect.right.isFinite() || !rect.bottom.isFinite()) {
+            Log.e(TAG, "Crop rect is invalid or non-finite: $rect")
+            return null
+        }
+
         val left = max(0, min(rect.left.toInt(), source.width - 1))
         val top = max(0, min(rect.top.toInt(), source.height - 1))
         val right = max(left + 1, min(source.width, rect.right.toInt()))
         val bottom = max(top + 1, min(source.height, rect.bottom.toInt()))
-        val width = max(1, right - left)
-        val height = max(1, bottom - top)
+        val width = right - left
+        val height = bottom - top
 
-        return Bitmap.createBitmap(source, left, top, width, height)
+        if (width <= 0 || height <= 0) {
+            Log.e(TAG, "Crop dimensions invalid: ${width}x${height}")
+            return null
+        }
+
+        return try {
+            Bitmap.createBitmap(source, left, top, width, height)
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to create cropped bitmap: ${e.message}", e)
+            null
+        }
     }
 
     fun saveCroppedBitmap(context: Context, bitmap: Bitmap): Uri? {
@@ -76,13 +92,13 @@ object LensSearchHelper {
             val cacheFolder = File(context.cacheDir, "crops").apply { mkdirs() }
             cleanOldCrops(cacheFolder)
 
-            // Collision-resistant UUID filename
             val cropFile = File(cacheFolder, "crop_${UUID.randomUUID()}.jpg")
             val compressed = FileOutputStream(cropFile).use { out ->
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 95, out)
             }
             if (!compressed) {
                 Log.e(TAG, "Bitmap compression failed")
+                if (cropFile.exists()) cropFile.delete()
                 return null
             }
             FileProvider.getUriForFile(context, "dev.shovo.circlesearch.fileprovider", cropFile)
@@ -106,8 +122,8 @@ object LensSearchHelper {
         try {
             val now = System.currentTimeMillis()
             folder.listFiles()?.forEach { file ->
-                // Purge crops older than 5 minutes to prevent storage accumulation
-                if (now - file.lastModified() > 5 * 60 * 1000) {
+                // Purge crops older than 10 minutes so receiving apps have ample time to read
+                if (now - file.lastModified() > 10 * 60 * 1000) {
                     file.delete()
                 }
             }
@@ -166,7 +182,6 @@ object LensSearchHelper {
 
         if (!isPackageInstalled(context, PKG_GOOGLE_APP)) {
             Log.w(TAG, "Neither Google App nor Standalone Lens is installed on device")
-            // Fallback to system chooser
             return dispatchSystemChooser(context, imageUri)
         }
 
@@ -253,8 +268,12 @@ object LensSearchHelper {
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
-            context.startActivity(intent)
-            DispatchResult.HandedOff("Microsoft Bing App")
+            if (intent.resolveActivity(context.packageManager) != null) {
+                context.startActivity(intent)
+                DispatchResult.HandedOff("Microsoft Bing App")
+            } else {
+                DispatchResult.ProviderUnavailable("Microsoft Bing app cannot receive image shares.")
+            }
         } catch (e: Exception) {
             Log.e(TAG, "Failed to launch Bing image search: ${e.message}")
             DispatchResult.DispatchFailure(e.message ?: "Failed to launch Bing app")
@@ -277,8 +296,12 @@ object LensSearchHelper {
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
-            context.startActivity(intent)
-            DispatchResult.HandedOff("Yandex Search App")
+            if (intent.resolveActivity(context.packageManager) != null) {
+                context.startActivity(intent)
+                DispatchResult.HandedOff("Yandex Search App")
+            } else {
+                DispatchResult.ProviderUnavailable("Yandex Search app cannot receive image shares.")
+            }
         } catch (e: Exception) {
             Log.e(TAG, "Failed to launch Yandex image search: ${e.message}")
             DispatchResult.DispatchFailure(e.message ?: "Failed to launch Yandex app")

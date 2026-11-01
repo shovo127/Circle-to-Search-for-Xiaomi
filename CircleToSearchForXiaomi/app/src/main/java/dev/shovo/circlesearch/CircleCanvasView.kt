@@ -18,7 +18,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * High-performance interactive drawing canvas for Shovo Circle Search.
+ * High-performance interactive drawing canvas for Circle to Search for Xiaomi.
  *
  * Implements Google-style dual-tone glowing stroke (outer electric cyan glow + inner white core),
  * freeform lasso path tracing, and post-selection bounding box computation with auto-expansion
@@ -33,10 +33,11 @@ class CircleCanvasView @JvmOverloads constructor(
     private val path = Path()
     private var minX = Float.MAX_VALUE
     private var minY = Float.MAX_VALUE
-    private var maxX = Float.MIN_VALUE
-    private var maxY = Float.MIN_VALUE
+    private var maxX = -Float.MAX_VALUE
+    private var maxY = -Float.MAX_VALUE
     private var isDrawing = false
     private var isSelectionConfirmed = false
+    private var activePointerId = MotionEvent.INVALID_POINTER_ID
 
     // Outer Cyan Glow
     private val glowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -77,17 +78,22 @@ class CircleCanvasView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        val x = event.x
-        val y = event.y
-
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
+                activePointerId = event.getPointerId(0)
+                val rawX = event.x
+                val rawY = event.y
+                if (!rawX.isFinite() || !rawY.isFinite()) return false
+
+                val clampedX = max(0f, min(rawX, width.toFloat()))
+                val clampedY = max(0f, min(rawY, height.toFloat()))
+
                 path.reset()
-                path.moveTo(x, y)
-                minX = x
-                minY = y
-                maxX = x
-                maxY = y
+                path.moveTo(clampedX, clampedY)
+                minX = clampedX
+                minY = clampedY
+                maxX = clampedX
+                maxY = clampedY
                 isDrawing = true
                 isSelectionConfirmed = false
                 vibrateTick()
@@ -96,28 +102,69 @@ class CircleCanvasView @JvmOverloads constructor(
             }
 
             MotionEvent.ACTION_MOVE -> {
-                if (isDrawing) {
-                    path.lineTo(x, y)
-                    minX = min(minX, x)
-                    minY = min(minY, y)
-                    maxX = max(maxX, x)
-                    maxY = max(maxY, y)
-                    invalidate()
+                if (!isDrawing) return false
+                val pointerIndex = event.findPointerIndex(activePointerId)
+                if (pointerIndex < 0) return false
+
+                val rawX = event.getX(pointerIndex)
+                val rawY = event.getY(pointerIndex)
+                if (!rawX.isFinite() || !rawY.isFinite()) return true
+
+                val clampedX = max(0f, min(rawX, width.toFloat()))
+                val clampedY = max(0f, min(rawY, height.toFloat()))
+
+                path.lineTo(clampedX, clampedY)
+                minX = min(minX, clampedX)
+                minY = min(minY, clampedY)
+                maxX = max(maxX, clampedX)
+                maxY = max(maxY, clampedY)
+                invalidate()
+                return true
+            }
+
+            MotionEvent.ACTION_POINTER_DOWN -> {
+                // Ignore additional touches; do not let secondary fingers warp the drawing
+                return true
+            }
+
+            MotionEvent.ACTION_POINTER_UP -> {
+                val pointerIndex = event.actionIndex
+                if (event.getPointerId(pointerIndex) == activePointerId) {
+                    // Active pointer lifted; choose another pointer if available or cancel
+                    val newPointerIndex = if (pointerIndex == 0) 1 else 0
+                    if (newPointerIndex < event.pointerCount) {
+                        activePointerId = event.getPointerId(newPointerIndex)
+                    }
                 }
                 return true
             }
 
             MotionEvent.ACTION_UP -> {
                 if (isDrawing) {
+                    val pointerIndex = event.findPointerIndex(activePointerId)
+                    if (pointerIndex >= 0) {
+                        val rawX = event.getX(pointerIndex)
+                        val rawY = event.getY(pointerIndex)
+                        if (rawX.isFinite() && rawY.isFinite()) {
+                            val clampedX = max(0f, min(rawX, width.toFloat()))
+                            val clampedY = max(0f, min(rawY, height.toFloat()))
+                            path.lineTo(clampedX, clampedY)
+                            minX = min(minX, clampedX)
+                            minY = min(minY, clampedY)
+                            maxX = max(maxX, clampedX)
+                            maxY = max(maxY, clampedY)
+                        }
+                    }
+
                     isDrawing = false
                     isSelectionConfirmed = true
                     path.close()
                     invalidate()
 
+                    // Density-aware minimum dimension (48dp ~ 130-150px on modern high-DPI displays)
+                    val minDimension = 48f * resources.displayMetrics.density
                     val rect = RectF(minX, minY, maxX, maxY)
-                    // If the user tapped or circled a tiny dot (< 48dp on Xiaomi 13 ~ 130px),
-                    // expand a default bounding box (140px) around the center for reliable recognition
-                    val minDimension = 130f
+
                     if (rect.width() < minDimension || rect.height() < minDimension) {
                         val centerX = (minX + maxX) / 2f
                         val centerY = (minY + maxY) / 2f
@@ -130,16 +177,24 @@ class CircleCanvasView @JvmOverloads constructor(
                         )
                     }
 
-                    vibrateConfirm()
-                    onSelectionCompleteListener?.invoke(rect)
+                    if (rect.width() > 0f && rect.height() > 0f && !rect.isEmpty) {
+                        vibrateConfirm()
+                        onSelectionCompleteListener?.invoke(rect)
+                    }
                 }
+                activePointerId = MotionEvent.INVALID_POINTER_ID
                 return true
             }
 
             MotionEvent.ACTION_CANCEL -> {
                 isDrawing = false
                 isSelectionConfirmed = false
+                activePointerId = MotionEvent.INVALID_POINTER_ID
                 path.reset()
+                minX = Float.MAX_VALUE
+                minY = Float.MAX_VALUE
+                maxX = -Float.MAX_VALUE
+                maxY = -Float.MAX_VALUE
                 invalidate()
                 return false
             }
@@ -154,7 +209,6 @@ class CircleCanvasView @JvmOverloads constructor(
             canvas.drawPath(path, glowPaint)
             canvas.drawPath(path, corePaint)
 
-            // Only render the dashed bounding box once selection gesture is completed
             if (isSelectionConfirmed && minX < maxX && minY < maxY) {
                 canvas.drawRoundRect(minX, minY, maxX, maxY, 16f, 16f, borderPaint)
             }

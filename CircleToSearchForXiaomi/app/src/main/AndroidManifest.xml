@@ -89,6 +89,12 @@
         </service>
 
         <!-- Quick Settings Tile Fallback -->
+        <activity
+            android:name=".TileTriggerActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false"
+            android:excludeFromRecents="true" />
+
         <service
             android:name=".QuickSearchTileService"
             android:exported="true"

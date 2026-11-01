@@ -14,10 +14,10 @@
     <string name="pref_activation_title">Activation Trigger</string>
     <string name="method_bottom_hold">Bottom-Center Hold (Primary • Native)</string>
     <string name="method_bottom_hold_desc">Hold the bottom navigation pill. HyperOS native Home and Recents swipes remain fully preserved.</string>
-    <string name="method_back_tap">Back Tap (System-Assisted)</string>
-    <string name="method_back_tap_desc">Assign Circle to Search under HyperOS Gesture Shortcuts (Settings → Additional Settings → Gestures → Back Tap).</string>
-    <string name="method_power_long">Power Button Long Press (Digital Assistant)</string>
-    <string name="method_power_long_desc">Assign Circle to Search as Default Digital Assistant (Settings → Apps → Default Apps → Digital Assistant).</string>
+    <string name="method_back_tap">Back Tap (System Shortcut)</string>
+    <string name="method_back_tap_desc">Requires setting Circle to Search as Default Assistant and configuring HyperOS Back Tap to Launch Assistant.</string>
+    <string name="method_power_long">Power Button Long Press (Default Assistant)</string>
+    <string name="method_power_long_desc">Assign Circle to Search as Default Digital Assistant (Settings → Apps → Default Apps → Assist &amp; voice input).</string>
 
     <!-- Hold Threshold -->
     <string name="hold_threshold_label">Hold Duration: %d ms</string>

@@ -1,7 +1,7 @@
 package dev.shovo.circlesearch
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.RectF
@@ -30,7 +30,8 @@ import kotlin.math.min
  * Fullscreen translucent overlay for Circle to Search for Xiaomi.
  *
  * Implements request-scoped session leases, mathematically verified inverse matrix
- * selection coordinate mapping, and lifecycle-aware structured concurrency.
+ * selection coordinate mapping, aspect-ratio preservation without forced display rotation,
+ * and lifecycle-aware structured concurrency.
  */
 class CircleSearchActivity : AppCompatActivity() {
 
@@ -46,7 +47,8 @@ class CircleSearchActivity : AppCompatActivity() {
     private lateinit var btnClose: ImageButton
 
     private var activeSessionId: String? = null
-    private var currentSession: SearchSessionManager.Session? = null
+    private var currentLease: SearchSessionManager.Lease? = null
+    private var currentMatrix = Matrix()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,6 +86,12 @@ class CircleSearchActivity : AppCompatActivity() {
             finish()
         }
 
+        ivBackground.addOnLayoutChangeListener { _, left, top, right, bottom, oldL, oldT, oldR, oldB ->
+            if (right - left != oldR - oldL || bottom - top != oldB - oldT) {
+                updateImageMatrix()
+            }
+        }
+
         bindSessionFromIntent(intent)
 
         circleCanvas.setOnSelectionCompleteListener { rect ->
@@ -98,47 +106,72 @@ class CircleSearchActivity : AppCompatActivity() {
     }
 
     private fun bindSessionFromIntent(intent: Intent) {
-        // Release previous session lease if updating
-        currentSession?.releaseLease()
+        // Idempotently release any previous activity lease before binding
+        currentLease?.release()
+        currentLease = null
 
         val sessionId = intent.getStringExtra(NavigationGestureService.EXTRA_SESSION_ID)
         activeSessionId = sessionId
         val session = SearchSessionManager.getSession(sessionId)
 
-        if (session != null && session.acquireLease()) {
-            currentSession = session
-            val bmp = session.bitmap
+        if (session != null) {
+            val lease = session.acquireLease("CircleSearchActivity")
+            if (lease != null) {
+                currentLease = lease
+                val bmp = lease.bitmap
 
-            if (bmp != null && !bmp.isRecycled) {
-                // Adapt orientation dynamically to match screenshot aspect ratio
-                if (bmp.width > bmp.height) {
-                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+                if (bmp != null && !bmp.isRecycled) {
+                    ivBackground.setImageBitmap(bmp)
+                    updateImageMatrix()
+                    pbLoading.visibility = View.GONE
+                    layoutTopBar.visibility = View.VISIBLE
+                    tvHint.setText(R.string.hint_circle)
+                    return
                 } else {
-                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    Log.w(TAG, "Session [$sessionId] bitmap is null or recycled")
+                    lease.release()
+                    currentLease = null
                 }
-
-                ivBackground.setImageBitmap(bmp)
-                pbLoading.visibility = View.GONE
-                layoutTopBar.visibility = View.VISIBLE
-                tvHint.setText(R.string.hint_circle)
-            } else {
-                Log.w(TAG, "Session [$sessionId] bitmap is null or recycled")
-                Toast.makeText(this, "Circle to Search: Capture buffer unavailable", Toast.LENGTH_SHORT).show()
-                finish()
             }
-        } else {
-            Log.w(TAG, "Failed to acquire lease for session [$sessionId]; terminating cleanly")
-            Toast.makeText(this, "Circle to Search: No active capture session", Toast.LENGTH_SHORT).show()
-            finish()
         }
+
+        Log.w(TAG, "Failed to bind valid session for [$sessionId]; finishing cleanly")
+        Toast.makeText(this, "Circle to Search: Capture session unavailable", Toast.LENGTH_SHORT).show()
+        finish()
+    }
+
+    private fun updateImageMatrix() {
+        val bmp = currentLease?.bitmap ?: return
+        if (bmp.isRecycled) return
+
+        val viewW = ivBackground.width.toFloat()
+        val viewH = ivBackground.height.toFloat()
+        if (viewW <= 0f || viewH <= 0f) return
+
+        val src = RectF(0f, 0f, bmp.width.toFloat(), bmp.height.toFloat())
+        val dst = RectF(0f, 0f, viewW, viewH)
+        val matrix = Matrix()
+        // Center-fit preserves exact aspect ratio without distortion or rotation
+        matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER)
+        ivBackground.imageMatrix = matrix
+        currentMatrix = matrix
     }
 
     private fun handleSelectionComplete(rect: RectF) {
-        val session = currentSession
-        val bmp = session?.bitmap
+        val lease = currentLease
+        val session = lease?.session
+        val bmp = lease?.bitmap
 
-        if (session == null || bmp == null || bmp.isRecycled) {
+        if (lease == null || session == null || bmp == null || bmp.isRecycled) {
             Toast.makeText(this, "Session expired or unavailable", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
+        // Acquire dedicated worker lease before starting background processing
+        val workerLease = session.acquireLease("BackgroundCropWorker")
+        if (workerLease == null) {
+            Toast.makeText(this, "Session closed; cannot complete crop", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
@@ -147,23 +180,15 @@ class CircleSearchActivity : AppCompatActivity() {
         pbLoading.visibility = View.VISIBLE
 
         // Mathematical coordinate mapping from view space to bitmap space
-        val mappedRect = RectF()
         val inverseMatrix = Matrix()
-        if (ivBackground.imageMatrix != null && ivBackground.imageMatrix.invert(inverseMatrix)) {
-            inverseMatrix.mapRect(mappedRect, rect)
-        } else {
-            // Direct scale fallback for FIT_XY
-            val canvasW = max(1f, circleCanvas.width.toFloat())
-            val canvasH = max(1f, circleCanvas.height.toFloat())
-            val scaleX = bmp.width.toFloat() / canvasW
-            val scaleY = bmp.height.toFloat() / canvasH
-            mappedRect.set(
-                rect.left * scaleX,
-                rect.top * scaleY,
-                rect.right * scaleX,
-                rect.bottom * scaleY
-            )
+        val mappedRect = RectF()
+        if (!currentMatrix.invert(inverseMatrix)) {
+            Log.e(TAG, "Failed to invert display matrix")
+            workerLease.release()
+            finish()
+            return
         }
+        inverseMatrix.mapRect(mappedRect, rect)
 
         // Clamp strictly to bitmap dimensions
         val left = max(0f, min(mappedRect.left, (bmp.width - 1).toFloat()))
@@ -172,12 +197,34 @@ class CircleSearchActivity : AppCompatActivity() {
         val bottom = max(top + 1f, min(mappedRect.bottom, bmp.height.toFloat()))
         val finalCropRect = RectF(left, top, right, bottom)
 
+        if (finalCropRect.width() <= 0f || finalCropRect.height() <= 0f) {
+            Log.w(TAG, "Invalid crop bounds: $finalCropRect")
+            workerLease.release()
+            finish()
+            return
+        }
+
         // Execute background crop and save using structured coroutines
         lifecycleScope.launch(Dispatchers.Default) {
-            // Acquire temporary lease for background worker
-            session.acquireLease()
             try {
-                val cropped = LensSearchHelper.cropBitmap(bmp, finalCropRect)
+                val workerBmp = workerLease.bitmap
+                if (workerBmp == null || workerBmp.isRecycled) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@CircleSearchActivity, "Capture buffer was recycled", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    return@launch
+                }
+
+                val cropped = LensSearchHelper.cropBitmap(workerBmp, finalCropRect)
+                if (cropped == null) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@CircleSearchActivity, "Failed to crop selection", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    return@launch
+                }
+
                 val uri = LensSearchHelper.saveCroppedBitmap(this@CircleSearchActivity, cropped)
 
                 withContext(Dispatchers.Main) {
@@ -206,19 +253,19 @@ class CircleSearchActivity : AppCompatActivity() {
                             }
                         }
                     } else {
-                        Toast.makeText(this@CircleSearchActivity, "Failed to crop selection", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@CircleSearchActivity, "Failed to save cropped selection", Toast.LENGTH_SHORT).show()
                     }
                     finish()
                 }
             } finally {
-                session.releaseLease()
+                workerLease.release()
             }
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        currentSession?.releaseLease()
-        currentSession = null
+        currentLease?.release()
+        currentLease = null
     }
 }

@@ -2,9 +2,10 @@ package dev.shovo.circlesearch
 
 import android.graphics.Bitmap
 import android.util.Log
+import java.io.Closeable
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * Thread-safe, request-scoped session registry for Circle to Search for Xiaomi.
@@ -12,9 +13,9 @@ import java.util.concurrent.atomic.AtomicInteger
  * Implements:
  * 1. Concurrent registry mapping unique session IDs to isolated session leases.
  * 2. Immutable session ID propagation via Intent extras.
- * 3. Reference counting / lease mechanism ensuring a bitmap is NEVER recycled
+ * 3. Idempotent reference counting / lease mechanism ensuring a bitmap is NEVER recycled
  *    while an Activity or background worker holds an active lease.
- * 4. Bounded TTL expiration (5 minutes) for abandoned sessions.
+ * 4. Bounded TTL expiration (5 minutes) for abandoned sessions with deferred cleanup.
  * 5. Complete isolation between concurrent or successive requests.
  */
 object SearchSessionManager {
@@ -30,48 +31,132 @@ object SearchSessionManager {
         RELEASED
     }
 
-    class Session(
+    /**
+     * Idempotent lease token ensuring exact single-release semantics per owner.
+     */
+    class Lease internal constructor(
+        val session: Session,
+        val ownerTag: String
+    ) : Closeable, AutoCloseable {
+        private val released = AtomicBoolean(false)
+
+        val isReleased: Boolean
+            get() = released.get()
+
+        val bitmap: Bitmap?
+            get() = if (!released.get()) session.bitmap else null
+
+        fun release() {
+            if (released.compareAndSet(false, true)) {
+                session.internalReleaseLease(ownerTag)
+            }
+        }
+
+        override fun close() {
+            release()
+        }
+    }
+
+    class Session internal constructor(
         val id: String = UUID.randomUUID().toString(),
         val createdAt: Long = System.currentTimeMillis()
     ) {
         @Volatile
         var state: State = State.CAPTURING
-            internal set
+            private set
 
         @Volatile
         var bitmap: Bitmap? = null
-            internal set
+            private set
 
         @Volatile
         var errorMessage: String? = null
-            internal set
+            private set
 
-        private val activeLeases = AtomicInteger(0)
+        private var activeLeases = 0
 
-        fun acquireLease(): Boolean {
-            synchronized(this) {
-                if (state == State.RELEASED || state == State.EXPIRED) {
-                    Log.w(TAG, "Cannot acquire lease on session [$id] in state $state")
-                    return false
+        @Synchronized
+        fun acquireLease(ownerTag: String = "anonymous"): Lease? {
+            if (state == State.RELEASED || state == State.EXPIRED || state == State.FAILED) {
+                Log.w(TAG, "Cannot acquire lease on session [$id] in terminal state $state")
+                return null
+            }
+            activeLeases++
+            Log.d(TAG, "Acquired lease for [$id] by [$ownerTag], activeLeases=$activeLeases")
+            return Lease(this, ownerTag)
+        }
+
+        @Synchronized
+        internal fun internalReleaseLease(ownerTag: String) {
+            if (activeLeases > 0) {
+                activeLeases--
+            } else {
+                Log.w(TAG, "Warning: release called on session [$id] with 0 active leases")
+            }
+            Log.d(TAG, "Released lease for [$id] by [$ownerTag], remaining=$activeLeases, state=$state")
+
+            if (activeLeases == 0) {
+                if (state == State.EXPIRED || state == State.RELEASED || state == State.FAILED) {
+                    destroyBitmapInternal()
+                    state = State.RELEASED
+                    sessions.remove(id)
                 }
-                val count = activeLeases.incrementAndGet()
-                Log.d(TAG, "Acquired lease for session [$id], count=$count")
-                return true
             }
         }
 
-        fun releaseLease() {
-            synchronized(this) {
-                val remaining = activeLeases.decrementAndGet()
-                Log.d(TAG, "Released lease for session [$id], remaining=$remaining")
-                if (remaining <= 0 && (state == State.READY || state == State.FAILED)) {
-                    cleanupInternal()
-                }
-            }
-        }
-
-        internal fun cleanupInternal() {
+        @Synchronized
+        fun closeSession() {
+            if (state == State.RELEASED) return
+            Log.d(TAG, "closeSession called on [$id], activeLeases=$activeLeases")
             state = State.RELEASED
+            if (activeLeases == 0) {
+                destroyBitmapInternal()
+                sessions.remove(id)
+            }
+        }
+
+        @Synchronized
+        internal fun expire() {
+            if (state == State.RELEASED || state == State.EXPIRED) return
+            Log.d(TAG, "Session [$id] marked EXPIRED")
+            state = State.EXPIRED
+            if (activeLeases == 0) {
+                destroyBitmapInternal()
+                state = State.RELEASED
+                sessions.remove(id)
+            }
+        }
+
+        @Synchronized
+        internal fun complete(bmp: Bitmap): Boolean {
+            if (state != State.CAPTURING) {
+                Log.w(TAG, "Session [$id] is in state $state (not CAPTURING); rejecting complete")
+                return false
+            }
+            bitmap = bmp
+            state = State.READY
+            Log.d(TAG, "Session [$id] transitioned to READY (${bmp.width}x${bmp.height})")
+            return true
+        }
+
+        @Synchronized
+        internal fun fail(reason: String): Boolean {
+            if (state != State.CAPTURING) {
+                Log.w(TAG, "Session [$id] is in state $state (not CAPTURING); rejecting fail")
+                return false
+            }
+            errorMessage = reason
+            state = State.FAILED
+            Log.w(TAG, "Session [$id] transitioned to FAILED: $reason")
+            if (activeLeases == 0) {
+                destroyBitmapInternal()
+                state = State.RELEASED
+                sessions.remove(id)
+            }
+            return true
+        }
+
+        private fun destroyBitmapInternal() {
             bitmap?.let { bmp ->
                 if (!bmp.isRecycled) {
                     bmp.recycle()
@@ -99,12 +184,13 @@ object SearchSessionManager {
 
     fun completeCapture(sessionId: String, bmp: Bitmap) {
         val session = sessions[sessionId]
-        if (session != null && session.state == State.CAPTURING) {
-            session.bitmap = bmp
-            session.state = State.READY
-            Log.d(TAG, "Completed capture for session [$sessionId], size=${bmp.width}x${bmp.height}")
+        if (session != null) {
+            val completed = session.complete(bmp)
+            if (!completed && !bmp.isRecycled) {
+                bmp.recycle()
+            }
         } else {
-            Log.w(TAG, "Session [$sessionId] not in CAPTURING state; discarding incoming bitmap")
+            Log.w(TAG, "Session [$sessionId] not found in registry; discarding incoming bitmap")
             if (!bmp.isRecycled) {
                 bmp.recycle()
             }
@@ -113,20 +199,17 @@ object SearchSessionManager {
 
     fun failCapture(sessionId: String, errorMsg: String) {
         val session = sessions[sessionId]
-        if (session != null && session.state == State.CAPTURING) {
-            session.errorMessage = errorMsg
-            session.state = State.FAILED
-            Log.w(TAG, "Failed capture for session [$sessionId]: $errorMsg")
+        if (session != null) {
+            session.fail(errorMsg)
+        } else {
+            Log.w(TAG, "Session [$sessionId] not found for failure notification")
         }
     }
 
     fun releaseSession(sessionId: String?) {
         if (sessionId.isNullOrEmpty()) return
         val session = sessions[sessionId] ?: return
-        session.releaseLease()
-        if (session.state == State.RELEASED) {
-            sessions.remove(sessionId)
-        }
+        session.closeSession()
     }
 
     private fun cleanExpiredSessions() {
@@ -137,9 +220,10 @@ object SearchSessionManager {
             val s = entry.value
             if (now - s.createdAt > SESSION_TTL_MS) {
                 Log.d(TAG, "Purging expired session [${s.id}]")
-                s.state = State.EXPIRED
-                s.cleanupInternal()
-                iterator.remove()
+                s.expire()
+                if (s.state == State.RELEASED) {
+                    iterator.remove()
+                }
             }
         }
     }
