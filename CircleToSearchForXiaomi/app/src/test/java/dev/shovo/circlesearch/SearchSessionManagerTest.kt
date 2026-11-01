@@ -1,13 +1,25 @@
 package dev.shovo.circlesearch
 
 import android.graphics.Bitmap
+import org.junit.After
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.mock
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
 class SearchSessionManagerTest {
+
+    @Before
+    fun setUp() {
+        SearchSessionManager.resetForTest()
+    }
+
+    @After
+    fun tearDown() {
+        SearchSessionManager.resetForTest()
+    }
 
     private fun createMockBitmap(): Bitmap {
         return mock(Bitmap::class.java)
@@ -119,5 +131,60 @@ class SearchSessionManagerTest {
         }
 
         assertTrue("All concurrent leases must complete", latch.await(5, TimeUnit.SECONDS))
+    }
+
+    @Test
+    fun testAutomaticExpiryWithMockClock() {
+        var mockTime = 100_000L
+        SearchSessionManager.timeProvider = { mockTime }
+
+        val s = SearchSessionManager.createSession()
+        s.complete(createMockBitmap())
+        assertEquals(SearchSessionManager.State.READY, s.state)
+
+        // Advance clock by 4 minutes (less than 5-minute TTL)
+        mockTime += 4 * 60 * 1000L
+        SearchSessionManager.cleanExpiredSessions()
+        assertNotNull(SearchSessionManager.getSession(s.id))
+        assertEquals(SearchSessionManager.State.READY, s.state)
+
+        // Advance clock past 5 minutes (TTL exceeded)
+        mockTime += 2 * 60 * 1000L
+        SearchSessionManager.cleanExpiredSessions()
+
+        // Abandoned session with 0 leases must be purged
+        assertNull("Expired session must be purged from registry", SearchSessionManager.getSession(s.id))
+        assertEquals(SearchSessionManager.State.EXPIRED, s.state)
+    }
+
+    @Test
+    fun testIndependentConcurrentSessionsIsolation() {
+        val s1 = SearchSessionManager.createSession()
+        val s2 = SearchSessionManager.createSession()
+        val bmp1 = createMockBitmap()
+        val bmp2 = createMockBitmap()
+
+        s1.complete(bmp1)
+        s2.complete(bmp2)
+
+        val lease1 = s1.acquireLease("Worker1")
+        val lease2 = s2.acquireLease("Worker2")
+
+        assertSame(bmp1, lease1?.bitmap)
+        assertSame(bmp2, lease2?.bitmap)
+
+        // Releasing and closing session 1 must have no impact on session 2
+        lease1?.release()
+        s1.closeSession()
+
+        assertNull(SearchSessionManager.getSession(s1.id))
+        assertNotNull(SearchSessionManager.getSession(s2.id))
+        assertEquals(SearchSessionManager.State.READY, s2.state)
+        assertFalse(lease2!!.isReleased)
+        assertSame(bmp2, lease2.bitmap)
+
+        lease2.release()
+        s2.closeSession()
+        assertNull(SearchSessionManager.getSession(s2.id))
     }
 }

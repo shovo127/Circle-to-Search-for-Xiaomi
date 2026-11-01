@@ -40,7 +40,8 @@ object SelectionMath {
         viewWidth: Float,
         viewHeight: Float
     ): FitCenterTransform {
-        if (contentWidth <= 0f || contentHeight <= 0f || viewWidth <= 0f || viewHeight <= 0f) {
+        if (!contentWidth.isFinite() || !contentHeight.isFinite() || !viewWidth.isFinite() || !viewHeight.isFinite() ||
+            contentWidth <= 0f || contentHeight <= 0f || viewWidth <= 0f || viewHeight <= 0f) {
             return FitCenterTransform(1f, 0f, 0f)
         }
         val scale = min(viewWidth / contentWidth, viewHeight / contentHeight)
@@ -60,7 +61,11 @@ object SelectionMath {
         transform: FitCenterTransform
     ): CropRect {
         val s = transform.scale
-        if (s <= 0f) return CropRect(0f, 0f, 0f, 0f)
+        if (!s.isFinite() || s <= 0f ||
+            !transform.dx.isFinite() || !transform.dy.isFinite() ||
+            !viewLeft.isFinite() || !viewTop.isFinite() || !viewRight.isFinite() || !viewBottom.isFinite()) {
+            return CropRect(0f, 0f, 0f, 0f)
+        }
 
         val l = (viewLeft - transform.dx) / s
         val t = (viewTop - transform.dy) / s
@@ -85,6 +90,11 @@ object SelectionMath {
         contentHeight: Float,
         minDimension: Float = 10f
     ): CropRect? {
+        if (!mapped.left.isFinite() || !mapped.top.isFinite() || !mapped.right.isFinite() || !mapped.bottom.isFinite() ||
+            !contentWidth.isFinite() || !contentHeight.isFinite() || !minDimension.isFinite() ||
+            contentWidth <= 0f || contentHeight <= 0f || minDimension <= 0f) {
+            return null
+        }
         val clampedLeft = max(0f, min(mapped.left, contentWidth))
         val clampedTop = max(0f, min(mapped.top, contentHeight))
         val clampedRight = max(0f, min(mapped.right, contentWidth))
@@ -113,6 +123,11 @@ object SelectionMath {
         viewHeight: Float,
         minDimension: Float = 10f
     ): CropRect? {
+        if (contentWidth <= 0f || contentHeight <= 0f || viewWidth <= 0f || viewHeight <= 0f ||
+            !contentWidth.isFinite() || !contentHeight.isFinite() || !viewWidth.isFinite() || !viewHeight.isFinite() ||
+            !viewLeft.isFinite() || !viewTop.isFinite() || !viewRight.isFinite() || !viewBottom.isFinite()) {
+            return null
+        }
         val transform = computeFitCenterTransform(contentWidth, contentHeight, viewWidth, viewHeight)
         val mapped = mapViewToContentSpace(viewLeft, viewTop, viewRight, viewBottom, transform)
         return clampAndValidateCrop(mapped, contentWidth, contentHeight, minDimension)

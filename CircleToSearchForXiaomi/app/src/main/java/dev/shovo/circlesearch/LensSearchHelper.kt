@@ -12,6 +12,8 @@ import androidx.core.content.FileProvider
 import java.io.File
 import java.io.FileOutputStream
 import java.util.UUID
+import kotlin.math.ceil
+import kotlin.math.floor
 import kotlin.math.max
 import kotlin.math.min
 
@@ -56,6 +58,11 @@ object LensSearchHelper {
         SYSTEM_CHOOSER("SYSTEM_CHOOSER", "System App Chooser", null)
     }
 
+    /**
+     * Crops [source] to the pixel boundaries defined by [rect].
+     * Note: If [rect] spans the entire source dimensions, [Bitmap.createBitmap] may return
+     * the [source] instance directly. Callers must check `cropped !== source` before recycling.
+     */
     fun cropBitmap(source: Bitmap, rect: RectF): Bitmap? {
         if (source.isRecycled) {
             Log.e(TAG, "Source bitmap is recycled, cropping rejected")
@@ -67,10 +74,10 @@ object LensSearchHelper {
             return null
         }
 
-        val left = max(0, min(rect.left.toInt(), source.width - 1))
-        val top = max(0, min(rect.top.toInt(), source.height - 1))
-        val right = max(left + 1, min(source.width, rect.right.toInt()))
-        val bottom = max(top + 1, min(source.height, rect.bottom.toInt()))
+        val left = max(0, min(floor(rect.left).toInt(), source.width - 1))
+        val top = max(0, min(floor(rect.top).toInt(), source.height - 1))
+        val right = max(left + 1, min(source.width, ceil(rect.right).toInt()))
+        val bottom = max(top + 1, min(source.height, ceil(rect.bottom).toInt()))
         val width = right - left
         val height = bottom - top
 

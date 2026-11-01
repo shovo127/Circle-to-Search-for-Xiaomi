@@ -231,9 +231,14 @@ class CircleSearchActivity : AppCompatActivity() {
                     return@launch
                 }
 
-                val uri = LensSearchHelper.saveCroppedBitmap(this@CircleSearchActivity, cropped)
-                if (!cropped.isRecycled) {
-                    cropped.recycle()
+                val uri = try {
+                    LensSearchHelper.saveCroppedBitmap(this@CircleSearchActivity, cropped)
+                } finally {
+                    // Safe bitmap ownership: Only recycle if cropped is a distinct buffer.
+                    // If crop covers the entire image, Android createBitmap may return workerBmp itself.
+                    if (cropped !== workerBmp && !cropped.isRecycled) {
+                        cropped.recycle()
+                    }
                 }
 
                 withContext(Dispatchers.Main) {

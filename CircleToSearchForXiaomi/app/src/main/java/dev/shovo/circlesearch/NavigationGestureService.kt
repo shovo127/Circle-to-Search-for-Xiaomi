@@ -113,7 +113,7 @@ class NavigationGestureService : AccessibilityService() {
         }
 
         val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
-        val activationMethod = prefs.getString("pref_activation_method", "BOTTOM_HOLD")
+        val activationMethod = prefs.getString("pref_activation_method", "QS_TILE")
         if (activationMethod != "BOTTOM_HOLD") {
             Log.i(TAG, "Bottom hold inactive (preferred method: $activationMethod)")
             return

@@ -5,6 +5,9 @@ import android.util.Log
 import java.io.Closeable
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.Executors
+import java.util.concurrent.ScheduledExecutorService
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -22,6 +25,29 @@ object SearchSessionManager {
 
     private const val TAG = "SearchSessionManager"
     private const val SESSION_TTL_MS = 5 * 60 * 1000L // 5 minutes
+
+    // Injectable monotonic time provider (milliseconds)
+    internal var timeProvider: () -> Long = {
+        try {
+            android.os.SystemClock.elapsedRealtime()
+        } catch (_: Throwable) {
+            System.nanoTime() / 1_000_000L
+        }
+    }
+
+    private val cleanupExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor { r ->
+        Thread(r, "cts-session-cleaner").apply { isDaemon = true }
+    }
+
+    init {
+        cleanupExecutor.scheduleWithFixedDelay({
+            try {
+                cleanExpiredSessions()
+            } catch (e: Throwable) {
+                Log.e(TAG, "Error in automatic session cleanup: ${e.message}")
+            }
+        }, 30, 30, TimeUnit.SECONDS)
+    }
 
     enum class State {
         CAPTURING,
@@ -59,7 +85,7 @@ object SearchSessionManager {
 
     class Session internal constructor(
         val id: String = UUID.randomUUID().toString(),
-        val createdAt: Long = System.currentTimeMillis()
+        val createdAt: Long = timeProvider()
     ) {
         @Volatile
         var state: State = State.CAPTURING
@@ -209,8 +235,8 @@ object SearchSessionManager {
         session.closeSession()
     }
 
-    private fun cleanExpiredSessions() {
-        val now = System.currentTimeMillis()
+    internal fun cleanExpiredSessions() {
+        val now = timeProvider()
         val iterator = sessions.entries.iterator()
         while (iterator.hasNext()) {
             val entry = iterator.next()
@@ -218,9 +244,20 @@ object SearchSessionManager {
             if (now - s.createdAt > SESSION_TTL_MS) {
                 Log.d(TAG, "Purging expired session [${s.id}]")
                 s.expire()
-                if (s.state == State.RELEASED) {
+                if (s.state == State.EXPIRED || s.state == State.RELEASED || s.state == State.FAILED) {
                     iterator.remove()
                 }
+            }
+        }
+    }
+
+    internal fun resetForTest() {
+        sessions.clear()
+        timeProvider = {
+            try {
+                android.os.SystemClock.elapsedRealtime()
+            } catch (_: Throwable) {
+                System.nanoTime() / 1_000_000L
             }
         }
     }

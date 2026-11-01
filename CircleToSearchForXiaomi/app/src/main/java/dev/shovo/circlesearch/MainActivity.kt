@@ -104,8 +104,8 @@ class MainActivity : AppCompatActivity() {
     private fun loadPreferences() {
         val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
 
-        // Activation Method
-        when (prefs.getString("pref_activation_method", "BOTTOM_HOLD")) {
+        // Activation Method (Default: Quick Settings Tile)
+        when (prefs.getString("pref_activation_method", "QS_TILE")) {
             "QS_TILE" -> rbQsTile.isChecked = true
             "ASSISTANT" -> rbAssistant.isChecked = true
             else -> rbBottomHold.isChecked = true

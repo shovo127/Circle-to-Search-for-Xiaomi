@@ -54,10 +54,22 @@ class ShovoVoiceSession(context: Context) : VoiceInteractionSession(context) {
             return
         }
 
-        if (screenshot != null && !screenshot.isRecycled) {
-            Log.d(TAG, "Received system screenshot via Assist API: ${screenshot.width}x${screenshot.height}")
+        val appScreenshot = if (screenshot != null && !screenshot.isRecycled) {
+            try {
+                // Create an app-owned bitmap copy to ensure lifecycle safety after hide()
+                screenshot.copy(Bitmap.Config.ARGB_8888, false)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to copy assist screenshot: ${e.message}", e)
+                null
+            }
+        } else {
+            null
+        }
+
+        if (appScreenshot != null && !appScreenshot.isRecycled) {
+            Log.d(TAG, "Received system screenshot via Assist API: ${appScreenshot.width}x${appScreenshot.height}")
             val session = SearchSessionManager.createSession()
-            SearchSessionManager.completeCapture(session.id, screenshot)
+            SearchSessionManager.completeCapture(session.id, appScreenshot)
 
             val intent = Intent(context, CircleSearchActivity::class.java).apply {
                 putExtra(NavigationGestureService.EXTRA_SESSION_ID, session.id)

@@ -116,4 +116,93 @@ class SelectionMathTest {
         assertEquals(200f, crop.width, 0.001f)
         assertEquals(200f, crop.height, 0.001f)
     }
+
+    @Test
+    fun testNonFiniteInputsHandledSafely() {
+        // NaN in coordinate
+        assertNull(
+            SelectionMath.computeCrop(
+                viewLeft = Float.NaN,
+                viewTop = 100f,
+                viewRight = 200f,
+                viewBottom = 200f,
+                contentWidth = 1080f,
+                contentHeight = 2400f,
+                viewWidth = 1080f,
+                viewHeight = 2400f
+            )
+        )
+
+        // Infinity in content size
+        assertNull(
+            SelectionMath.computeCrop(
+                viewLeft = 0f,
+                viewTop = 0f,
+                viewRight = 100f,
+                viewBottom = 100f,
+                contentWidth = Float.POSITIVE_INFINITY,
+                contentHeight = 2400f,
+                viewWidth = 1080f,
+                viewHeight = 2400f
+            )
+        )
+
+        // Zero / negative dimension
+        assertNull(
+            SelectionMath.computeCrop(
+                viewLeft = 0f,
+                viewTop = 0f,
+                viewRight = 100f,
+                viewBottom = 100f,
+                contentWidth = 0f,
+                contentHeight = 2400f,
+                viewWidth = 1080f,
+                viewHeight = 2400f
+            )
+        )
+    }
+
+    @Test
+    fun testInvertedViewCoordinates() {
+        // Drag from bottom-right (500, 600) to top-left (200, 300)
+        val crop = SelectionMath.computeCrop(
+            viewLeft = 500f,
+            viewTop = 600f,
+            viewRight = 200f,
+            viewBottom = 300f,
+            contentWidth = 1080f,
+            contentHeight = 2400f,
+            viewWidth = 1080f,
+            viewHeight = 2400f,
+            minDimension = 10f
+        )
+
+        assertNotNull(crop)
+        assertEquals(200f, crop!!.left, 0.001f)
+        assertEquals(300f, crop.top, 0.001f)
+        assertEquals(500f, crop.right, 0.001f)
+        assertEquals(600f, crop.bottom, 0.001f)
+        assertEquals(300f, crop.width, 0.001f)
+        assertEquals(300f, crop.height, 0.001f)
+    }
+
+    @Test
+    fun testFullScreenSelection() {
+        val crop = SelectionMath.computeCrop(
+            viewLeft = 0f,
+            viewTop = 0f,
+            viewRight = 1080f,
+            viewBottom = 2400f,
+            contentWidth = 1080f,
+            contentHeight = 2400f,
+            viewWidth = 1080f,
+            viewHeight = 2400f
+        )
+
+        assertNotNull(crop)
+        assertEquals(0f, crop!!.left, 0.001f)
+        assertEquals(0f, crop.top, 0.001f)
+        assertEquals(1080f, crop.right, 0.001f)
+        assertEquals(2400f, crop.bottom, 0.001f)
+    }
 }

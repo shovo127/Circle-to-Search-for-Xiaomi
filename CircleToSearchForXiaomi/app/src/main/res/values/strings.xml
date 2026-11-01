@@ -43,6 +43,6 @@
     <string name="about_title">About Circle to Search for Xiaomi</string>
     <string name="about_subtitle">Professional Circle to Search for Xiaomi 13 (HyperOS 3 • Android 16)</string>
     <string name="about_developer">Engineered by Shovo (@shovo127)</string>
-    <string name="about_version">Version 1.0.0 (API 36 Compatible)</string>
+    <string name="about_version">Version 1.0.2 (API 36 Compatible)</string>
     <string name="about_license">Licensed under GNU GPL-3.0-or-later. Non-root, privacy-respecting architecture.</string>
 </resources>
