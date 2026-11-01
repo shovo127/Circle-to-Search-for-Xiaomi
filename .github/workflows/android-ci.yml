@@ -29,19 +29,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Create workspace-local tool directories
         run: mkdir -p "$WORK_ROOT" "$GRADLE_USER_HOME" "$ANDROID_HOME" "$TMPDIR"
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: "17"
 
       - name: Set up Android command-line tools
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
+        with:
+          packages: ''
 
       - name: Install Android 36 build components
         run: |
