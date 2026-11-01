@@ -29,3 +29,4 @@ HyperOS provides double and triple tap back gestures on Xiaomi 13 hardware. The 
 
 ### C. Power Button Long Press
 Android allows assigning long press of the power button to the Default Digital Assistant. Because HyperOS China ROM defaults this to Xiao AI (Mi AI), Shovo Circle Search provides explicit deep links to system settings to reassign the assistant role, without making impossible guarantees if the ROM restricts third-party assignment.
+

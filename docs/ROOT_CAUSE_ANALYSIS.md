@@ -60,3 +60,4 @@ HyperOS handles full-screen navigation gestures at the hardware compositor level
 - **No Recursive Call:** If `CircleSearchActivity` receives no active bitmap, it displays a polite notification and exits cleanly.
 - **Natural Touch Handling:** Removed synthetic `performGlobalAction` injection. If a gesture is cancelled, the overlay resets state cleanly.
 - **Truthful Search Dispatcher:** Dispatches image URIs to verified installed apps (Google Lens, Bing App, Yandex App, or System Chooser) with `FLAG_GRANT_READ_URI_PERMISSION`.
+

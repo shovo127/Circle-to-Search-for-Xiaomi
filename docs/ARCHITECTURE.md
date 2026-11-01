@@ -44,3 +44,4 @@ flowchart TD
 2. **`SearchSessionManager`:** Thread-safe singleton providing unique session IDs, strict bitmap ownership, and automatic memory cleanup.
 3. **`CircleSearchActivity` & `CircleCanvasView`:** Edge-to-edge transparent activity displaying the captured frame, supporting dynamic multi-touch gestures, display cutouts, and haptic feedback.
 4. **`LensSearchHelper`:** Crops selected bounds, writes JPEG to private cache, generates FileProvider URI with temporary read permissions, and dispatches to the selected visual engine.
+

@@ -26,3 +26,4 @@ sealed class DispatchResult {
 }
 ```
 If an engine is selected whose application is not installed on the Xiaomi 13, the app displays a clear notification explaining that the application is required to process direct visual search, guiding the user to install the app or use Google Lens / System Chooser.
+

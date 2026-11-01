@@ -42,3 +42,4 @@ In response to the forensic audit, **Shovo Circle Search** has been strictly har
 - `android:allowBackup="false"` to prevent local data exfiltration.
 - Complete removal of `SYSTEM_ALERT_WINDOW`, `FOREGROUND_SERVICE`, `INTERNET`, and `RECEIVE_BOOT_COMPLETED`.
 - Accessibility service configured with `canRetrieveWindowContent="false"` so screen text and password nodes can never be read.
+

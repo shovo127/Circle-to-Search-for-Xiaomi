@@ -163,8 +163,23 @@ class NavigationGestureService : AccessibilityService() {
                     MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                         handler.removeCallbacks(holdRunnable)
                         val wasTriggered = (gestureState == GestureState.HOLD_TRIGGERED)
+                        val wasCancelled = (gestureState == GestureState.CANCELLED)
                         gestureState = GestureState.IDLE
-                        wasTriggered
+
+                        if (wasCancelled && event.actionMasked == MotionEvent.ACTION_UP) {
+                            val elapsed = SystemClock.uptimeMillis() - downTime
+                            val dy = downY - event.rawY
+                            if (dy > touchSlop * 2.5f) {
+                                if (dy > touchSlop * 5.0f && elapsed > 280) {
+                                    Log.d(TAG, "Navigating Recents (dy=$dy, elapsed=$elapsed)")
+                                    performGlobalAction(GLOBAL_ACTION_RECENTS)
+                                } else {
+                                    Log.d(TAG, "Navigating Home (dy=$dy, elapsed=$elapsed)")
+                                    performGlobalAction(GLOBAL_ACTION_HOME)
+                                }
+                            }
+                        }
+                        wasTriggered || wasCancelled
                     }
 
                     else -> false

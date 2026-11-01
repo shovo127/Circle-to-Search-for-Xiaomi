@@ -1,6 +1,7 @@
 package dev.shovo.circlesearch
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.graphics.RectF
 import android.os.Build
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -16,10 +18,14 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Fullscreen translucent overlay for Shovo Circle Search.
- * Displays the current session screenshot and enables freeform circle / rectangle selection.
+ *
+ * Automatically adapts to display orientation (portrait / landscape), matches cutouts,
+ * displays screenshot, provides visual lasso selection, and dispatches to visual engines.
  */
 class CircleSearchActivity : AppCompatActivity() {
 
@@ -31,6 +37,8 @@ class CircleSearchActivity : AppCompatActivity() {
     private lateinit var circleCanvas: CircleCanvasView
     private lateinit var pbLoading: ProgressBar
     private lateinit var tvHint: TextView
+    private lateinit var layoutTopBar: View
+    private lateinit var btnClose: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,12 +63,18 @@ class CircleSearchActivity : AppCompatActivity() {
         circleCanvas = findViewById(R.id.circleCanvas)
         pbLoading = findViewById(R.id.pbLoading)
         tvHint = findViewById(R.id.tvHint)
+        layoutTopBar = findViewById(R.id.layoutTopBar)
+        btnClose = findViewById(R.id.btnClose)
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 finish()
             }
         })
+
+        btnClose.setOnClickListener {
+            finish()
+        }
 
         loadSessionScreenshot()
 
@@ -80,12 +94,19 @@ class CircleSearchActivity : AppCompatActivity() {
         val bmp = session?.bitmap
 
         if (bmp != null && !bmp.isRecycled) {
+            // Adapt orientation dynamically to match screenshot aspect ratio
+            if (bmp.width > bmp.height) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+            } else {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            }
+
             ivBackground.setImageBitmap(bmp)
             pbLoading.visibility = View.GONE
-            tvHint.visibility = View.VISIBLE
+            layoutTopBar.visibility = View.VISIBLE
             tvHint.setText(R.string.hint_circle)
         } else {
-            // No valid session available. Terminate cleanly without recursive re-triggering!
+            // No valid session available. Terminate cleanly without recursive re-triggering
             Log.w(TAG, "No valid screenshot session available; terminating activity cleanly")
             Toast.makeText(this, "Shovo Circle Search: No capture session active", Toast.LENGTH_SHORT).show()
             finish()
@@ -93,8 +114,8 @@ class CircleSearchActivity : AppCompatActivity() {
     }
 
     private fun handleSelectionComplete(rect: RectF) {
+        layoutTopBar.visibility = View.GONE
         pbLoading.visibility = View.VISIBLE
-        tvHint.setText(R.string.searching)
 
         Thread {
             val session = SearchSessionManager.getActiveSession()
@@ -106,13 +127,12 @@ class CircleSearchActivity : AppCompatActivity() {
                 val scaleX = if (canvasW > 0) bmp.width / canvasW else 1.0f
                 val scaleY = if (canvasH > 0) bmp.height / canvasH else 1.0f
 
-                val mappedRect = RectF(
-                    rect.left * scaleX,
-                    rect.top * scaleY,
-                    rect.right * scaleX,
-                    rect.bottom * scaleY
-                )
+                val left = max(0f, min(rect.left * scaleX, (bmp.width - 1).toFloat()))
+                val top = max(0f, min(rect.top * scaleY, (bmp.height - 1).toFloat()))
+                val right = max(left + 1f, min(rect.right * scaleX, bmp.width.toFloat()))
+                val bottom = max(top + 1f, min(rect.bottom * scaleY, bmp.height.toFloat()))
 
+                val mappedRect = RectF(left, top, right, bottom)
                 val cropped = LensSearchHelper.cropBitmap(bmp, mappedRect)
                 val uri = LensSearchHelper.saveCroppedBitmap(this, cropped)
 

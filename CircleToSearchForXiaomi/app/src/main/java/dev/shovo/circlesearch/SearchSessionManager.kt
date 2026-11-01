@@ -98,3 +98,4 @@ object SearchSessionManager {
         activeSession = null
     }
 }
+

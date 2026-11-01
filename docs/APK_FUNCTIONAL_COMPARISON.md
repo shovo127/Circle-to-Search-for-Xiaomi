@@ -39,3 +39,4 @@ This document compares the functional capabilities of the audited external APKs 
 - Target SDK 22 permission evasion.
 - Shizuku privileged daemon dependency.
 - Background persistent foreground service.
+

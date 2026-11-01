@@ -33,3 +33,4 @@ flowchart TD
 - All Google intents include `FLAG_GRANT_READ_URI_PERMISSION`.
 - Exact clip data attached via `ClipData.newRawUri("image", imageUri)` ensuring Android 16 Scoped Storage compliance.
 - Android Manifest declares `<queries>` for `com.google.android.googlequicksearchbox` and `com.google.android.apps.photos` to bypass HyperOS package filtering.
+

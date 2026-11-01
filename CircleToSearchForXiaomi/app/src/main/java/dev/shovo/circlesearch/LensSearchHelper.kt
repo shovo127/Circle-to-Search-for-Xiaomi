@@ -148,7 +148,7 @@ object LensSearchHelper {
             setClassName(PKG_GOOGLE_APP, LENS_SHARE_ACTIVITY)
             type = "image/jpeg"
             clipData = ClipData.newRawUri("image", imageUri)
-            putExtra(Intent.EXTRA_STREAM, imageUri)
+            putParcelableArrayListExtra(Intent.EXTRA_STREAM, arrayListOf(imageUri))
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
         }

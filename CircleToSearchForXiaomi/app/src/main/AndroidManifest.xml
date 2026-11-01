@@ -44,7 +44,8 @@
             android:exported="true"
             android:theme="@style/Theme.CircleSearchTranslucent"
             android:launchMode="singleTask"
-            android:excludeFromRecents="true">
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize">
             <intent-filter>
                 <action android:name="android.intent.action.ASSIST" />
                 <category android:name="android.intent.category.DEFAULT" />

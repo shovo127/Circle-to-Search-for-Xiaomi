@@ -34,3 +34,4 @@ Deliver a standalone, production-grade, zero-root Circle to Search application s
    - Temporary crops stored in private app cache (`cache/crops/`).
    - Automatic cache expiration (5 minutes TTL) and manual one-tap purge.
    - Bitmap memory recycled immediately upon session completion.
+
