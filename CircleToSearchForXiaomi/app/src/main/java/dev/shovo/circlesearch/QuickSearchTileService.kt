@@ -1,5 +1,6 @@
 package dev.shovo.circlesearch
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
@@ -15,6 +16,7 @@ import android.widget.Toast
  */
 class QuickSearchTileService : TileService() {
 
+    @SuppressLint("StartActivityAndCollapseDeprecated")
     override fun onClick() {
         super.onClick()
 

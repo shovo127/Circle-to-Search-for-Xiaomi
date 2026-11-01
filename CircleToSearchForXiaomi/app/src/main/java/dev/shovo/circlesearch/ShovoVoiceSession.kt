@@ -65,11 +65,7 @@ class ShovoVoiceSession(context: Context) : VoiceInteractionSession(context) {
             }
 
             try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    startAssistantActivity(intent)
-                } else {
-                    startVoiceActivity(intent)
-                }
+                startAssistantActivity(intent)
             } catch (e: Exception) {
                 Log.w(TAG, "startAssistantActivity failed: ${e.message}; attempting context.startActivity fallback")
                 try {

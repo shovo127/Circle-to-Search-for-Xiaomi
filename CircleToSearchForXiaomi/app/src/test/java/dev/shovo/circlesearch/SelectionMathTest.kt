@@ -101,3 +101,4 @@ class SelectionMathTest {
         assertTrue("Sub-10px selection must be rejected", isTooSmall)
     }
 }
+
