@@ -15,6 +15,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.switchmaterial.SwitchMaterial
 
+/**
+ * Main Dashboard and Configuration Center for Shovo Circle Search.
+ *
+ * Provides real-time Accessibility Service monitoring, activation method selection,
+ * hold duration calibration (300-750ms), multi-engine visual search provider selection,
+ * haptic controls, cache maintenance, and about information.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var tvDevice: TextView
@@ -39,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rbEngineGoogle: RadioButton
     private lateinit var rbEngineBing: RadioButton
     private lateinit var rbEngineYandex: RadioButton
+    private lateinit var rbEngineChooser: RadioButton
 
     private lateinit var switchHaptics: SwitchMaterial
     private lateinit var btnTest: Button
@@ -77,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         rbEngineGoogle = findViewById(R.id.rbEngineGoogle)
         rbEngineBing = findViewById(R.id.rbEngineBing)
         rbEngineYandex = findViewById(R.id.rbEngineYandex)
+        rbEngineChooser = findViewById(R.id.rbEngineChooser)
 
         switchHaptics = findViewById(R.id.switchHaptics)
         btnTest = findViewById(R.id.btnTestSearch)
@@ -87,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         val model = Build.MODEL
         val incremental = Build.VERSION.INCREMENTAL
         tvDevice.text = "Device: Xiaomi 13 ($model)"
-        tvHyperOs.text = "Firmware: HyperOS 3 ($incremental) | Android ${Build.VERSION.RELEASE}"
+        tvHyperOs.text = "Firmware: HyperOS 3 ($incremental) • Android ${Build.VERSION.RELEASE}"
     }
 
     private fun loadPreferences() {
@@ -109,6 +118,7 @@ class MainActivity : AppCompatActivity() {
         when (prefs.getString("pref_search_engine", LensSearchHelper.SearchEngine.GOOGLE_LENS.key)) {
             LensSearchHelper.SearchEngine.BING_VISUAL.key -> rbEngineBing.isChecked = true
             LensSearchHelper.SearchEngine.YANDEX_IMAGES.key -> rbEngineYandex.isChecked = true
+            LensSearchHelper.SearchEngine.SYSTEM_CHOOSER.key -> rbEngineChooser.isChecked = true
             else -> rbEngineGoogle.isChecked = true
         }
 
@@ -183,6 +193,7 @@ class MainActivity : AppCompatActivity() {
             val engine = when (checkedId) {
                 R.id.rbEngineBing -> LensSearchHelper.SearchEngine.BING_VISUAL.key
                 R.id.rbEngineYandex -> LensSearchHelper.SearchEngine.YANDEX_IMAGES.key
+                R.id.rbEngineChooser -> LensSearchHelper.SearchEngine.SYSTEM_CHOOSER.key
                 else -> LensSearchHelper.SearchEngine.GOOGLE_LENS.key
             }
             prefs.edit().putString("pref_search_engine", engine).apply()
@@ -200,7 +211,12 @@ class MainActivity : AppCompatActivity() {
                     service.triggerCircleToSearch()
                 }, 300)
             } else {
-                val intent = Intent(this, CircleSearchActivity::class.java).apply {
+                Toast.makeText(
+                    this,
+                    "Accessibility Service is not enabled. Please enable it first.",
+                    Toast.LENGTH_LONG
+                ).show()
+                val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }
                 startActivity(intent)

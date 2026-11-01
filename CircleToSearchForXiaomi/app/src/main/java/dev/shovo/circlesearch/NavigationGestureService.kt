@@ -21,20 +21,25 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
+import android.widget.Toast
 import kotlin.math.abs
 
 /**
- * Accessibility Service providing bottom-center hold detection for Xiaomi HyperOS 3 / Android 16.
+ * Accessibility Service providing bottom-center hold detection for Shovo Circle Search
+ * on Xiaomi HyperOS 3 / Android 16 (Xiaomi 13 'fuxi').
  *
- * Employs a TYPE_ACCESSIBILITY_OVERLAY touch zone calibrated over the navigation gesture indicator.
- * Accurately distinguishes stationary long-press (Circle to Search) from navigation swipes (Home / Recents).
+ * Utilizes a TYPE_ACCESSIBILITY_OVERLAY touch zone calibrated over the navigation pill.
+ * Accurately detects stationary long-press while preserving native full-screen gestures
+ * (Back, Home, Recents) without heuristic synthetic touch injection.
  */
 class NavigationGestureService : AccessibilityService() {
 
     companion object {
-        private const val TAG = "NavGestureService"
+        private const val TAG = "ShovoNavService"
         var instance: NavigationGestureService? = null
             private set
+
+        const val EXTRA_SESSION_ID = "dev.shovo.circlesearch.EXTRA_SESSION_ID"
     }
 
     private var windowManager: WindowManager? = null
@@ -44,10 +49,17 @@ class NavigationGestureService : AccessibilityService() {
     private var downX = 0f
     private var downY = 0f
     private var downTime = 0L
-    private var isHoldTriggered = false
-    private var isSwipeDetected = false
 
-    // Configurable hold threshold (default 450ms)
+    private enum class GestureState {
+        IDLE,
+        HOLD_PENDING,
+        HOLD_TRIGGERED,
+        CANCELLED
+    }
+
+    private var gestureState = GestureState.IDLE
+    private var isCapturing = false
+
     var holdThresholdMs: Long = 450L
         get() {
             val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
@@ -62,10 +74,12 @@ class NavigationGestureService : AccessibilityService() {
         }
 
     private val holdRunnable = Runnable {
-        isHoldTriggered = true
-        Log.d(TAG, "Bottom hold threshold met ($holdThresholdMs ms) -> triggering Circle to Search")
-        vibrateHaptic()
-        triggerCircleToSearch()
+        if (gestureState == GestureState.HOLD_PENDING) {
+            gestureState = GestureState.HOLD_TRIGGERED
+            Log.d(TAG, "Hold duration reached ($holdThresholdMs ms) -> triggering Shovo Circle Search")
+            vibrateHaptic()
+            triggerCircleToSearch()
+        }
     }
 
     override fun onServiceConnected() {
@@ -73,7 +87,7 @@ class NavigationGestureService : AccessibilityService() {
         instance = this
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         setupBottomGestureZone()
-        Log.i(TAG, "NavigationGestureService connected on HyperOS 3 / Android 16")
+        Log.i(TAG, "Shovo NavigationGestureService connected successfully on HyperOS 3 / Android 16")
     }
 
     fun updateGestureZoneConfiguration() {
@@ -91,15 +105,16 @@ class NavigationGestureService : AccessibilityService() {
         val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
         val activationMethod = prefs.getString("pref_activation_method", "BOTTOM_HOLD")
         if (activationMethod != "BOTTOM_HOLD") {
-            Log.i(TAG, "Bottom hold inactive (preferred method: $activationMethod)")
+            Log.i(TAG, "Bottom hold inactive (user preferred method: $activationMethod)")
             return
         }
 
         val displayMetrics = resources.displayMetrics
-        // Navigation pill on Xiaomi 13 is ~160dp wide and ~20dp tall.
-        // We set 180dp width and 32dp height for optimal touch target while keeping edges free.
-        val pillWidth = (180 * displayMetrics.density).toInt()
-        val pillHeight = (32 * displayMetrics.density).toInt()
+        // Navigation pill on Xiaomi 13 (fuxi) is ~160dp wide and ~20dp tall.
+        // Calibrated 160dp width and 24dp height right at the bottom edge ensures reliable contact
+        // while leaving screen corners and lateral sides 100% open for system gestures.
+        val pillWidth = (160 * displayMetrics.density).toInt()
+        val pillHeight = (24 * displayMetrics.density).toInt()
         val touchSlop = ViewConfiguration.get(this).scaledTouchSlop
 
         val params = WindowManager.LayoutParams(
@@ -122,24 +137,24 @@ class NavigationGestureService : AccessibilityService() {
                         downX = event.rawX
                         downY = event.rawY
                         downTime = SystemClock.uptimeMillis()
-                        isHoldTriggered = false
-                        isSwipeDetected = false
+                        gestureState = GestureState.HOLD_PENDING
 
+                        handler.removeCallbacks(holdRunnable)
                         handler.postDelayed(holdRunnable, holdThresholdMs)
                         true
                     }
 
                     MotionEvent.ACTION_MOVE -> {
-                        if (!isHoldTriggered && !isSwipeDetected) {
+                        if (gestureState == GestureState.HOLD_PENDING) {
                             val dx = abs(event.rawX - downX)
-                            val dy = downY - event.rawY // positive when swiping up
+                            val dy = downY - event.rawY // positive when swiping upwards
 
-                            // Normal human hold has finger jitter of ~20-30dp (~60-90px on 440dpi).
-                            // A deliberate navigation swipe is an intentional upward/lateral motion > 3.5x touchSlop.
-                            if (dy > touchSlop * 3.5f || dx > touchSlop * 4.0f) {
-                                isSwipeDetected = true
+                            // If finger moves intentionally beyond hold jitter tolerance, cancel hold.
+                            // Deliberate upward navigation swipes exceed 3.0x touchSlop.
+                            if (dy > touchSlop * 3.0f || dx > touchSlop * 3.5f) {
+                                gestureState = GestureState.CANCELLED
                                 handler.removeCallbacks(holdRunnable)
-                                Log.d(TAG, "Swipe gesture detected (dy=$dy, dx=$dx) -> cancelled hold timer")
+                                Log.d(TAG, "Touch exceeded jitter slop (dy=$dy, dx=$dx) -> cancelled hold timer")
                             }
                         }
                         true
@@ -147,23 +162,9 @@ class NavigationGestureService : AccessibilityService() {
 
                     MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                         handler.removeCallbacks(holdRunnable)
-
-                        if (!isHoldTriggered) {
-                            val elapsed = SystemClock.uptimeMillis() - downTime
-                            val dy = downY - event.rawY
-
-                            if (isSwipeDetected || dy > touchSlop * 2.5f) {
-                                // Delegate navigation gesture
-                                if (dy > touchSlop * 6.0f && elapsed > 280) {
-                                    Log.d(TAG, "Delegating GLOBAL_ACTION_RECENTS")
-                                    performGlobalAction(GLOBAL_ACTION_RECENTS)
-                                } else if (dy > touchSlop * 2.5f) {
-                                    Log.d(TAG, "Delegating GLOBAL_ACTION_HOME")
-                                    performGlobalAction(GLOBAL_ACTION_HOME)
-                                }
-                            }
-                        }
-                        true
+                        val wasTriggered = (gestureState == GestureState.HOLD_TRIGGERED)
+                        gestureState = GestureState.IDLE
+                        wasTriggered
                     }
 
                     else -> false
@@ -173,13 +174,29 @@ class NavigationGestureService : AccessibilityService() {
 
         try {
             windowManager?.addView(pillHandleView, params)
-            Log.d(TAG, "Pill overlay registered: ${pillWidth}x${pillHeight}px at bottom center")
+            Log.d(TAG, "Bottom gesture zone registered: ${pillWidth}x${pillHeight}px at bottom-center")
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to add pill overlay: ${e.message}", e)
+            Log.e(TAG, "Failed to register bottom gesture overlay: ${e.message}", e)
         }
     }
 
+    /**
+     * Executes non-root screenshot capture via Android AccessibilityService API.
+     * Guaranteed:
+     * - No recursive re-triggering.
+     * - Concurrency guard via isCapturing.
+     * - Safe HardwareBuffer closure.
+     * - Direct session delivery to SearchSessionManager.
+     */
     fun triggerCircleToSearch() {
+        if (isCapturing) {
+            Log.w(TAG, "Screenshot capture already in flight, ignoring duplicate trigger")
+            return
+        }
+
+        isCapturing = true
+        val session = SearchSessionManager.createNewSession()
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             try {
                 takeScreenshot(
@@ -187,6 +204,7 @@ class NavigationGestureService : AccessibilityService() {
                     mainExecutor,
                     object : TakeScreenshotCallback {
                         override fun onSuccess(screenshot: ScreenshotResult) {
+                            isCapturing = false
                             val hardwareBuffer = screenshot.hardwareBuffer
                             val colorSpace = screenshot.colorSpace
                             val bitmap = try {
@@ -194,7 +212,7 @@ class NavigationGestureService : AccessibilityService() {
                                     hwBmp.copy(Bitmap.Config.ARGB_8888, false)
                                 }
                             } catch (e: Exception) {
-                                Log.e(TAG, "Error copying screenshot buffer: ${e.message}")
+                                Log.e(TAG, "Error copying screenshot buffer: ${e.message}", e)
                                 null
                             } finally {
                                 try {
@@ -202,35 +220,61 @@ class NavigationGestureService : AccessibilityService() {
                                 } catch (_: Exception) {}
                             }
 
-                            CircleSearchActivity.currentScreenshot = bitmap
-                            launchOverlayActivity()
+                            if (bitmap != null) {
+                                SearchSessionManager.setSessionBitmap(session.id, bitmap)
+                                launchOverlayActivity(session.id)
+                            } else {
+                                SearchSessionManager.setSessionError(session.id, "Failed to decode screen buffer")
+                                notifyCaptureFailure("Unable to process display buffer.")
+                            }
                         }
 
                         override fun onFailure(errorCode: Int) {
-                            Log.w(TAG, "takeScreenshot failed with code $errorCode; launching fallback overlay")
-                            launchOverlayActivity()
+                            isCapturing = false
+                            val reason = when (errorCode) {
+                                AccessibilityService.ERROR_TAKE_SCREENSHOT_INTERNAL_ERROR -> "Internal system error"
+                                AccessibilityService.ERROR_TAKE_SCREENSHOT_NO_ACCESSIBILITY_ACCESS -> "Accessibility permission denied"
+                                AccessibilityService.ERROR_TAKE_SCREENSHOT_INTERVAL_TIME_SHORT -> "Capture rate limit exceeded"
+                                AccessibilityService.ERROR_TAKE_SCREENSHOT_INVALID_DISPLAY -> "Invalid display"
+                                else -> "Screen protected by app security (FLAG_SECURE) or system policy"
+                            }
+                            Log.w(TAG, "takeScreenshot failed ($errorCode): $reason")
+                            SearchSessionManager.setSessionError(session.id, reason)
+                            // Crucial: DO NOT launch activity on failure! Notify user cleanly.
+                            notifyCaptureFailure(reason)
                         }
                     }
                 )
             } catch (e: Exception) {
+                isCapturing = false
                 Log.e(TAG, "takeScreenshot exception: ${e.message}", e)
-                launchOverlayActivity()
+                SearchSessionManager.setSessionError(session.id, e.message ?: "Screenshot exception")
+                notifyCaptureFailure("Screenshot exception: ${e.message}")
             }
         } else {
-            launchOverlayActivity()
+            isCapturing = false
+            notifyCaptureFailure("Requires Android 11+ (API 30+)")
         }
     }
 
-    private fun launchOverlayActivity() {
+    private fun launchOverlayActivity(sessionId: String) {
         val intent = Intent(this, CircleSearchActivity::class.java).apply {
+            putExtra(EXTRA_SESSION_ID, sessionId)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
         }
         startActivity(intent)
     }
 
+    private fun notifyCaptureFailure(reason: String) {
+        handler.post {
+            Toast.makeText(this, "Shovo Circle Search: $reason", Toast.LENGTH_LONG).show()
+        }
+    }
+
     private fun vibrateHaptic() {
         val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
-        if (!prefs.getBoolean("pref_haptic_feedback", true)) return
+        val hapticEnabled = prefs.getBoolean("pref_haptic_feedback", true)
+        if (!hapticEnabled) return
 
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -239,7 +283,6 @@ class NavigationGestureService : AccessibilityService() {
                     VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK)
                 )
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                @Suppress("DEPRECATION")
                 val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
                 vibrator?.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK))
             } else {
@@ -254,7 +297,7 @@ class NavigationGestureService : AccessibilityService() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        Log.d(TAG, "Configuration changed -> updating bottom overlay")
+        Log.d(TAG, "Configuration changed -> updating bottom overlay geometry")
         handler.postDelayed({ setupBottomGestureZone() }, 150)
     }
 
@@ -278,5 +321,6 @@ class NavigationGestureService : AccessibilityService() {
             }
             pillHandleView = null
         }
+        Log.i(TAG, "Shovo NavigationGestureService destroyed")
     }
 }

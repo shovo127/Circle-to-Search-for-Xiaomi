@@ -1,8 +1,6 @@
 package dev.shovo.circlesearch
 
-import android.app.Activity
-import android.content.Context
-import android.graphics.Bitmap
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.RectF
 import android.os.Build
@@ -17,14 +15,16 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 
+/**
+ * Fullscreen translucent overlay for Shovo Circle Search.
+ * Displays the current session screenshot and enables freeform circle / rectangle selection.
+ */
 class CircleSearchActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG = "CircleSearchActivity"
-        var currentScreenshot: Bitmap? = null
+        private const val TAG = "ShovoCircleSearchAct"
     }
 
     private lateinit var ivBackground: ImageView
@@ -35,13 +35,15 @@ class CircleSearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Configure edge-to-edge transparent window
+        // Configure edge-to-edge transparent window with cutout support
         WindowCompat.setDecorFitsSystemWindows(window, false)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             window.attributes.layoutInDisplayCutoutMode =
                 WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
         }
+        @Suppress("DEPRECATION")
         window.statusBarColor = Color.TRANSPARENT
+        @Suppress("DEPRECATION")
         window.navigationBarColor = Color.TRANSPARENT
 
         val controller = WindowCompat.getInsetsController(window, window.decorView)
@@ -60,27 +62,33 @@ class CircleSearchActivity : AppCompatActivity() {
             }
         })
 
-        loadScreenshotOrRequest()
+        loadSessionScreenshot()
 
         circleCanvas.setOnSelectionCompleteListener { rect ->
             handleSelectionComplete(rect)
         }
     }
 
-    private fun loadScreenshotOrRequest() {
-        val screenshot = currentScreenshot
-        if (screenshot != null && !screenshot.isRecycled) {
-            ivBackground.setImageBitmap(screenshot)
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        loadSessionScreenshot()
+    }
+
+    private fun loadSessionScreenshot() {
+        val session = SearchSessionManager.getActiveSession()
+        val bmp = session?.bitmap
+
+        if (bmp != null && !bmp.isRecycled) {
+            ivBackground.setImageBitmap(bmp)
+            pbLoading.visibility = View.GONE
+            tvHint.visibility = View.VISIBLE
+            tvHint.setText(R.string.hint_circle)
         } else {
-            val service = NavigationGestureService.instance
-            if (service != null) {
-                finish()
-                service.triggerCircleToSearch()
-            } else {
-                window.decorView.setBackgroundColor(Color.parseColor("#99000000"))
-                Toast.makeText(this, "Please enable Circle to Search accessibility service", Toast.LENGTH_SHORT).show()
-                finish()
-            }
+            // No valid session available. Terminate cleanly without recursive re-triggering!
+            Log.w(TAG, "No valid screenshot session available; terminating activity cleanly")
+            Toast.makeText(this, "Shovo Circle Search: No capture session active", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 
@@ -89,9 +97,9 @@ class CircleSearchActivity : AppCompatActivity() {
         tvHint.setText(R.string.searching)
 
         Thread {
-            val bmp = currentScreenshot
+            val session = SearchSessionManager.getActiveSession()
+            val bmp = session?.bitmap
             if (bmp != null && !bmp.isRecycled) {
-                // Calculate scale ratio between bitmap and view
                 val canvasW = circleCanvas.width.toFloat()
                 val canvasH = circleCanvas.height.toFloat()
 
@@ -110,9 +118,21 @@ class CircleSearchActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     if (uri != null) {
-                        val launched = LensSearchHelper.dispatchVisualSearch(this, uri)
-                        if (!launched) {
-                            Toast.makeText(this, "Could not open visual search", Toast.LENGTH_SHORT).show()
+                        val result = LensSearchHelper.dispatchVisualSearch(this, uri)
+                        when (result) {
+                            is LensSearchHelper.DispatchResult.Success -> {
+                                Log.i(TAG, "Visual search launched successfully: ${result.providerName}")
+                            }
+                            is LensSearchHelper.DispatchResult.EngineNotInstalled -> {
+                                Toast.makeText(
+                                    this,
+                                    "${result.engineName} app is not installed. Please install it or use Google Lens.",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                            is LensSearchHelper.DispatchResult.Failed -> {
+                                Toast.makeText(this, "Could not dispatch visual search: ${result.reason}", Toast.LENGTH_SHORT).show()
+                            }
                         }
                     } else {
                         Toast.makeText(this, "Failed to crop selection", Toast.LENGTH_SHORT).show()
@@ -121,7 +141,7 @@ class CircleSearchActivity : AppCompatActivity() {
                 }
             } else {
                 runOnUiThread {
-                    Toast.makeText(this, "No screenshot available. Please enable accessibility service.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Session expired or unavailable", Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }
@@ -130,6 +150,6 @@ class CircleSearchActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        currentScreenshot = null
+        SearchSessionManager.clearSession()
     }
 }

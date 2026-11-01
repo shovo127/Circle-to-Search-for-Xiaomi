@@ -1,0 +1,47 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Dark Obsidian Background -->
+    <path
+        android:fillColor="#0D1117"
+        android:pathData="M18,0 L90,0 A18,18 0 0 1 108,18 L108,90 A18,18 0 0 1 90,108 L18,108 A18,18 0 0 1 0,90 L0,18 A18,18 0 0 1 18,0 Z" />
+
+    <!-- Subtle Outer Ambient Glow Ring -->
+    <path
+        android:strokeColor="#1E3A5F"
+        android:strokeWidth="1.5"
+        android:pathData="M54,16 A38,38 0 1 1 53.9,16 Z" />
+
+    <!-- Circular Search Reticle (Electric Cyan) -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,24 A30,30 0 1 1 53.9,24 Z" />
+
+    <!-- Precision Crosshair Ticks -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,19 L54,27 M54,81 L54,89 M19,54 L27,54 M81,54 L89,54" />
+
+    <!-- Stylized "S" Emblem in Center (Shovo Identity) -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M62,42 C60,37 46,37 46,45 C46,55 62,53 62,63 C62,71 46,71 44,66" />
+
+    <!-- Diagonal Search Lens Handle (Lower Right) -->
+    <path
+        android:strokeColor="#80D8FF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M75,75 L88,88" />
+
+</vector>

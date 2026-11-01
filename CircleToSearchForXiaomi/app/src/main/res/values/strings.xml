@@ -1,38 +1,46 @@
 <resources>
-    <string name="app_name">Circle to Search for Xiaomi</string>
-    <string name="tile_name">Circle to Search</string>
-    <string name="accessibility_desc">Enables instant Circle to Search via bottom navigation handle hold and screen capture.</string>
+    <!-- Shovo Product Identity -->
+    <string name="app_name">Shovo Circle Search</string>
+    <string name="tile_name">Shovo Search</string>
+    <string name="accessibility_desc">Enables Shovo Circle Search via bottom navigation handle hold and non-root screen capture.</string>
     <string name="status_detected">Device: Xiaomi 13 (fuxi)</string>
     <string name="status_hyperos">Firmware: HyperOS 3 (Android 16)</string>
-    <string name="start_service">Enable Navigation Handle Hold</string>
-    <string name="test_search">Test Circle to Search</string>
-    <string name="hint_circle">Draw a circle or box around any area to search</string>
-    <string name="searching">Searching visual engine…</string>
+    <string name="start_service">Enable Accessibility Service</string>
+    <string name="test_search">Test Shovo Search</string>
+    <string name="hint_circle">Draw a circle or rectangle around any content to search</string>
+    <string name="searching">Processing visual search…</string>
 
     <!-- Activation Method Settings -->
-    <string name="pref_activation_title">Preferred Activation Method</string>
-    <string name="method_bottom_hold">Bottom-Center Hold (Primary)</string>
-    <string name="method_bottom_hold_desc">Hold the bottom navigation bar for 450 ms. Swipes up to Go Home or Recents remain preserved.</string>
-    <string name="method_back_tap">Back Tap (Double / Triple)</string>
-    <string name="method_back_tap_desc">Mapped via Xiaomi Gesture Shortcuts. Requires assigning digital assistant or shortcut action in HyperOS.</string>
-    <string name="method_power_long">Power Button Long Press</string>
-    <string name="method_power_long_desc">Mapped via Digital Assistant role. Requires setting Circle to Search as the default assistant app.</string>
+    <string name="pref_activation_title">Activation Trigger</string>
+    <string name="method_bottom_hold">Bottom-Center Hold (Primary • Native)</string>
+    <string name="method_bottom_hold_desc">Hold the bottom navigation pill. HyperOS native Home and Recents swipes remain fully preserved.</string>
+    <string name="method_back_tap">Back Tap (System-Assisted)</string>
+    <string name="method_back_tap_desc">Assign Shovo Circle Search under HyperOS Gesture Shortcuts (Settings → Additional Settings → Gestures → Back Tap).</string>
+    <string name="method_power_long">Power Button Long Press (Digital Assistant)</string>
+    <string name="method_power_long_desc">Assign Shovo Circle Search as Default Digital Assistant (Settings → Apps → Default Apps → Digital Assistant).</string>
 
     <!-- Hold Threshold -->
-    <string name="hold_threshold_label">Bottom Hold Duration: %d ms</string>
+    <string name="hold_threshold_label">Hold Duration: %d ms</string>
 
     <!-- Visual Search Engines -->
     <string name="pref_search_engine_title">Visual Search Provider</string>
     <string name="engine_google_lens">Google Lens (Google App)</string>
-    <string name="engine_bing_visual">Bing Visual Search</string>
-    <string name="engine_yandex_images">Yandex Images</string>
+    <string name="engine_bing_visual">Microsoft Bing (Requires Bing App)</string>
+    <string name="engine_yandex_images">Yandex Search (Requires Yandex App)</string>
+    <string name="engine_system_chooser">System App Chooser (Universal)</string>
 
     <!-- Feedback & Privacy -->
     <string name="haptic_feedback_title">Haptic Feedback</string>
-    <string name="haptic_feedback_desc">Vibrate during hold activation and selection drawing</string>
-    <string name="clear_cache">Clear Cached Crops</string>
-    <string name="cache_cleared">Image cache cleared</string>
-    <string name="open_gesture_settings">Open HyperOS Gesture Settings</string>
-    <string name="open_assistant_settings">Open Default Assistant Settings</string>
-</resources>
+    <string name="haptic_feedback_desc">Vibrate during hold activation and crop confirmation</string>
+    <string name="clear_cache">Purge Image Cache</string>
+    <string name="cache_cleared">Temporary search cache purged</string>
+    <string name="open_gesture_settings">HyperOS Gesture Settings</string>
+    <string name="open_assistant_settings">Default Assistant Settings</string>
 
+    <!-- About & Legal -->
+    <string name="about_title">About Shovo Circle Search</string>
+    <string name="about_subtitle">Professional Circle to Search for Xiaomi 13 (HyperOS 3 • Android 16)</string>
+    <string name="about_developer">Engineered by Shovo (@shovo127)</string>
+    <string name="about_version">Version 1.0.0 (API 36 Compatible)</string>
+    <string name="about_license">Licensed under GNU GPL-3.0-or-later. Non-root, privacy-respecting architecture.</string>
+</resources>
