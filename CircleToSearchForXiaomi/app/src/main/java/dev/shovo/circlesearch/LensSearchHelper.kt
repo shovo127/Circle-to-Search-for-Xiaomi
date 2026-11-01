@@ -63,6 +63,11 @@ object LensSearchHelper {
      * Note: If [rect] spans the entire source dimensions, [Bitmap.createBitmap] may return
      * the [source] instance directly. Callers must check `cropped !== source` before recycling.
      */
+    internal fun shouldRecycleCroppedBitmap(source: Bitmap, cropped: Bitmap): Boolean {
+        // Android can return the original source instance when the requested crop is full-size.
+        return cropped !== source && !cropped.isRecycled
+    }
+
     fun cropBitmap(source: Bitmap, rect: RectF): Bitmap? {
         if (source.isRecycled) {
             Log.e(TAG, "Source bitmap is recycled, cropping rejected")
