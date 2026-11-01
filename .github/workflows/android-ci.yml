@@ -57,12 +57,22 @@ jobs:
           ./gradlew --no-daemon --stacktrace --project-cache-dir "$WORK_ROOT/gradle-project-cache" \
             :app:testDebugUnitTest :app:lintDebug :app:assembleDebug
 
-      - name: Verify APK package and SHA-256
+      - name: Verify unit-test XML results
         working-directory: CircleToSearchForXiaomi
         run: |
-          test -s app/build/outputs/apk/debug/app-debug.apk
-          "$ANDROID_HOME/build-tools/36.0.0/aapt" dump badging app/build/outputs/apk/debug/app-debug.apk | grep "package: name='dev.shovo.circlesearch'"
-          sha256sum app/build/outputs/apk/debug/app-debug.apk
+          python3 -c 'import glob,xml.etree.ElementTree as E; files=glob.glob("app/build/test-results/testDebugUnitTest/*.xml"); suites=[s for p in files for s in ([E.parse(p).getroot()] if E.parse(p).getroot().tag=="testsuite" else E.parse(p).getroot().findall("testsuite"))]; total=sum(int(s.get("tests",0)) for s in suites); failures=sum(int(s.get("failures",0)) for s in suites); errors=sum(int(s.get("errors",0)) for s in suites); skipped=sum(int(s.get("skipped",0)) for s in suites); print(f"UNIT_TESTS={total} FAILURES={failures} ERRORS={errors} SKIPPED={skipped}"); assert total==19 and failures==0 and errors==0'
+
+      - name: Verify APK metadata, signature, alignment and SHA-256
+        working-directory: CircleToSearchForXiaomi
+        run: |
+          APK="app/build/outputs/apk/debug/app-debug.apk"
+          test -s "$APK"
+          "$ANDROID_HOME/build-tools/36.0.0/aapt" dump badging "$APK" | tee "$WORK_ROOT/apk-badging.txt"
+          grep "package: name='dev.shovo.circlesearch' versionCode='3' versionName='1.0.2'" "$WORK_ROOT/apk-badging.txt"
+          grep "application-label:'Circle to Search for Xiaomi'" "$WORK_ROOT/apk-badging.txt"
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --print-certs "$APK"
+          "$ANDROID_HOME/build-tools/36.0.0/zipalign" -c -v 4 "$APK"
+          sha256sum "$APK"
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
