@@ -13,3 +13,4 @@ class ShovoRecognitionService : RecognitionService() {
     override fun onCancel(listener: Callback?) = Unit
     override fun onStopListening(listener: Callback?) = Unit
 }
+
