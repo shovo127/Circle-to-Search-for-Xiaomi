@@ -12,8 +12,8 @@
 
     <!-- Activation Method Settings -->
     <string name="pref_activation_title">Activation Mode</string>
-    <string name="method_bottom_hold">Bottom Navigation Hold (Accessibility Overlay)</string>
-    <string name="method_bottom_hold_desc">Hold bottom handle area. Swipes up are synthetically delegated via accessibility global actions.</string>
+    <string name="method_bottom_hold">Bottom Navigation Hold (Unavailable)</string>
+    <string name="method_bottom_hold_desc">Disabled because an accessibility overlay cannot safely replay native Home and Recents gestures. Use the Quick Settings Tile.</string>
     <string name="method_qs_tile">Quick Settings Tile Only (Zero Gesture Conflicts)</string>
     <string name="method_qs_tile_desc">Removes the bottom overlay completely. Trigger Circle to Search anytime via Quick Settings notification shade tile.</string>
     <string name="method_assistant">Default Digital Assistant (Power Button / Shortcut)</string>
