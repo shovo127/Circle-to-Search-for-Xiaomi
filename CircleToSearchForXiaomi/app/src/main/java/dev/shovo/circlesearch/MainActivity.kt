@@ -104,12 +104,18 @@ class MainActivity : AppCompatActivity() {
     private fun loadPreferences() {
         val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
 
-        // Activation Method (Default: Quick Settings Tile)
-        when (prefs.getString("pref_activation_method", "QS_TILE")) {
-            "QS_TILE" -> rbQsTile.isChecked = true
-            "ASSISTANT" -> rbAssistant.isChecked = true
-            else -> rbBottomHold.isChecked = true
+        // Migrate old installations away from the unsafe bottom overlay.
+        // Accessibility overlays consume touch input and cannot replay native navigation.
+        val storedActivation = prefs.getString("pref_activation_method", null)
+        val activationMethod = if (storedActivation == "ASSISTANT") "ASSISTANT" else "QS_TILE"
+        if (storedActivation != activationMethod) {
+            prefs.edit().putString("pref_activation_method", activationMethod).apply()
         }
+
+        rgActivation.clearCheck()
+        rbBottomHold.isEnabled = false
+        rbBottomHold.alpha = 0.55f
+        if (activationMethod == "ASSISTANT") rbAssistant.isChecked = true else rbQsTile.isChecked = true
         updateHoldVisibility()
 
         // Hold threshold
@@ -151,11 +157,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         rgActivation.setOnCheckedChangeListener { _, checkedId ->
-            val selectedMethod = when (checkedId) {
-                R.id.rbQsTile -> "QS_TILE"
-                R.id.rbAssistant -> "ASSISTANT"
-                else -> "BOTTOM_HOLD"
-            }
+            val selectedMethod = if (checkedId == R.id.rbAssistant) "ASSISTANT" else "QS_TILE"
             prefs.edit().putString("pref_activation_method", selectedMethod).apply()
             updateHoldVisibility()
             NavigationGestureService.instance?.updateGestureZoneConfiguration()
