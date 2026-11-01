@@ -66,6 +66,17 @@
             android:permission="android.permission.BIND_VOICE_INTERACTION"
             android:exported="true" />
 
+        <!-- Supporting Recognition Service required by AOSP VoiceInteraction framework -->
+        <service
+            android:name=".ShovoRecognitionService"
+            android:permission="android.permission.BIND_RECOGNITION_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.speech.RecognitionService" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
         <!-- Navigation Gesture Interception & Screen Capture Service -->
         <service
             android:name=".NavigationGestureService"
@@ -79,12 +90,21 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <!-- Quick Settings Tile Fallback -->
+        <!-- Quick Settings Tile and System Assist Trampoline Activity -->
         <activity
             android:name=".TileTriggerActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:exported="true"
-            android:excludeFromRecents="true" />
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VOICE_ASSIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".QuickSearchTileService"
