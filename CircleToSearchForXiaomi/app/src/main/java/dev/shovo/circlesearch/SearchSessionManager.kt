@@ -246,7 +246,8 @@ object SearchSessionManager {
     }
 
     internal fun resetForTest() {
-        sessions.clear()
+        // Dispose through the normal ownership path; do not drop sessions with live leases.
+        sessions.values.toList().forEach { it.closeSession() }
         timeProvider = {
             try {
                 android.os.SystemClock.elapsedRealtime()
