@@ -1,11 +1,17 @@
 package dev.shovo.circlesearch
 
+import android.graphics.Bitmap
 import org.junit.Assert.*
 import org.junit.Test
+import org.mockito.Mockito.mock
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
 class SearchSessionManagerTest {
+
+    private fun createMockBitmap(): Bitmap {
+        return mock(Bitmap::class.java)
+    }
 
     @Test
     fun testSessionCreationAndUniqueIds() {
@@ -31,8 +37,7 @@ class SearchSessionManagerTest {
     @Test
     fun testIdempotentLeaseRelease() {
         val s = SearchSessionManager.createSession()
-        // Simulate complete without actual Android Bitmap (null for JVM unit test)
-        s.completeWithoutBitmapForTest()
+        s.complete(createMockBitmap())
 
         val lease1 = s.acquireLease("Owner1")
         assertNotNull(lease1)
@@ -63,7 +68,7 @@ class SearchSessionManagerTest {
     @Test
     fun testDeferredExpirationWhileLeaseActive() {
         val s = SearchSessionManager.createSession()
-        s.completeWithoutBitmapForTest()
+        s.complete(createMockBitmap())
 
         val lease = s.acquireLease("ActiveWorker")
         assertNotNull(lease)
@@ -88,7 +93,7 @@ class SearchSessionManagerTest {
         s.fail("Cancelled before capture")
 
         // Late callback should not transition back to READY
-        val completed = s.completeWithoutBitmapForTest()
+        val completed = s.complete(createMockBitmap())
         assertFalse("Late capture must be rejected", completed)
         assertNotEquals(SearchSessionManager.State.READY, s.state)
     }
@@ -96,7 +101,7 @@ class SearchSessionManagerTest {
     @Test
     fun testConcurrentLeaseAcquireAndRelease() {
         val s = SearchSessionManager.createSession()
-        s.completeWithoutBitmapForTest()
+        s.complete(createMockBitmap())
 
         val threadCount = 20
         val latch = CountDownLatch(threadCount)

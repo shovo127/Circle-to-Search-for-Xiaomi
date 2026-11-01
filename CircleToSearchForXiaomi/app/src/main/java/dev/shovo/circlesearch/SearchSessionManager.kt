@@ -138,13 +138,6 @@ object SearchSessionManager {
         }
 
         @Synchronized
-        internal fun completeWithoutBitmapForTest(): Boolean {
-            if (state != State.CAPTURING) return false
-            state = State.READY
-            return true
-        }
-
-        @Synchronized
         internal fun fail(reason: String): Boolean {
             if (state != State.CAPTURING) {
                 Log.w(TAG, "Session [$id] is in state $state (not CAPTURING); rejecting fail")

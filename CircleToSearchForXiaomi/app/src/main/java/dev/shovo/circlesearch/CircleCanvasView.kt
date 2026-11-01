@@ -199,6 +199,10 @@ class CircleCanvasView @JvmOverloads constructor(
                 min(width.toFloat(), centerX + halfSpan),
                 min(height.toFloat(), centerY + halfSpan)
             )
+            minX = rect.left
+            minY = rect.top
+            maxX = rect.right
+            maxY = rect.bottom
         }
 
         if (rect.width() > 0f && rect.height() > 0f && !rect.isEmpty) {

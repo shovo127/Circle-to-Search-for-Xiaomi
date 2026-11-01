@@ -186,22 +186,18 @@ class CircleSearchActivity : AppCompatActivity() {
         layoutTopBar.visibility = View.GONE
         pbLoading.visibility = View.VISIBLE
 
-        // Mathematical coordinate mapping from view space to bitmap space
-        val inverseMatrix = Matrix()
-        val mappedRect = RectF()
-        if (!currentMatrix.invert(inverseMatrix)) {
-            Log.e(TAG, "Failed to invert display matrix")
-            workerLease.release()
-            finish()
-            return
-        }
-        inverseMatrix.mapRect(mappedRect, rect)
+        // Mathematical coordinate mapping from view space to bitmap space via SelectionMath
+        val finalCropRect = SelectionMath.computeCropRectF(
+            viewRect = rect,
+            contentWidth = bmp.width.toFloat(),
+            contentHeight = bmp.height.toFloat(),
+            viewWidth = ivBackground.width.toFloat(),
+            viewHeight = ivBackground.height.toFloat(),
+            minDimension = 10f
+        )
 
-        // Strict intersection calculation with bitmap bounds to prevent letterbox edge slivers
-        val bmpBounds = RectF(0f, 0f, bmp.width.toFloat(), bmp.height.toFloat())
-        val finalCropRect = RectF()
-        if (!finalCropRect.setIntersect(mappedRect, bmpBounds) || finalCropRect.width() < 10f || finalCropRect.height() < 10f) {
-            Log.w(TAG, "Selection outside content boundaries: mapped=$mappedRect, bmpBounds=$bmpBounds")
+        if (finalCropRect == null) {
+            Log.w(TAG, "Selection outside content boundaries or sub-10px: viewRect=$rect")
             workerLease.release()
             circleCanvas.isEnabled = true
             pbLoading.visibility = View.GONE
@@ -236,6 +232,9 @@ class CircleSearchActivity : AppCompatActivity() {
                 }
 
                 val uri = LensSearchHelper.saveCroppedBitmap(this@CircleSearchActivity, cropped)
+                if (!cropped.isRecycled) {
+                    cropped.recycle()
+                }
 
                 withContext(Dispatchers.Main) {
                     if (isFinishing || isDestroyed) return@withContext
