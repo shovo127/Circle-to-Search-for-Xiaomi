@@ -8,6 +8,7 @@
     <queries>
         <package android:name="com.google.android.googlequicksearchbox" />
         <package android:name="com.google.android.apps.photos" />
+        <package android:name="com.google.ar.lens" />
         <package android:name="com.microsoft.bing" />
         <package android:name="com.yandex.searchapp" />
         <intent>
@@ -55,6 +56,24 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!-- Official Android Assistant / Voice Interaction Service -->
+        <service
+            android:name=".ShovoVoiceInteractionService"
+            android:permission="android.permission.BIND_VOICE_INTERACTION"
+            android:exported="true">
+            <meta-data
+                android:name="android.voice_interaction"
+                android:resource="@xml/voice_interaction_service" />
+            <intent-filter>
+                <action android:name="android.service.voice.VoiceInteractionService" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".ShovoVoiceSessionService"
+            android:permission="android.permission.BIND_VOICE_INTERACTION"
+            android:exported="true" />
 
         <!-- Navigation Gesture Interception & Screen Capture Service -->
         <service

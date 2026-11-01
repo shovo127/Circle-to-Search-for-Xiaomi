@@ -9,39 +9,42 @@
 
 ```mermaid
 flowchart TD
-    subgraph Trigger["Layer 1: Activation & Input"]
-        P1["NavigationGestureService (TYPE_ACCESSIBILITY_OVERLAY)"]
-        P2["Back Tap Shortcut / ACTION_ASSIST"]
-        P3["QuickSearchTileService"]
+    subgraph Trigger["Layer 1: Dual Activation Pipeline"]
+        P1["NavigationGestureService (TYPE_ACCESSIBILITY_OVERLAY - Bottom Hold)"]
+        P2["ShovoVoiceInteractionService (Official AOSP Assistant - Power Button / Back Tap)"]
+        P3["QuickSearchTileService (Quick Settings Tile)"]
     end
 
-    subgraph Session["Layer 2: Session & Capture Lifecycle"]
-        P1 & P2 & P3 --> SSM["SearchSessionManager"]
-        SSM --> ACC["AccessibilityService.takeScreenshot()"]
-        ACC -->|HardwareBuffer| BMP["ARGB_8888 Bitmap (Session Scoped)"]
+    subgraph Capture["Layer 2: Zero-Prompt Display Capture"]
+        P1 -->|takeScreenshot| ACC["AccessibilityService.takeScreenshot()"]
+        P2 -->|onHandleScreenshot| ASSIST["AOSP System Capture (VoiceInteractionSession)"]
+        P3 --> P1
+        ACC --> BMP["HardwareBuffer -> ARGB_8888 Bitmap"]
+        ASSIST --> BMP
+        BMP --> SSM["SearchSessionManager (Request-Scoped Session)"]
     end
 
     subgraph UI["Layer 3: Interactive Selection Overlay"]
-        BMP --> ACT["CircleSearchActivity"]
-        ACT --> CAN["CircleCanvasView (Freeform Lasso & Box)"]
-        CAN -->|Touch Up| CROP["Bitmap Crop Engine"]
+        SSM --> ACT["CircleSearchActivity (Auto-Orientation & Cutout Sync)"]
+        ACT --> CAN["CircleCanvasView (Dual-Tone Glowing Lasso & Auto-Expansion)"]
+        CAN -->|Touch Up| CROP["Crash-Proof Bitmap Crop Engine"]
     end
 
     subgraph Dispatch["Layer 4: Visual Search Dispatch"]
-        CROP --> FP["FileProvider (cache/crops/)"]
+        CROP --> FP["FileProvider (Private Cache with 5m TTL)"]
         FP --> DISP["LensSearchHelper"]
-        DISP --> GMS["Google Lens"]
-        DISP --> BING["Microsoft Bing App"]
-        DISP --> YAN["Yandex Search App"]
-        DISP --> CHOOSE["System App Chooser"]
+        DISP --> GMS["Google Lens (Direct Entry / Search Action / Standalone)"]
+        DISP --> BING["Microsoft Bing App (Honest Intent Check)"]
+        DISP --> YAN["Yandex Search App (Honest Intent Check)"]
+        DISP --> CHOOSE["System App Chooser Fallback"]
     end
 ```
 
 ---
 
 ## 2. Key Subsystems
-1. **`NavigationGestureService`:** Manages the transparent overlay pill (160dp × 24dp) at `y = 0`. Detects stationary hold while letting swipe navigation pass without synthetic injection.
-2. **`SearchSessionManager`:** Thread-safe singleton providing unique session IDs, strict bitmap ownership, and automatic memory cleanup.
-3. **`CircleSearchActivity` & `CircleCanvasView`:** Edge-to-edge transparent activity displaying the captured frame, supporting dynamic multi-touch gestures, display cutouts, and haptic feedback.
-4. **`LensSearchHelper`:** Crops selected bounds, writes JPEG to private cache, generates FileProvider URI with temporary read permissions, and dispatches to the selected visual engine.
-
+1. **`ShovoVoiceInteractionService` & `ShovoVoiceSession` (Official Assistant):** Registers Shovo Circle Search as an official Android Digital Assistant, delivering zero-latency system screenshots via `onHandleScreenshot` without accessibility service permissions.
+2. **`NavigationGestureService` (Accessibility Overlay):** Manages the calibrated 160dp × 24dp transparent pill at screen bottom. Detects stationary long press and delegates upward swipes to Home and Recents.
+3. **`SearchSessionManager`:** Thread-safe singleton providing unique session IDs, strict bitmap ownership, and automatic memory cleanup.
+4. **`CircleSearchActivity` & `CircleCanvasView`:** Edge-to-edge transparent activity with dynamic landscape/portrait synchronization, cutout avoidance, Material 3 close button, and dual-tone glowing stroke.
+5. **`LensSearchHelper`:** Crops selected bounds with memory bounds safety, writes JPEG to private cache, and dispatches to Google Lens, Bing, Yandex, or System Chooser.

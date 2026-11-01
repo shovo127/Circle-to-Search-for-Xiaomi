@@ -30,6 +30,7 @@ object LensSearchHelper {
     private const val TAG = "ShovoLensHelper"
 
     const val PKG_GOOGLE_APP = "com.google.android.googlequicksearchbox"
+    const val PKG_STANDALONE_LENS = "com.google.ar.lens"
     const val PKG_MICROSOFT_BING = "com.microsoft.bing"
     const val PKG_YANDEX = "com.yandex.searchapp"
 
@@ -54,10 +55,14 @@ object LensSearchHelper {
     }
 
     fun cropBitmap(source: Bitmap, rect: RectF): Bitmap {
-        val left = max(0, rect.left.toInt())
-        val top = max(0, rect.top.toInt())
-        val right = min(source.width, rect.right.toInt())
-        val bottom = min(source.height, rect.bottom.toInt())
+        if (source.isRecycled) {
+            Log.e(TAG, "Source bitmap is recycled, returning fallback empty frame")
+            return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
+        }
+        val left = max(0, min(rect.left.toInt(), source.width - 1))
+        val top = max(0, min(rect.top.toInt(), source.height - 1))
+        val right = max(left + 1, min(source.width, rect.right.toInt()))
+        val bottom = max(top + 1, min(source.height, rect.bottom.toInt()))
         val width = max(1, right - left)
         val height = max(1, bottom - top)
 
@@ -131,8 +136,29 @@ object LensSearchHelper {
     }
 
     private fun dispatchGoogleLens(context: Context, imageUri: Uri): DispatchResult {
+        // Check standalone Google Lens app first if installed
+        if (isPackageInstalled(context, PKG_STANDALONE_LENS)) {
+            try {
+                context.grantUriPermission(PKG_STANDALONE_LENS, imageUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                val standaloneIntent = Intent(Intent.ACTION_SEND).apply {
+                    setPackage(PKG_STANDALONE_LENS)
+                    type = "image/jpeg"
+                    clipData = ClipData.newRawUri("image", imageUri)
+                    putExtra(Intent.EXTRA_STREAM, imageUri)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                if (standaloneIntent.resolveActivity(context.packageManager) != null) {
+                    context.startActivity(standaloneIntent)
+                    return DispatchResult.Success("Google Lens (Standalone App)")
+                }
+            } catch (e: Exception) {
+                Log.w(TAG, "Standalone Lens dispatch failed: ${e.message}")
+            }
+        }
+
         if (!isPackageInstalled(context, PKG_GOOGLE_APP)) {
-            Log.w(TAG, "Google App ($PKG_GOOGLE_APP) not installed on device")
+            Log.w(TAG, "Neither Google App nor Standalone Lens is installed on device")
             // Attempt system chooser fallback
             return dispatchSystemChooser(context, imageUri)
         }
