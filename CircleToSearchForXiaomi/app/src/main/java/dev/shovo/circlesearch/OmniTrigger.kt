@@ -32,7 +32,7 @@ internal object OmniTrigger {
     fun invoke(context: Context): Result {
         val assistant = Settings.Secure.getString(
             context.contentResolver,
-            Settings.Secure.ASSISTANT
+            "assistant"
         )
         if (!isGoogleAssistant(assistant)) {
             Log.w(TAG, "Google is not the default Digital Assistant: " + assistant)
