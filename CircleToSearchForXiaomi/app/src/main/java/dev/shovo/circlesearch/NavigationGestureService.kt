@@ -51,13 +51,13 @@ class NavigationGestureService : AccessibilityService() {
     var holdThresholdMs: Long = 450L
         get() {
             val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
-            return prefs.getLong("hold_threshold_ms", 450L)
+            return prefs.getLong("pref_hold_threshold_ms", 450L)
         }
         set(value) {
             field = value
             getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
                 .edit()
-                .putLong("hold_threshold_ms", value)
+                .putLong("pref_hold_threshold_ms", value)
                 .apply()
         }
 
@@ -76,12 +76,23 @@ class NavigationGestureService : AccessibilityService() {
         Log.i(TAG, "NavigationGestureService connected on HyperOS 3 / Android 16")
     }
 
+    fun updateGestureZoneConfiguration() {
+        setupBottomGestureZone()
+    }
+
     private fun setupBottomGestureZone() {
         if (pillHandleView != null) {
             try {
                 windowManager?.removeView(pillHandleView)
             } catch (_: Exception) {}
             pillHandleView = null
+        }
+
+        val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
+        val activationMethod = prefs.getString("pref_activation_method", "BOTTOM_HOLD")
+        if (activationMethod != "BOTTOM_HOLD") {
+            Log.i(TAG, "Bottom hold inactive (preferred method: $activationMethod)")
+            return
         }
 
         val displayMetrics = resources.displayMetrics
@@ -218,6 +229,9 @@ class NavigationGestureService : AccessibilityService() {
     }
 
     private fun vibrateHaptic() {
+        val prefs = getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
+        if (!prefs.getBoolean("pref_haptic_feedback", true)) return
+
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 val vibratorManager = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager

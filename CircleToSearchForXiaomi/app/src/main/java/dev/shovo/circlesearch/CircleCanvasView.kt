@@ -106,7 +106,13 @@ class CircleCanvasView @JvmOverloads constructor(
         }
     }
 
+    private fun isHapticEnabled(): Boolean {
+        val prefs = context.getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
+        return prefs.getBoolean("pref_haptic_feedback", true)
+    }
+
     private fun vibrateTick() {
+        if (!isHapticEnabled()) return
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
             vibrator?.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK))
         } else {
@@ -116,6 +122,7 @@ class CircleCanvasView @JvmOverloads constructor(
     }
 
     private fun vibrateConfirm() {
+        if (!isHapticEnabled()) return
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
             vibrator?.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK))
         } else {

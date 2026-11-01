@@ -20,6 +20,12 @@ object LensSearchHelper {
     private const val LENS_SHARE_ACTIVITY = "com.google.android.apps.search.lens.LensShareEntryPointActivity"
     private const val LENS_SEARCH_ACTION = "com.google.android.apps.photos.SEARCH_IMAGE"
 
+    enum class SearchEngine(val key: String, val displayName: String) {
+        GOOGLE_LENS("GOOGLE_LENS", "Google Lens"),
+        BING_VISUAL("BING_VISUAL", "Bing Visual Search"),
+        YANDEX_IMAGES("YANDEX_IMAGES", "Yandex Images")
+    }
+
     fun cropBitmap(source: Bitmap, rect: RectF): Bitmap {
         val left = max(0, rect.left.toInt())
         val top = max(0, rect.top.toInt())
@@ -47,6 +53,15 @@ object LensSearchHelper {
         }
     }
 
+    fun clearAllCrops(context: Context) {
+        try {
+            val cacheFolder = File(context.cacheDir, "crops")
+            cacheFolder.listFiles()?.forEach { it.delete() }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to clear all crops: ${e.message}")
+        }
+    }
+
     private fun cleanOldCrops(folder: File) {
         try {
             val now = System.currentTimeMillis()
@@ -58,6 +73,17 @@ object LensSearchHelper {
             }
         } catch (e: Exception) {
             Log.w(TAG, "Error cleaning old crops: ${e.message}")
+        }
+    }
+
+    fun dispatchVisualSearch(context: Context, imageUri: Uri): Boolean {
+        val prefs = context.getSharedPreferences("cts_prefs", Context.MODE_PRIVATE)
+        val engineKey = prefs.getString("pref_search_engine", SearchEngine.GOOGLE_LENS.key)
+
+        return when (engineKey) {
+            SearchEngine.BING_VISUAL.key -> launchBingVisualSearch(context, imageUri)
+            SearchEngine.YANDEX_IMAGES.key -> launchYandexImagesSearch(context, imageUri)
+            else -> launchGoogleLensSearch(context, imageUri)
         }
     }
 
@@ -129,6 +155,34 @@ object LensSearchHelper {
         }
 
         // Strategy 4: Universal Chooser Fallback
+        return launchChooserFallback(context, imageUri)
+    }
+
+    private fun launchBingVisualSearch(context: Context, imageUri: Uri): Boolean {
+        return try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bing.com/visualsearch")).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            context.startActivity(intent)
+            true
+        } catch (_: Exception) {
+            launchChooserFallback(context, imageUri)
+        }
+    }
+
+    private fun launchYandexImagesSearch(context: Context, imageUri: Uri): Boolean {
+        return try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://yandex.com/images/")).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            context.startActivity(intent)
+            true
+        } catch (_: Exception) {
+            launchChooserFallback(context, imageUri)
+        }
+    }
+
+    private fun launchChooserFallback(context: Context, imageUri: Uri): Boolean {
         return try {
             val chooser = Intent.createChooser(Intent(Intent.ACTION_SEND).apply {
                 type = "image/jpeg"

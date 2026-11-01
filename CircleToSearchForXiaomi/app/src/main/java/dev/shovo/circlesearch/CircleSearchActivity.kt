@@ -110,7 +110,7 @@ class CircleSearchActivity : AppCompatActivity() {
 
                 runOnUiThread {
                     if (uri != null) {
-                        val launched = LensSearchHelper.launchGoogleLensSearch(this, uri)
+                        val launched = LensSearchHelper.dispatchVisualSearch(this, uri)
                         if (!launched) {
                             Toast.makeText(this, "Could not open visual search", Toast.LENGTH_SHORT).show()
                         }
